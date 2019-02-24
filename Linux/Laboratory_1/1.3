@@ -1,0 +1,6 @@
+#!/bin/bash
+
+pat1=$HOME/Изображения
+pat2=$(pwd)
+echo "путь1 = $pat1;путь2 = $pat2;"
+find $pat1 -type f -name '*.png' -exec cp '{}' $pat2  \;
