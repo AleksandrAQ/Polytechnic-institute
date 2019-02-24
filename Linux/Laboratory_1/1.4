@@ -3,4 +3,4 @@
 pat1=$HOME/Изображения
 pat2=$(pwd)
 echo -e "путь1 = $pat1;\nпуть2 = $pat2;"
-find $pat1 -type f -name '*.png' -exec cp '{}' $pat2  \;
+find $pat1 -type f -name '*.png' -exec mv '{}' $pat2  \;

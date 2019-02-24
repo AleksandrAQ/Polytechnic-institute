@@ -2,4 +2,5 @@
 
 day=99	
 pat=$(pwd)
+echo -e "Директория удаления = $pat;\n"
 find $pwd -type f -mtime +$day -exec rm -f '{}' \;
