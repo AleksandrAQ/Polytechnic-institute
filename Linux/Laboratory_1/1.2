@@ -2,4 +2,4 @@
 
 day=99	
 pat=$(pwd)
-find $pwd -type f -mtime +$day -exec echo rm -f '{}' \;
+find $pwd -type f -mtime +$day -print -exec rm -f '{}' \;
