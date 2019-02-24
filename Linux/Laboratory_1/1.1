@@ -1,0 +1,5 @@
+#!/bin/bash
+
+day=99	
+pat=$(pwd)
+find $pwd -type f -mtime +$day -exec rm -f '{}' \;
