@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#поиск файла содержащего фразу "hello" и вывод пути к этому файлу
 pat1=$HOME/Документы
 echo -e "Директория поиска = $pat1;\n"
 find $pat1 -type f -exec  grep -H "hello" '{}'  \;
