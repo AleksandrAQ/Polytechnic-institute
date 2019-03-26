@@ -1,0 +1,43 @@
+#!/bin/bash
+
+echo $1
+echo $2
+
+IFS='/' read -r -a array <<< $1
+falg=0
+#echo "${array[0]}"
+if [ "${array[0]}" -lt 1000 -o "${array[0]}" -gt 2012 ]; then
+    #echo "Нет"
+    flag=1
+fi
+
+#echo "${array[1]}"
+if [ "${array[1]}" -lt 1 -o "${array[1]}" -gt 12 ]; then
+    #echo "Нет"
+    flag=1
+fi
+
+#echo "${array[2]}"
+if [ "${array[2]}" -lt 1 -o "${array[2]}" -gt 30 ]; then
+    #echo "Нет"
+    flag=1
+fi
+
+IFS=':' read -r -a array2 <<< $2
+#echo "${array2[0]}"
+if [ "${array2[0]}" -lt 0 -o "${array2[0]}" -gt 24 ]; then
+    #echo "Нет"
+    flag=1
+fi
+
+#echo "${array2[1]}"
+if [ "${array2[1]}" -lt 0 -o "${array2[1]}" -gt 59 ]; then
+    #echo "Нет"
+    flag=1
+fi
+
+if [ $flag -eq 1 ]; then
+    echo "Нет!"
+else
+    echo "Да!"
+fi
