@@ -1,0 +1,10 @@
+#!/bin/bash
+
+name=$1
+key=$2
+
+gcc -Wall $2 $3 $1
+out="$(time ./a.out)"
+echo "$2"
+by="$(wc -c a.out)"
+echo "byte :$by"

@@ -1,0 +1,46 @@
+avf@avf:~/projects/Polytechnic-institute/Linux/Laboratory_4$ gcc main.c
+
+avf@avf:~/projects/Polytechnic-institute/Linux/Laboratory_4$ ./a.out 
+sum = 4e+38
+avf@avf:~/projects/Polytechnic-institute/Linux/Laboratory_4$ ./a.out 
+sum = 4e+38
+avf@avf:~/projects/Polytechnic-institute/Linux/Laboratory_4$ time ./a.out 
+sum = 4e+38
+
+real	0m0,771s
+user	0m0,768s
+sys	0m0,000s
+avf@avf:~/projects/Polytechnic-institute/Linux/Laboratory_4$ gcc -Wall -O0 main.c -lm
+avf@avf:~/projects/Polytechnic-institute/Linux/Laboratory_4$ ls
+a.out   Лабораторная работа 4.pdf
+main.c  Лабораторная работа 4. Индивидуальные задания.pdf
+avf@avf:~/projects/Polytechnic-institute/Linux/Laboratory_4$ time ./a.out sum = 4e+38
+
+real	0m0,793s
+user	0m0,792s
+sys	0m0,000s
+avf@avf:~/projects/Polytechnic-institute/Linux/Laboratory_4$ gcc -Wall -O1 main.c -lm
+avf@avf:~/projects/Polytechnic-institute/Linux/Laboratory_4$ time ./a.out sum = 4e+38
+
+real	0m0,278s
+user	0m0,280s
+sys	0m0,000s
+avf@avf:~/projects/Polytechnic-institute/Linux/Laboratory_4$ gcc -Wall -O2 main.c -lm
+avf@avf:~/projects/Polytechnic-institute/Linux/Laboratory_4$ time ./a.out sum = 4e+38
+
+real	0m0,257s
+user	0m0,256s
+sys	0m0,000s
+avf@avf:~/projects/Polytechnic-institute/Linux/Laboratory_4$ gcc -Wall -O3 main.c -lm
+avf@avf:~/projects/Polytechnic-institute/Linux/Laboratory_4$ time ./a.out sum = 4e+38
+
+real	0m0,236s
+user	0m0,236s
+sys	0m0,000s
+avf@avf:~/projects/Polytechnic-institute/Linux/Laboratory_4$ gcc -Wall -O3 -funroll-loops  main.c -lm
+avf@avf:~/projects/Polytechnic-institute/Linux/Laboratory_4$ time ./a.out sum = 4e+38
+
+real	0m0,263s
+user	0m0,260s
+sys	0m0,000s
+avf@avf:~/projects/Polytechnic-institute/Linux/Laboratory_4$ 

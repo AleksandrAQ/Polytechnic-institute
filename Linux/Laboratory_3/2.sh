@@ -4,7 +4,7 @@ then
 	echo "enter file name like a string";
 	exit;
 else
-	if [ 'locate -c "$1"' ]
+	if [ -e $1 ]
 	then
 		echo "Exist";
 
