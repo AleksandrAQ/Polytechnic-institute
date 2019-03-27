@@ -2,6 +2,18 @@
 
 n=$1
 char=*
+let "a = $1%2"
+if [ $a -eq 0 ]; then
+echo "chet"
+exit
+else
+a=2
+fi
+
+if [ $1 -eq 1 ]; then
+echo "not a romb"
+exit
+fi
 
 let "margin = $n-1"
 echo "$char : $n : $margin"
