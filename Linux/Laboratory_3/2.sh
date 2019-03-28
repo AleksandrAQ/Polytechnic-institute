@@ -1,4 +1,5 @@
 #!/bin/sh
+#проверка сужествования файла
 if [ ! $# = 1 ]
 then
 	echo "enter file name like a string";
