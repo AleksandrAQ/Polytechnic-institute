@@ -1,3 +1,0 @@
-#!/bin/bash
-grep  -P -o -r -I "\b([\w\.\-]+)?[\w]+@[\w\-]+[a-zA-Z0-9]+(\.\w+[a-zA-Z0-9]+){1,}\b" ~/* | sort | uniq -u -ic > output.txt
-tail -f output.txt
