@@ -3,8 +3,144 @@
 name=$1
 key=$2
 
-gcc -Wall $2 $3 $1
+#gcc -Wall $2 $3 $1
+#out="$(time ./a.out)"
+#echo "$2"
+#by="$(wc -c a.out)"
+#echo "byte :$by"
+
+gcc -Wall -O0 $1
 out="$(time ./a.out)"
-echo "$2"
-by="$(wc -c a.out)"
+by="$(du -b a.out)"
+echo "-O0"
+echo "byte :$by"
+
+echo "------------"
+
+gcc -Wall -Os $1
+out="$(time ./a.out)"
+by="$(du -b a.out)"
+echo "-Os"
+echo "byte :$by"
+
+echo "------------"
+
+gcc -Wall -O1 $1
+out="$(time ./a.out)"
+by="$(du -b a.out)"
+echo "-O1"
+echo "byte :$by"
+
+echo "------------"
+
+gcc -Wall -O2 $1
+out="$(time ./a.out)"
+by="$(du -b a.out)"
+echo "-O2"
+echo "byte :$by"
+
+echo "------------"
+
+gcc -Wall -O3 $1
+out="$(time ./a.out)"
+by="$(du -b a.out)"
+echo "-O3"
+echo "byte :$by"
+
+echo "------------"
+
+gcc -Wall -O2 -march=native $1
+out="$(time ./a.out)"
+by="$(du -b a.out)"
+echo "-O2 -march=native"
+echo "byte :$by"
+
+echo "------------"
+
+gcc -Wall -O3 -march=native $1
+out="$(time ./a.out)"
+by="$(du -b a.out)"
+echo "-O3 -march=native"
+echo "byte :$by"
+
+echo "------------"
+
+gcc -Wall -O2 -march=native -funroll-loops $1
+out="$(time ./a.out)"
+by="$(du -b a.out)"
+echo "-O2 -march=native -funroll-loops"
+echo "byte :$by"
+
+echo "------------"
+
+gcc -Wall -O3 -march=native -funroll-loops $1
+out="$(time ./a.out)"
+by="$(du -b a.out)"
+echo "-O3 -march=native -funroll-loops"
+echo "byte :$by"
+
+echo "------------"
+
+gcc -Wall -O2 -march=native -flto $1
+out="$(time ./a.out)"
+by="$(du -b a.out)"
+echo "-O2 -march=native -flto"
+echo "byte :$by"
+
+echo "------------"
+
+gcc -Wall -O2 -march=native -fipa-reference $1
+out="$(time ./a.out)"
+by="$(du -b a.out)"
+echo "-O2 -march=native -fipa-reference"
+echo "byte :$by"
+
+echo "------------"
+
+gcc -Wall -O2 -march=native -fprofile-generate $1
+out="$(time ./a.out)"
+by="$(du -b a.out)"
+echo "-O2 -march=native -fprofile-generate"
+echo "byte :$by"
+
+echo "------------"
+
+gcc -Wall -O2 -march=native -fprofile-use $1
+out="$(time ./a.out)"
+by="$(du -b a.out)"
+echo "-O2 -march=native -fprofile-use"
+echo "byte :$by"
+
+echo "------------"
+
+gcc -Wall -O2 -march=native -flto -fprofile-use $1
+out="$(time ./a.out)"
+by="$(du -b a.out)"
+echo "-O2 -march=native -flto -fprofile-use"
+echo "byte :$by"
+
+
+echo "------------"
+
+gcc -Wall -O2 -march=native -fipa-reference -fprofile-use $1
+out="$(time ./a.out)"
+by="$(du -b a.out)"
+echo "-O2 -march=native -fipa-reference -fprofile-use"
+echo "byte :$by"
+
+
+echo "------------"
+
+gcc -Wall -O2 -march=native -flto -fprofile-generate $1
+out="$(time ./a.out)"
+by="$(du -b a.out)"
+echo "-O2 -march=native -flto -fprofile-generate"
+echo "byte :$by"
+
+echo "------------"
+
+gcc -Wall -O2 -march=native -fipa-reference -fprofile-generate $1
+out="$(time ./a.out)"
+by="$(du -b a.out)"
+echo "-O2 -march=native -fipa-reference -fprofile-generate"
 echo "byte :$by"
