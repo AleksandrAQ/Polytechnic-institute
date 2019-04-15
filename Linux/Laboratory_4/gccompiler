@@ -9,77 +9,78 @@ key=$2
 #by="$(wc -c a.out)"
 #echo "byte :$by"
 
+echo "------------"
+
 gcc -Wall -O0 $1
+echo "-O0"
 out="$(time ./a.out)"
 by="$(du -b a.out)"
-echo "-O0"
 echo "byte :$by"
 
 echo "------------"
 
 gcc -Wall -Os $1
+echo "-Os"
 out="$(time ./a.out)"
 by="$(du -b a.out)"
-echo "-Os"
 echo "byte :$by"
 
 echo "------------"
 
 gcc -Wall -O1 $1
+echo "-O1"
 out="$(time ./a.out)"
 by="$(du -b a.out)"
-echo "-O1"
 echo "byte :$by"
-
 echo "------------"
 
 gcc -Wall -O2 $1
+echo "-O2"
 out="$(time ./a.out)"
 by="$(du -b a.out)"
-echo "-O2"
 echo "byte :$by"
 
 echo "------------"
 
 gcc -Wall -O3 $1
+echo "-O3"
 out="$(time ./a.out)"
 by="$(du -b a.out)"
-echo "-O3"
 echo "byte :$by"
 
 echo "------------"
 
 gcc -Wall -O2 -march=native $1
+echo "-O2 -march=native"
 out="$(time ./a.out)"
 by="$(du -b a.out)"
-echo "-O2 -march=native"
 echo "byte :$by"
 
 echo "------------"
 
 gcc -Wall -O3 -march=native $1
+echo "-O3 -march=native"
 out="$(time ./a.out)"
 by="$(du -b a.out)"
-echo "-O3 -march=native"
 echo "byte :$by"
 
 echo "------------"
 
 gcc -Wall -O2 -march=native -funroll-loops $1
+echo "-O2 -march=native -funroll-loops"
 out="$(time ./a.out)"
 by="$(du -b a.out)"
-echo "-O2 -march=native -funroll-loops"
 echo "byte :$by"
 
 echo "------------"
 
 gcc -Wall -O3 -march=native -funroll-loops $1
+echo "-O3 -march=native -funroll-loops"
 out="$(time ./a.out)"
 by="$(du -b a.out)"
-echo "-O3 -march=native -funroll-loops"
 echo "byte :$by"
 
-echo "------------"
+echo "-----END!!-------"
 
 gcc -Wall -O2 -march=native -flto $1
 out="$(time ./a.out)"

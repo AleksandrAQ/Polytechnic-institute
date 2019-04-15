@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2019.4.10)  10 APR 2019 14:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2019.4.10)  15 APR 2019 16:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1158,20 +1158,20 @@ File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 ))
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1240,23 +1240,39 @@ Package pgfplots notification 'compat/show suggested version=true': you might b
 enefit from \pgfplotsset{compat=1.14} (current compat level: 1.9).
 
 \ML=\skip58
-LaTeX Font Info:    Try loading font information for U+msa on input line 49.
+LaTeX Font Info:    Try loading font information for U+msa on input line 41.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 49.
+LaTeX Font Info:    Try loading font information for U+msb on input line 41.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+Underfull \hbox (badness 10000) in paragraph at lines 43--47
+[]\T2A/cmr/m/n/12 ������ ��-���-��� ���-����
+ []
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 68.
+
+! LaTeX Error: Command \ML already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.50  \newlength{\ML}
+                     
+? 
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+LaTeX Font Info:    Try loading font information for T2A+cmtt on input line 88.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-) [2]
+) [3]
 
 ! LaTeX Error: \caption outside float.
 
@@ -1264,65 +1280,113 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.94 \caption
-             {Таблица 1: Результат компиляций пр...
+l.120 \caption
+              {Таблица 1: Результат компиляций с ...
 
 ? 
 
-Overfull \hbox (43.0663pt too wide) in paragraph at lines 94--116
- [] 
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.146 \caption
+              {Таблица 2: Результаты компиляций}
+? 
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.163 \caption
+              {Таблица 3: Результаты компиляций}
+? 
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.180 \caption
+              {Таблица 4: Результаты компиляций}
+? 
+[4] <time.PNG, id=23, 414.79968pt x 254.45062pt>
+File: time.PNG Graphic file (type png)
+ <use time.PNG>
+Package pdftex.def Info: time.PNG used on input line 194.
+(pdftex.def)             Requested size: 448.13095pt x 274.90741pt.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.195 \caption
+              {Рисунок 1. Отношение времени к клю...
+
+? 
+<size.PNG, id=25, 389.20406pt x 222.8325pt>
+File: size.PNG Graphic file (type png)
+ <use size.PNG>
+Package pdftex.def Info: size.PNG used on input line 200.
+(pdftex.def)             Requested size: 448.13095pt x 256.5784pt.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.201 \caption
+              {Рисунок 2. Отношение размера к клю...
+
+? 
+[5 <./time.PNG>] [6 <./size.PNG>]
+Underfull \hbox (badness 10000) in paragraph at lines 209--213
+
  []
 
 
-! LaTeX Error: \caption outside float.
+Underfull \hbox (badness 10000) in paragraph at lines 214--217
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.119 \caption
-              {Рисунок 1.}
-? 
-<time.PNG, id=17, 546.54187pt x 305.64188pt>
-File: time.PNG Graphic file (type png)
- <use time.PNG>
-Package pdftex.def Info: time.PNG used on input line 120.
-(pdftex.def)             Requested size: 448.13095pt x 250.60928pt.
- [3 <./time.PNG>]
+ []
 
-! LaTeX Error: \caption outside float.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.122 \caption
-              {Рисунок 2.}
-? 
-<size.PNG, id=23, 537.50812pt x 306.39468pt>
-File: size.PNG Graphic file (type png)
- <use size.PNG>
-Package pdftex.def Info: size.PNG used on input line 123.
-(pdftex.def)             Requested size: 448.13095pt x 255.44827pt.
- [4 <./size.PNG>]
-(./report.aux) ) 
+Overfull \hbox (15.06566pt too wide) in paragraph at lines 221--223
+[]\T2A/cmr/m/n/12 � ���-��, ��-��� ������ � ��-��-��-����-��� ���-�-�� ���-�� �
+��� ���� "O2 -march=native
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 221--223
+
+ []
+
+[7] [8] [9] [10] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 25389 strings out of 493013
- 624825 string characters out of 6135682
- 901973 words of memory out of 5000000
- 28490 multiletter control sequences out of 15000+600000
+ 25385 strings out of 493013
+ 624709 string characters out of 6135682
+ 904973 words of memory out of 5000000
+ 28486 multiletter control sequences out of 15000+600000
  11795 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,7n,100p,8844b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t2a.enc}</u
-sr/share/texmf/fonts/type1/public/cm-super/sfcc1440.pfb></usr/share/texmf/fonts
-/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-sup
-er/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></us
-r/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on report.pdf (4 pages, 137954 bytes).
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-
+super-t2a.enc}</usr/share/texmf/fonts/type1/public/cm-super/sfcc1440.pfb></usr/
+share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/ty
+pe1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/
+sfrm2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on report.pdf (10 pages, 138546 bytes).
 PDF statistics:
- 46 PDF objects out of 1000 (max. 8388607)
- 30 compressed objects within 1 object stream
+ 66 PDF objects out of 1000 (max. 8388607)
+ 44 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
