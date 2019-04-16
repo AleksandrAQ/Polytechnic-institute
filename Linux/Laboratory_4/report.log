@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2019.4.10)  15 APR 2019 16:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2019.4.13)  16 APR 2019 23:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **report.tex
 (./report.tex
 LaTeX2e <2017/01/01> patch level 3
-Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
+Babel <3.9r> and hyphenation patterns for 38 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrartcl.cls
 Document Class: scrartcl 2016/06/14 v3.21 KOMA-Script document class (article)
 (/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrkbase.sty
@@ -439,6 +439,8 @@ File: babel.def 2016/04/23 3.9r Babel common definitions
 \babel@savecnt=\count88
 \U@D=\dimen103
 )
+\l@british = a dialect from \language\l@english 
+\l@UKenglish = a dialect from \language\l@english 
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
@@ -1371,22 +1373,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 221--223
 
 [7] [8] [9] [10] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 25385 strings out of 493013
- 624709 string characters out of 6135682
- 904973 words of memory out of 5000000
- 28486 multiletter control sequences out of 15000+600000
+ 25387 strings out of 493847
+ 624729 string characters out of 6156790
+ 902353 words of memory out of 5000000
+ 28286 multiletter control sequences out of 15000+600000
  11795 words of font info for 37 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
+ 766 hyphenation exceptions out of 8191
  73i,7n,100p,8844b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-
-super-t2a.enc}</usr/share/texmf/fonts/type1/public/cm-super/sfcc1440.pfb></usr/
-share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/ty
-pe1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/
-sfrm2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on report.pdf (10 pages, 138546 bytes).
+ </home/avf/.texlive2016/texmf-var/fonts/pk/lj
+four/lh/lh-t2a/latt1200.600pk> </home/avf/.texlive2016/texmf-var/fonts/pk/ljfou
+r/lh/lh-t2a/larm1200.600pk> </home/avf/.texlive2016/texmf-var/fonts/pk/ljfour/l
+h/lh-t2a/larm2074.600pk> </home/avf/.texlive2016/texmf-var/fonts/pk/ljfour/lh/l
+h-t2a/lacc1440.600pk> </home/avf/.texlive2016/texmf-var/fonts/pk/ljfour/lh/lh-t
+2a/larm1440.600pk>
+Output written on report.pdf (10 pages, 113417 bytes).
 PDF statistics:
- 66 PDF objects out of 1000 (max. 8388607)
- 44 compressed objects within 1 object stream
+ 272 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
