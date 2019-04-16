@@ -3,24 +3,28 @@ program exercise_1
    
    implicit none
    character(*), parameter    :: input_file = "../data/input.txt", output_file = "output.txt"
-   integer                    :: In = 0, Out = 0
-   complex(R_)                :: x = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0), y = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0), z = (0, 0)
+   integer                    :: In = 0, Out = 0, Size = 0, i
+   real(R_), allocatable      :: X(:), Y(:)
+   real(R_)                   :: S = 0
    character(:), allocatable  :: fmt
 
-   open (file=input_file, encoding=E_, newunit=In)
-      read (In, '(2f5.2)') x, y
+   open (file=input_file, newunit=In)
+      read (In, *) Size
+      allocate (X(Size))
+      read (In, *) X
+      allocate (Y(Size))
+      read (In, *) Y
    close (In)
 
-   open (file=output_file, encoding=E_, newunit=Out)
-      fmt = "(a, f0.2, ', ', f0.2, ')')"
-      write (Out, fmt) "x = (", x
-      write (Out, fmt) "y = (", y
-   close (Out)
+   DO i = 1, 10
+	write(*,*) X(i), Y(i)
+   END DO
 
+   S = dot_product(X, Y)
    
    
-   open (file=output_file, encoding=E_, newunit=Out, position="append")
-      write (Out, fmt)
-      write (Out, fmt) "z = (", z
+   open (file=output_file, encoding=E_, newunit=Out)
+      fmt = "(a, f0.2)')"
+      write (Out, fmt) "S = ", S
    close (Out)
 end program exercise_1

@@ -20,9 +20,9 @@ program exercise_1
     if (x==0) then
 	y = 0
     else if (x<0) then
-	y = 1+SQRT(1+x*x)
+	y = 1+SqRt(1+x*x)
     else if (x>0) then
-	y = 1-SQRT(1+x*x)
+	y = 1-SqRt(1+x*x)
     end if
 
 !code
