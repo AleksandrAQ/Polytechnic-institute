@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2019.4.13)  17 APR 2019 18:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2019.4.13)  17 APR 2019 18:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1152,12 +1152,8 @@ File: tikzlibraryplotmarks.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.co
 de.tex
 File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
-))) (./report.aux
-LaTeX Font Info:    Try loading font information for T2A+cmr on input line 4.
-
-(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmr.fd
-File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-))
+)))
+No file report.aux.
 \openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
@@ -1173,6 +1169,10 @@ LaTeX Font Info:    ... okay on input line 12.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
 LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 12.
+LaTeX Font Info:    Try loading font information for T2A+cmr on input line 12.
+(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmr.fd
+File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+)
 LaTeX Font Info:    ... okay on input line 12.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -1373,10 +1373,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 221--223
 
 [7] [8] [9] [10] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 25387 strings out of 493847
- 624729 string characters out of 6156790
+ 25384 strings out of 493847
+ 624699 string characters out of 6156790
  902353 words of memory out of 5000000
- 28286 multiletter control sequences out of 15000+600000
+ 28285 multiletter control sequences out of 15000+600000
  11795 words of font info for 37 fonts, out of 8000000 for 9000
  766 hyphenation exceptions out of 8191
  73i,7n,100p,8844b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
