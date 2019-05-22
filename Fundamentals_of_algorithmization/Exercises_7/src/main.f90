@@ -3,7 +3,7 @@ program exercise_5
    
    implicit none
    character(*), parameter :: input_file = "../data/input.txt", output_file = "output.txt"
-   integer :: In=0, Out=0, Siz=0, Ins=0, RezArr(9), i=0, j=0, t=0, lBuf(4), rBuf(5)
+   integer :: In=0, Out=0, Siz=0, Ins=0, RezArr(9), i=0, j=0, t=0, lBuf(10), rBuf(10), mBuf(10)
    integer, allocatable    :: Arr(:)
 
    open (file=input_file, newunit=In)
@@ -13,18 +13,20 @@ program exercise_5
       read (In, *) Ins
    close (In)
    ! руками копировать сечения
-   Arr(5) = Ins
-   lBuf = Arr(1:4)
-   rBuf = Arr(6:10)
+   !Arr(5) = Ins
+   !lBuf = Arr(1:4)
+   !rBuf = Arr(6:10)
    do i = 1, 10
-      if(Arr(i)>Arr(5))then 
-         !Arr = lBuf
-         !/Arr(i)=Ins
-         !Arr(i+1:)=
-         !!Arr = lBuf(:i-1)
-         !!Arr(i)=Ins
-         !!Arr(i+1:)= rBuf(:10-i)
+      if(Arr(i)>Ins)then 
+	 Arr=CSHIFT(Arr, 5+i)
+	 Arr(5)= Ins
+         Arr=CSHIFT(Arr, -(5+i))
          exit
+      end if
+      if(i == 10)then
+	Arr = CSHIFT(Arr, 5)
+	Arr(5) = Ins
+	Arr = CSHIFT(Arr, -5)
       end if
    end do
    !call sort(Arr)
