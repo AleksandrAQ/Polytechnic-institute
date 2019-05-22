@@ -3,7 +3,7 @@ program exercise_5
    
    implicit none
    character(*), parameter :: input_file = "../data/input.txt", output_file = "output.txt"
-   integer :: In=0, Out=0, lines = 0, columns = 0, A(100)
+   integer :: In=0, Out=0, lines = 0, columns = 0, A(100), i = 0, j = 0, cnt = 1
    integer, allocatable    :: Arr(:,:)
 
    open (file=input_file, newunit=In)
@@ -12,14 +12,15 @@ program exercise_5
       read (In, *) Arr
    close (In)
 
-   !A=RESHAPE(Arr, A)
-  
-   !A = RESHAPE( Arr, [1,99] )
-   
-   A = Arr.shape
+   do i = 1, 10
+	do j = 1, 10
+	    A(cnt) = Arr(i,j)
+	    cnt = cnt + 1
+	end do
+   end do
 
    open (file=output_file, encoding=E_, newunit=Out)
-      write (Out, "("//columns//"(i0, 1x))") A
+      write (Out, "((i0, 1x))") A
    close (Out)
 
 !contains
