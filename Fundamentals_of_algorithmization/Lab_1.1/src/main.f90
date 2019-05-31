@@ -73,19 +73,17 @@ program reference_lab_1_1
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! конец первого по алфавиту !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Самый молодой            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    tmpSurname = Surnames(1)
+    tmpDate = Date(1)
     do i = STUD_AMOUNT-1, 1 , -1
-	if(Surnames(i)<tmpSurname)then
-	    tmpSurname = Surnames(i)
-	    id = i 
+	if(Date(i)>tmpDate)then
+	    tmpDate = Date(i)
+	    id = i
 	end if
     end do
 
    open (file=output_file, encoding=E_, newunit=Out, position="append")
-      write (out, '(a)') "Первый по алфавиту по алфавиту:"
+      write (out, '(a)') "Самый молодой:"
       write (Out, format, iostat=IO) Surnames(id), Initials(id), Date(id)
    close (Out)
-
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! конец Молодого            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 end program reference_lab_1_1
