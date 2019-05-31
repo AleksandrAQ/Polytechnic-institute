@@ -14,7 +14,7 @@ program reference_lab_1_1
     call Read_class_list(input_file, Surnames, Initials, Date)
     call Output_class_list(output_file, Surnames, Initials, Date, "Исходный список:")
     call first(output_file, Surnames, Initials, Date)
-
+    call yang(output_file, Surnames, Initials, Date)
 contains
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! чтение из файла !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 subroutine Read_class_list(Input_File, Surnames, Initials, Date)
@@ -76,17 +76,26 @@ subroutine first(Output_File, Surnames, Initials, Date)
 end subroutine first
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! конец первого по алфавиту !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Самый молодой            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!    tmpDate = Date(1)
-!    do i = STUD_AMOUNT-1, 1 , -1
-!	if(Date(i)>tmpDate)then
-!	    tmpDate = Date(i)
-!	    id = i
-!	end if
-!    end do
+subroutine yang(Output_File, Surnames, Initials, Date)
+    character(*)         Output_File
+    character(kind=CH_)  Surnames(:,:), Initials(:,:)
+    integer              Date(:), tmpDate
+    intent (in)          Output_File, Surnames, Initials, Date
+    integer Out, IO, i, id
+    character(:), allocatable  :: format
+    tmpDate = Date(1)
+    do i = STUD_AMOUNT-1, 1 , -1
+	if(Date(i)>tmpDate)then
+	    tmpDate = Date(i)
+	    id = i
+	end if
+    end do
 
-!  open (file=output_file, encoding=E_, newunit=Out, position="append")
-!      write (out, '(a)') "Самый молодой:"
-!      write (Out, format, iostat=IO) Surnames(id), Initials(id), Date(id)
-!   close (Out)
+  open (file=output_file, encoding=E_, newunit=Out, position="append")
+      write (out, '(a)') "Самый молодой:"
+      format = '(' // SURNAME_LEN // 'a1, 1x, ' // INITIALS_LEN // 'a1, 1x, i4)'
+      write (Out, format, iostat=IO) Surnames(id,:), Initials(id,:), Date(id)
+   close (Out)
+end subroutine yang
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! конец Молодого            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 end program reference_lab_1_1
