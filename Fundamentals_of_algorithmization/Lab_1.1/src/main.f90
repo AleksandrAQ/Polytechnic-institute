@@ -9,26 +9,22 @@ program reference_lab_1_1
 
    character(:), allocatable  :: input_file, output_file, format
 
-   ! Массивы фамилий, инициалов, полов, оценок и средних оценов и временные
-   ! переменные для обменов при сортировке.
    character(SURNAME_LEN, kind=CH_)                :: tmpSurname = "", Surnames(STUD_AMOUNT) = ""
    character(INITIALS_LEN, kind=CH_)               :: tmpInitials = "", Initials(STUD_AMOUNT) = ""
    integer                                         :: tmpDate = 0, Date(STUD_AMOUNT) = 0
 
-   integer :: In, Out, IO, i, j
+   integer :: In, Out, IO, i, j, id
    integer, parameter                              :: INDEXES(*) = [(i, i = 1, STUD_AMOUNT)]
-   logical :: Swap
 
    input_file = "../data/class.txt"
    output_file = "output.txt"
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! чтение из файла !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-   ! Чтение списка класса: фамилии, инициалы, полы, оценки и средний.
+   ! Чтение списка класса: фамилии, инициалы, год.
    open (file=input_file, encoding=E_, newunit=In)
       format = '(2(a, 1x), i4)'
       read (In, format, iostat=IO) (Surnames(i), Initials(i), Date(i), i = 1, STUD_AMOUNT)
    close (In)
 
-   ! Обработка статуса чтения.
    Out = OUTPUT_UNIT
    open (Out, encoding=E_)
    select case(io)
@@ -45,7 +41,6 @@ program reference_lab_1_1
    ! Вывод списка класса.
    open (file=output_file, encoding=E_, newunit=Out)
       write (out, '(a)') "Исходный список:"
-      ! Пояснения к записи те же, что и к чтению.
       write (Out, format, iostat=IO) (Surnames(i), Initials(i), Date(i), i = 1, STUD_AMOUNT)
    close (Out)
 
@@ -63,7 +58,34 @@ program reference_lab_1_1
    end select
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! конец вывода !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Вывод первого по алфавиту!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    tmpSurname = Surnames(1)
+    do i = STUD_AMOUNT-1, 1 , -1
+	if(Surnames(i)<tmpSurname)then
+	    tmpSurname = Surnames(i)
+	    id = i 
+	end if
+    end do
 
+   open (file=output_file, encoding=E_, newunit=Out, position="append")
+      write (out, '(a)') "Первый по алфавиту по алфавиту:"
+      write (Out, format, iostat=IO) Surnames(id), Initials(id), Date(id)
+   close (Out)
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! конец первого по алфавиту !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Самый молодой            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    tmpSurname = Surnames(1)
+    do i = STUD_AMOUNT-1, 1 , -1
+	if(Surnames(i)<tmpSurname)then
+	    tmpSurname = Surnames(i)
+	    id = i 
+	end if
+    end do
+
+   open (file=output_file, encoding=E_, newunit=Out, position="append")
+      write (out, '(a)') "Первый по алфавиту по алфавиту:"
+      write (Out, format, iostat=IO) Surnames(id), Initials(id), Date(id)
+   close (Out)
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! конец Молодого            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 end program reference_lab_1_1
