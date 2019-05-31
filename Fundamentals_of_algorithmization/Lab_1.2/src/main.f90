@@ -13,7 +13,8 @@ program reference_lab_1_1
 
     call Read_class_list(input_file, Surnames, Initials, Date)
     call Output_class_list(output_file, Surnames, Initials, Date, "Исходный список:")
-    
+    call first(output_file, Surnames, Initials, Date)
+
 contains
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! чтение из файла !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 subroutine Read_class_list(Input_File, Surnames, Initials, Date)
@@ -51,19 +52,27 @@ subroutine Output_class_list(Output_File, Surnames, Initials, Date, str)
 end subroutine Output_class_list
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! конец вывода !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Вывод первого по алфавиту!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-subroutine first(Output_File, Surnames, Initials, Date, str)
-!    tmpSurname = Surnames(1)
-!    do i = STUD_AMOUNT-1, 1 , -1
-!	if(Surnames(i)<tmpSurname)then
-!	    tmpSurname = Surnames(i)
-!	    id = i 
-!	end if
-!    end do
+subroutine first(Output_File, Surnames, Initials, Date)
+    character(*)         Output_File
+    character(kind=CH_)  Surnames(:,:), Initials(:,:)
+    character(15, kind=CH_)  tmpSurname 
+    integer              Date(:)
+    intent (in)          Output_File, Surnames, Initials, Date
+    integer Out, IO, i, id
+    character(:), allocatable  :: format
+    tmpSurname = Surnames(1,1)
+    do i = STUD_AMOUNT-1, 1 , -1
+	if(Surnames(i,1)<tmpSurname)then
+	    tmpSurname = Surnames(i,1)
+	    id = i
+	end if
+    end do
 
-!   open (file=output_file, encoding=E_, newunit=Out, position="append")
-!      write (out, '(a)') "Первый по алфавиту по алфавиту:"
-!      write (Out, format, iostat=IO) Surnames(id), Initials(id), Date(id)
-!   close (Out)
+   open (file=output_file, encoding=E_, newunit=Out, position="append")
+      write (out, '(a)') "Первый по алфавиту по алфавиту:"
+      format = '(' // SURNAME_LEN // 'a1, 1x, ' // INITIALS_LEN // 'a1, 1x, i4)'
+      write (Out, format, iostat=IO) Surnames(id,:), Initials(id,:), Date(id)
+   close (Out)
 end subroutine first
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! конец первого по алфавиту !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Самый молодой            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
