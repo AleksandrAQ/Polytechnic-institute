@@ -12,12 +12,15 @@ program exercise_5
       read (In, *) Arr
    close (In)
 
-   do i = 1, 10
-	do j = 1, 10
-	    A(cnt) = Arr(i,j)
-	    cnt = cnt + 1
-	end do
-   end do
+   !A = Arr(1,1:10)
+   A = reshape(Arr(1:10,1:10),(/100/))
+   
+   !do i = 1, 10
+	!do j = 1, 10
+	!    A(cnt) = Arr(i,j)
+	!    cnt = cnt + 1
+	!end do
+   !end do
 
    open (file=output_file, encoding=E_, newunit=Out)
       write (Out, "((i0, 1x))") A

@@ -54,18 +54,23 @@ end subroutine Output_class_list
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Вывод первого по алфавиту!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 subroutine first(Output_File, Surnames, Initials, Date)
     character(*)         Output_File
-    character(kind=CH_)  Surnames(:,:), Initials(:,:)
-    character(15, kind=CH_)  tmpSurname 
+    character(kind=CH_)  Surnames(:,:), Initials(:,:) ! tmpSurname(:)
+    character(kind=CH_)            tmpSurname(25)
     integer              Date(:)
     intent (in)          Output_File, Surnames, Initials, Date
-    integer Out, IO, i, id
+    integer Out, IO, i, id, j
     character(:), allocatable  :: format
-    tmpSurname = Surnames(1,1)
+    tmpSurname = Surnames(1,:)
+    !print *, Surnames(1,:)
     do i = STUD_AMOUNT-1, 1 , -1
-	if(Surnames(i,1)<tmpSurname)then
-	    tmpSurname = Surnames(i,1)
-	    id = i
-	end if
+       if(Any(tmpSurname(:) > Surnames(i, :)))then
+          tmpSurname = Surnames(i,:)
+          id = i
+       endif
+	   !if(Surnames(i,1)>tmpSurname)then
+	   !    tmpSurname = Surnames(i,1)
+	   !    id = i
+	   !end if
     end do
 
    open (file=output_file, encoding=E_, newunit=Out, position="append")
