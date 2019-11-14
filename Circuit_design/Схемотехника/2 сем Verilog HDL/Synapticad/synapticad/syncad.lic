@@ -1,0 +1,62 @@
+SERVER <computername> ANY 12345
+DAEMON syncad syncadd
+FEATURE allfake2003 syncad 9.0 permanent uncounted 58DBDA23F92EE441 \
+	VENDOR_STRING=blab..blab HOSTID=ANY
+FEATURE tbenchev syncad 9.0 permanent uncounted 83C2BAE7DA424ECE \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE tbenchevunix syncad 9.0 permanent uncounted 419B5E809B4DFC8E \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE giga syncad 9.0 permanent uncounted B6F31DAD01F59914 \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE multitim syncad 9.0 permanent uncounted 9AE9B3F12BEB7B0E \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE compare syncad 9.0 permanent uncounted 30E0C75EA81BF4BA \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE ole syncad 9.0 permanent uncounted FCB56DBDEB8D869B \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE oleunix syncad 9.0 permanent uncounted 61B17F64811DF7C4 \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE testbuilder syncad 9.0 permanent uncounted D1589EA1F0586F6D \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE e syncad 9.0 permanent uncounted 7ED86A3C86DFFD4A \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE systemc syncad 9.0 permanent uncounted 376A7047534EC099 \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE vera syncad 9.0 permanent uncounted 19A1AB108083C58D \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE vhdl syncad 9.0 permanent uncounted 26B20B5838FA2318 \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE verilog syncad 9.0 permanent uncounted 1EE48A9C543F131E \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE debuggerpro syncad 9.0 permanent uncounted B0A75F83299ABD0D \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE debuggerprounix syncad 9.0 permanent uncounted \
+	5FCF291E0734AE9A VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE dataevunix syncad 9.0 permanent uncounted 8A03A6F8268C082F \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE vlogcmdevunix syncad 9.0 permanent uncounted D3F8ADD5127DA3B5 \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE timingevunix syncad 9.0 permanent uncounted A3C9046E9EC84F9B \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE waveevunix syncad 9.0 permanent uncounted 9624D1FB02FDFBBC \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE vlogevunix syncad 9.0 permanent uncounted 58C8CEF342FF56C2 \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE wflite syncad 9.0 permanent uncounted 1B5AC6B5DBBAF320 \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE wfliteunix syncad 9.0 permanent uncounted 3D4CBF2C3AA9F938 \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE wfliteev syncad 9.0 permanent uncounted 3188FD0728C2C930 \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE wfliteevunix syncad 9.0 permanent uncounted 1F9FDBD2B6E2326B \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE dataev syncad 9.0 permanent uncounted FC7D825976F5033C \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE vlogcmdev syncad 9.0 permanent uncounted 78A211FCC90FF639 \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE timingev syncad 9.0 permanent uncounted 5D32E9B93BD0DD03 \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE waveev syncad 9.0 permanent uncounted 1F4F637852AD0A5E \
+	VENDOR_STRING=LXT-LND HOSTID=ANY
+FEATURE vlogev syncad 9.0 permanent uncounted F7B35702DBFDCA53 \
+	VENDOR_STRING=LXT-LND HOSTID=ANY

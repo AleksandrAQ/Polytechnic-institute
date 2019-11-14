@@ -1,0 +1,14 @@
+<!DOCTYPE SimulationProject SYSTEM "hdl-prj.dtd">
+<SimulationProject Logfile="verilog.log" Keyfile="..\..\..\VeriLogger\verilog.key" Language="Verilog" DelayType="typical" AddTopLevelSignals="1" FileNamesShown="1" HideEmptyLists="1" ShowWatch="1" DumpWatch="0" InteractiveMode="1" LanguageTemplate="D:\VERILOGGER\templatefiles\diagram.v">
+  <DirList>
+    <Directory>D:\VERILOGGER\</Directory>
+    <Directory>D:\MISHKA\NIR\</Directory>
+  </DirList>
+  <LibDirList>
+    <Directory>D:\VERILOGGER\lib\verilog\</Directory>
+  </LibDirList>
+  <LibExtensionList>
+    <Extension>.v</Extension>
+    <Extension>.vo</Extension>
+  </LibExtensionList>
+</SimulationProject>

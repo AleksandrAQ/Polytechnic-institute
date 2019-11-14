@@ -1,0 +1,19 @@
+TestBencher Pro simulation log created at Thu Jun 22 12:37:32 2000
+Beginning Compile
+Beginning Phase I
+Compiling source file: D:\MISHKA\NIR\REGISTER\Register.v
+Finished Phase I
+Entering Phase II...
+Compiling auto-generated top level module file: D:\MISHKA\NIR\REGISTER\untitledTim.v
+Finished Phase II
+Entering Phase III...
+Finished Phase III
+Highest level modules:   syncad_top
+Finding handle to syncad_top.OUTRESULT
+Compile Complete
+.
+Running...
+0 Errors, 0 Warnings
+Compile time = 0.06000, Load time = 0.77000, Execution time = 0.06000
+
+Normal exit

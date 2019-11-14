@@ -1,0 +1,1 @@
+nasm laba1.nasm -f bin -o laba1.com

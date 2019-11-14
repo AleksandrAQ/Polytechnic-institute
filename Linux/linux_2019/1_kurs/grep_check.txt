@@ -1,0 +1,29 @@
+Проверка: должно быть 10 правильных адресов.
+
+Правильные адреса
+=================
+   1@example.com
+1aA@example.com
+1a_A@example.com
+1@1.examp1e.com
+1@1.1.example.com
+1@1.1.a-a.example.network
+1@1.network *
+11.22.aa.bb@example.com
+$ AAA@111.com
+
+Правильный и неправильный
+=========================
+1.1@example.com 1@example.com@
+
+Неправильные адреса
+===================
+1;aA_@example.com
+^1aA@example.com
+.1A@example.com
+1@network-network
+1@@network-network
+@example.com
+1..@example.com
+a@example..com
+1f$de@example.com

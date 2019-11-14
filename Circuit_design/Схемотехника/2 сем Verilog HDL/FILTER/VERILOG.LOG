@@ -1,0 +1,10 @@
+TestBencher Pro simulation log created at Mon Jun 26 01:12:00 2000
+Beginning Compile
+Beginning Phase I
+Compiling source file: D:\MISHKA\NIR\BAK\FILTER\filtertim.v
+Finished Phase I
+Entering Phase II...
+D:\MISHKA\NIR\BAK\FILTER\filtertim.v: L62: error: No port named 'X'
+D:\MISHKA\NIR\BAK\FILTER\filtertim.v: L62: error: No port named 'A'
+D:\MISHKA\NIR\BAK\FILTER\filtertim.v: L62: error: No port named 'B'
+D:\MISHKA\NIR\BAK\FILTER\filtertim.v: L62: error: No port named 'OutResult'

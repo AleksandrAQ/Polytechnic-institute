@@ -1,0 +1,57 @@
+class exception
+	{	// base of all library exceptions
+public:
+	explicit exception(const char *_Message =NULL)
+		: _Ptr(_Message)
+		{	// construct from message string
+		}
+
+	exception(const exception& _Right)
+		: _Ptr(_Right._Ptr)
+		{	// construct by copying _Right
+		}
+
+	exception& operator=(const exception& _Right)
+		{	// assign _Right
+		_Ptr = _Right._Ptr;
+		return (*this);
+		}
+
+	virtual ~exception()
+		{	// destroy the object
+		}
+
+	virtual const char * what()
+		{	// return pointer to message string
+		return (_Ptr != 0 ? _Ptr : "unknown exception");
+		}
+
+protected:
+	const char *_Ptr;	// the message pointer
+	};
+
+		// CLASS bad_exception
+class bad_exception : public exception
+	{	// base of all bad exceptions
+public:
+	bad_exception(const char *_Message = "bad exception")
+		: exception(_Message)
+		{	// construct from message string
+		}
+
+	virtual ~bad_exception()
+		{	// destroy the object
+		}
+
+		// CLASS bad_alloc
+class bad_alloc : public exception
+	{	// base of all bad allocation exceptions
+public:
+	bad_alloc(const char *_Message)
+		: exception(_Message)
+		{	// construct from message string
+		}
+
+	virtual ~bad_alloc()
+		{	// destroy the object
+		}

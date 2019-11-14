@@ -1,0 +1,102 @@
+#ifndef _LABFUNCS_
+  #define _LABFUNCS_
+
+void Bar(int left, int top, int right, int bottom, COLORS ground)
+{
+  int i,j,t;
+  if(left>right)
+  {
+    t=left; left=right; right=t;
+  }
+  if(top>bottom)
+  {
+    t=top; top=bottom; bottom=t;
+  }
+  textbackground(ground);
+  for(i=top;i<=bottom;i++)
+  {
+    gotoxy(left,i);
+    for(j=left;j<=right;j++)
+      cprintf("%c",' ');
+  }
+}
+
+void Rectangle(int left, int top, int right, int bottom,
+	       COLORS ground, COLORS text)
+{
+  int tmp,row,col;
+
+  textbackground(ground);
+  textcolor(text);
+
+  if(left>right)
+  { tmp=left; left=right; right=tmp; }
+  if(top>bottom)
+  { tmp=top; top=bottom; bottom=tmp; }
+
+  gotoxy(left,top);     cprintf("%c",'\xDA');
+  gotoxy(right,top);    cprintf("%c",'\xBF');
+  gotoxy(right,bottom); cprintf("%c",'\xD9');
+  gotoxy(left,bottom);  cprintf("%c",'\xC0');
+
+  col=left+1;
+  gotoxy(col,top);
+  for(;col<right;col++)
+    cprintf("%c",'\xC4');
+
+  col=left+1;
+  gotoxy(col,bottom);
+  for(;col<right;col++)
+    cprintf("%c",'\xC4');
+
+  row=top+1;
+  for(;row<bottom;row++)
+  {
+    gotoxy(left,row);
+    cprintf("%c",'\xB3');
+  }
+
+  row=top+1;
+  for(;row<bottom;row++)
+  {
+    gotoxy(right,row);
+    cprintf("%c",'\xB3');
+  }
+}
+
+int click_cursor(int &x, int &y)
+{
+  int i;
+  gotoxy(x,y);
+  while(1)
+  {
+    gotoxy(x,y);
+    i=getch();
+    if(i==0)
+      i=1000+getch();
+    switch(i)
+    {
+      case   27:   //Esc
+	return 0;
+      case   13:   //Enter
+	return 1;
+      case 1080:   //Down
+        if(y<25)
+          y++;    
+        break;
+      case 1072:   //Up
+        if(y>1)
+          y--;    
+        break;
+      case 1075:   //<--
+        if(x>1)
+          x--;    
+        break;
+      case 1077:   //-->
+        if(x<80)
+	  x++;
+    }
+  }
+}
+
+#endif

@@ -1,0 +1,10 @@
+<!DOCTYPE Desktop SYSTEM "hdl-prj.dtd">
+<Desktop>
+  <ProjectWindow X="0" Y="-50" W="393" H="156">
+    <Column>150</Column>
+    <Column>60</Column>
+    <Column>50</Column>
+    <Column>50</Column>
+  </ProjectWindow>
+  <SourceWindow X="0" Y="0" W="642" H="320" File="Register.v" Line="0"></SourceWindow>
+</Desktop>

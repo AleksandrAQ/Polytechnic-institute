@@ -1,0 +1,9 @@
+<!DOCTYPE Desktop SYSTEM "hdl-prj.dtd">
+<Desktop>
+  <ProjectWindow X="66" Y="10" W="365" H="128">
+    <Column>150</Column>
+    <Column>60</Column>
+    <Column>50</Column>
+    <Column>50</Column>
+  </ProjectWindow>
+</Desktop>

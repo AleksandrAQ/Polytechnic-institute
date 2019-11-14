@@ -1,0 +1,9 @@
+allproducts.exe - Synapticad версии 9.0
+VLOGEVAL.EXE - Synapticad версии 6.5
+
+1) Unpack and install
+2) Put syncad.lic in c:\synapticad\
+3) Set LM_LICENSE_FILE to c:\synapticad\syncad.lic (переменная среда)
+4) Change <computername> in syncad.lic to real computer name
+5) Run lmgrd.exe from license dir and youre done
+6) Enjoy

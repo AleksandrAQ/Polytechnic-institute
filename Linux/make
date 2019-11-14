@@ -1,0 +1,4 @@
+make -C /usr/src/linux-headers-`uname -r` SUBDIRS=$PWD modules
+sudo /sbin/insmod hello-1.ko
+sudo cat /var/log/kern.log
+sudo /sbin/rmmod hello_1
