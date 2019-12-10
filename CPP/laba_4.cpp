@@ -1,11 +1,10 @@
 #include <iostream>
 
-
 using namespace std;
-
-int sum( int Array[3][5], int Dim1, int Dim2)
+template<class T>
+T sum( T Array[3][5], int Dim1, int Dim2)
 {
-	int sum=0;
+	T sum=0;
 	for (int i = 0; i < Dim1; ++i)
 	{
 		for (int j = 0; j < Dim2; ++j)

@@ -23,5 +23,7 @@ int main(int argc, char const *argv[])
 
 	for(int i=0;i<p.charact.Size();i++)
     	cout<<p.charact[i]<<endl;
+
+    cout << p.charact.Size();
 	return 0;
 }

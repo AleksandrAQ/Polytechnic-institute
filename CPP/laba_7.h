@@ -21,6 +21,7 @@ public:
 		name(p.name), model(p.model), company(p.company), cost(p.cost), count(p.count)
 		{
 			cout << "Copyed"<<endl;
+
 		}
 	~Product()
 	{
@@ -57,7 +58,7 @@ public:
 	{
 		count = product_count;
 	}
-	Array<string> charact{50};
+	Array<string> charact;
 	string name;
 	string model;
 	string company;
