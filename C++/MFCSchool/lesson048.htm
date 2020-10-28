@@ -1,0 +1,287 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)lesson048.htm -->
+<HTML><HEAD><TITLE>Програмирование на Visual C++</TITLE>
+</HEAD>
+<BODY background="../bgrwhite.gif">
+      <CENTER><B>Урок VIII</B></CENTER></FONT>
+      <P>
+      <P align=center><FONT color=black face=ARIAL size=4>Проектирование 
+      диалоговой панели</FONT></P>
+     <p>Ну что, за работу! 
+            <UL type=square>
+              <LI>Сейчас нам необходимо добавить код выбора размера кисти! 
+              <LI>Сначала спроектируем диалоговую панель, добавим ресурс 
+              <B>Spin</B>, который будет изменять толщину пера, окно 
+              редактирования для отображения размера и переменную для хранения 
+              значения толщины! </LI></UL>
+            <UL type=square>
+              <LI>Добавьте элемент управления <B>Edit Box</B> , затем 
+              <B>Spin</B>, сделайте это именно в такой последовательности, так 
+              как элемент <B>Spin</B> будет искать "собеседника" по предыдущему 
+              интендификатору, а "соседом" у нас будет <B>Edit Box</B>, в нем 
+              будет отоброжаться значение толщины, которую будет менять 
+              <B>Spin</B>. 
+              <LI>Установите элементы согласно рисунку и таблице: 
+              <P align=center><IMG 
+              src="lesson048.files/vc_resource_dlg_proekt4.gif"></P>
+              <P align=center><FONT color=red><B>Таблица 2.0</B></FONT></P>
+              <DIV align=center>
+              <TABLE bgColor=#ffffbb border=1 cellPadding=0 cellSpacing=0 
+              width="80%">
+                <TBODY>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Объект</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>Свойство</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>Установка</B></FONT></TD></TR>
+                <TR>
+                  <TD colSpan=3>&nbsp;</TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Edit Box</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_PENWIDTH</B></FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Spin</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_SPIN1</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Auto Buddy</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>Отмечен, страница 
+                  Styles</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Set Buddy Integer</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>Отмечен, страница 
+                  Styles</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Aligment</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>Right, страница 
+                Styles</FONT></TD></TR></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Orientation</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>Vertical, страница 
+                  Styles</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Static Text</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_STATIC</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL 
+                size=2>&amp;Width</FONT></TD></TR></TR></TBODY></TABLE></DIV>
+              <P><BR>
+              <P></P>
+              <LI>Рассмотрим элемент <B>Spin</B>, первая установка <B>Auto 
+              Buddy</B> означает, что он <B>Spin</B> будет автоматически искать 
+              "соседа", в котором будет изменяться значение толщины. 
+              <LI><B>Set Buddy to Integer</B> - говорит, что изменяемое значение 
+              в "соседе" будет целое число. 
+              <LI><B>Aligment</B> - устанавливает направление изменения величины 
+              в сторону увеличения, в данном случае будет справа, значит, если 
+              развернуть на 90 градусов , то вверх - это увеличение, а вниз - 
+              уменьшение, или слева на право! 
+              <LI><B>Orientation</B> - устанавливает положение элемента 
+              <B>Spin</B> вертикально или горизонтально. 
+              <P></P></LI></UL>
+            <UL type=square>
+              <LI>Сейчас откройте <B>Class Wizard</B>, а там закладку <B>Member 
+              Variables</B>. 
+              <LI>Отметьте мышкой индетификатор <B>IDC_PENWIDTH</B> и нажмите на 
+              кнопку <B>Add Variable</B> 
+              <LI>Появится такая диалоговая панель: 
+              <P align=center><IMG 
+src="lesson048.files/vc_add_var_edit.gif"></P>
+              <LI>Введите название переменной <B>m_PenWidth</B>, <B>Category</B> 
+              - <B>Value</B>, <B>Variable Type</B> - <B>int</B>. 
+              <LI>Нажмите <B>OK</B>. 
+              <LI>Установите максимальное и минимальное значение 1 и 32 
+              соответственно. 
+              <LI>Закройте ClassWizard. 
+              <LI>Откройте функцию <B>OnInitDialog</B> и в конец(перед 
+              оператором return) добавьте следующий код: <BR>
+              <P><B>////-Ваш код начинается здесь -////
+              <P>//Получить указатель на элемент управления<BR>CSpinButtonCtrl* 
+              pSpin = (CSpinButtonCtrl*)GetDlgItem(IDC_SPIN1);
+              <P>/*Установить диапазон значений непосредственно для 
+              IDC_SPIN1*/<BR>pSpin-&gt;SetRange(1,32);
+              <P>//Установить начальное значение счетчика в 
+              1;<BR>pSpin-&gt;SetPos(1);
+              <P>////-Ваш код заканчивается здесь -////
+              <P></B></P>
+              <LI>Вначале вы получили указатель на элемент управления, потом 
+              установили диапазон значений непосредственно для счетчика и 
+              установили начальное значение его в 1. 
+              <LI>Откройте конструктор класса <B>CPaintORamaDlg</B> и добавьте в 
+              конец такую строку:<BR><B>m_PenWidth=1;</B> 
+              <LI>Этим оператором вы установили начальное значение толшины пера. 
+
+              <LI>Теперь вам необходимо изменить функцию <B>OnLButtonDown</B>, 
+              таким образом, чтобы при создавании новой кисти, учитывался нужный 
+              размер. 
+              <P></P>
+              <LI>Измените функцию <B>OnLButtonDown</B> следующим образом:
+              <P><B>BOOL CPaintORamaDlg::OnLButtonDown(UINT nFlags, CPoint 
+              point) <BR>{<BR><BR>.....<BR>
+              <P>//Проверить было ли нажатие внутри области 
+              рисования.<BR>if(m_Canvas.PtInRect(point))<BR>{<BR>//Присвоить 
+              координаты начала двум переменным<BR>m_LineStart= 
+              point;<BR>m_LineEnd=point;
+              <P>m_Pen.DeleteObject();
+              <P>/////-Ваш код начинается здесь-///
+              <P>//Обновить переменные значениями в окне 
+              прграммы<BR>UpdateData(TRUE);
+              <P>//Создать новую кисть с учетом 
+              размера<BR>m_Pen.CreatePen(PS_SOLID,<FONT color=red> 
+              m_PenWidth</FONT>, m_PenColor);
+              <P>/////-Ваш код заканчивается здесь-/////
+              <P>//Захватить мышь<BR>SetCapture();<BR>}
+              <P>}<BR></B></P>
+              <LI><B>UpdateData(true)</B> - обновляет значение переменных 
+              элементов управлений теrущими значениями в окне программы. 
+              <LI>Потом создается новая кисть с учетом толщины.<BR>Запустите 
+              программу и попробуйте выбирать любой цвет и нарисовать 
+              что-нибудь. 
+              <P>
+              <P><FONT color=red size=3><B>Добавление выбора стилей 
+              перьев</B></FONT></P>
+              <LI>Вначале вам необходимо добавить пару радиокнопок, а точнее 
+              семь штук строго друг за другом , с помощью которых мы будем 
+              выбирать стиль пера. 
+              <LI>Расставьте радиокнопки (!соблюдая строгий порядок прямо 
+              так,как написано в таблице ), как показано на рис. 2.0 и согласно 
+              таблице 2.0. 
+              <P align=center><IMG 
+              src="lesson048.files/vc_resource_dlg_proekt5.gif"></P>
+              <P align=center><FONT color=red><B>Таблица 2.0</B></FONT></P>
+              <DIV align=center>
+              <TABLE bgColor=#ffffbb border=1 cellPadding=0 cellSpacing=0 
+              width="80%">
+                <TBODY>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Объект</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>Свойство</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>Установка</B></FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Radio Button</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL 
+size=2><B>IDC_SOLID_PEN</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>&amp;Solid Pen</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Group</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>Отмечен, General</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Radio Button</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_RADIO2</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>&amp;Dash Pen</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Radio Button</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_RADIO3</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>&amp;Dot Pen</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Radio Button</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_RADIO4</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>&amp;Dash-Dot Pen</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Radio Button</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_RADIO5</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>&amp;Dash-Dot-Dot 
+                Pen</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Radio Button</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_RADIO6</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>&amp;Null Pen</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Radio Button</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_RADIO7</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>&amp;Insaide 
+                Frame</FONT></TD></TR></TBODY></TABLE></DIV>
+              <P><BR>
+              <P></P>
+              <LI>Вы должны обязательно добавить кнопки в именно таком порядке, 
+              это необходимо для того, чтобы индетификаторы кнопок были 
+              последовательны. 
+              <LI>Первая радиокнопка имеет свой индетификатор и у нее установлен 
+              такой параметр, как <B>Group</B> -это означает, что все кнопки 
+              добавленые после него будут сгруппированы, т.е. при выборе 
+              какой-либо кнопки значок "отмечено" будет переходить. Это может 
+              быть не удобным в ряде случаев, когда на странице несколько групп, 
+              тогда такой способ не подойдет и придется все писать в ручную. 
+              <LI>Теперь, после добавления кнопок, надо как-то получать номер 
+              выбранной кнопки, номера будут представлены в виде 
+              последовательности <B>0,1,2 ..6 </B>, вся фишка в том, что стили 
+              перьев тоже соответствуют числам от 0 до 6, получается нам просто 
+              необходимо определить номер выбранной кнопки и подставить его в 
+              функцию создания пера.. 
+              <LI>Добавьте с помощью <B>Class Wizard</B> переменную 
+              <B>m_PenStyle</B> с типом <B>int</B> и категорией <B>Value</B>, на 
+              странице <B>Member Variables</B>, выбрав индетификатор 
+              <B>IDC_SOLID_PEN</B> нажать кнопку <B>Add Variable</B> и указать 
+              все параметры(см.выше). 
+              <LI>Наверное, возникнет вопрос почему добавили переменную только 
+              для первой кнопки, а все дело в том, что если выбрана кнопка 
+              другая, то эта переменная будет менять свое значение на номер 
+              текущей кнопки, получается, что просто надо считывать только 
+              значение одной переменной . 
+              <LI>Теперь необходимо модифицировать функцию 
+              <B>OnLButtonDown()</B> следующим образом, просто измените 
+              строку<BR><B>m_Pen.CreatePen(PS_SOLID, m_PenWidth, 
+              m_PenColor);</B> на :
+              <P><B>m_Pen.CreatePen(<FONT color=red>m_PenStyle</FONT>, 
+              m_PenWidth, m_PenColor);</B>.
+              <P></P>
+              <LI>Теперь, когда вы изменили константу стиля на переменную, можно 
+              будет изменять стиль пера. 
+              <LI>Оператор <B>UpdateData(TRUE)</B> обновляет переменные 
+              значениями на экране, т.е. в нашем случае записывает номер 
+              выбранной кнопки в переменную <B>m_PenStyle</B>, которая потом 
+              используется для создания нового пера. </LI></UL><BR><BR>Приступим к 
+            самому веселому, добавим возможность рисовать различные фигуры! <div align="center"><br><A  href="lesson038.htm"><B 
+            class=base2>&lt;-Назад</B></A> || <A 
+            href="lesson058.htm"><B 
+            class=base2>Дальше -&gt;</B></A> </div>
+            <P>
+            <CENTER><B><FONT color=green><A 
+            href="lesson008.htm">[1]</A><A 
+            href="lesson018.htm"> [2]</A> 
+            <A 
+            href="lesson028.htm">[3]</A><A 
+            href="lesson038.htm"> [4]</A> 
+            [5] <A 
+            href="lesson058.htm">[6]</A><A 
+            href="lesson068.htm"> [7]<A> <A 
+            href="lesson078.htm">[8]</A> <A 
+            href="lesson088.htm">[9]</A></B></FONT></CENTER></FONT></FONT>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>		
+</BODY></HTML>

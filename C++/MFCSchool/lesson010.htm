@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)lesson010.htm -->
+<HTML><HEAD><TITLE>Програмирование на Visual C++</TITLE>
+</HEAD>
+<BODY background="../bgrwhite.gif">
+      <CENTER><B>Урок X</B></CENTER></FONT>
+      <P>
+      <P align=center><FONT color=black face=ARIAL size=4>Проектирование 
+      диалоговой панели</FONT></P>
+Сейчас мы визуально 
+            спроектируем диалоговую панель. Для этого вначале выбирете закладку 
+            <B>"Resourse View"</B> и раскройте пункт <B>FourUp Resource</B>. 
+            Выполните слдеующие действия <BR>
+            <UL type=square>
+              <LI>У нас не будет ни каких кнопок, но у нас будет меню, и вы его 
+              сейчас добавите. 
+              <LI>Добавьте меню свой проект с помощью <B>WorkSpace</B>. Откройте 
+              закладку с ресурсами, вызовите контексное меню, там найдите 
+              <B>Insert...</B>, появится такое диалоговое окно: 
+              <P align=center><IMG src="lesson010.files/vc_insert_icon.gif"></P>
+              <LI>Теперь спроектируем меню. Щелкните по названию меню два раза, 
+              в окне проектирования добавьте вначале пункт файл <B>File</B>, 
+              потом в раскрывшемся ниже окошке, добавьте пункт <B>Open...</B>, а 
+              еще ниже добавьте пункт <B>Exit</B>. В окне пропертионс ничего не 
+              меняйте. 
+              <LI>Для работы c <B>bmp</B> файлами вам необходимо будет скачать 
+              два файла, находящихся по адресу <A            href="http://click.ipc.ru/~vc/html/Lessons/Lessons/Visual%20Progs/MFC_Source/ln10res.zip"><B>http://click.ipc.ru/~vc/html/Lessons/
+Lessons/Visual%20Progs/MFC_Source/ln10res.zip</B></A>, 
+              которые нужно будет добавить в проект. 
+              <LI>Чтобы добавить в проект файлы, необходимо, зайти в 
+              <B>Project-&gt;Add to Project-&gt;Files...</B> выберите эти два 
+              файла: <B>dib.cpp</B> и <B>Showdib.h</B>. 
+              <LI>Добавьте следующую строку в файл <B>BmpOpenDlg.cpp</B>: 
+              <BR><B>#include"Showdib.h"</B>. 
+              <LI>Эта файл заголовков функций, после этого вы можете 
+              использовать функции, для открытия <B>BMP</B> файлов. 
+              <LI>Теперь свяжем код с пунктом меню <B>Exit</B>. 
+              <LI>Откройте <B>Сlass Wizard</B> на странице <B>Message Maps</B>, 
+              возможно у вас появится окно, в котором будет предлагаться создать 
+              или выбрать класс для меню, нажмите здесь <B>Cancel</B>. 
+              <LI>Выберите индетификатор <B>ID_FILE_EXIT</B> и событие 
+              <B>BN_CLICKED</B>, добавьте функцию и напишите в ней 
+              <B>OnOK();</B>. 
+              <LI>Эта функция завершает работу программы. 
+              <LI>Добавьте две переменные в класс <B>CBmpOpenDlg</B>: <BR>1) 
+              Тип: <B>BITMAP</B>, название <B>bm</B>.<BR>2) Тип: <B>HBITMAP</B>, 
+              название <B>hbm</B>.<BR>
+              <LI>Первая переменная будет хранить параметры изображения, такие 
+              как размер и т.д. 
+              <LI>Вторая переменная, это указатель на объект картинки в памяти, 
+              с помощью нее мы будем, выводить картинку. 
+              <LI>Свяжите таким же образом код с пунктом <B>ID_FILE_OPEN</B>. 
+              <LI>И добавьте следующий код туда:
+              <P><B>void CMPODlg::OnFileOpen() <BR>{<BR>//Заголовок и путь к 
+              файлу<BR>char FileName[500];<BR>char 
+              FileTitle[100];<BR>FileName[0]='\0';
+              <P>//Создать объект диалогового окна <BR>CFileDialog 
+              file(TRUE);<BR>//Уставновить аттрибуты диалогового 
+              окна<BR>file.m_ofn.lpstrFilter=TEXT("Bitmap picture files 
+              *.bmp\0*.bmp\0All Files 
+              *.*\0*.*\0\0");<BR>file.m_ofn.lpstrFileTitle=FileTitle;<BR>file.m_ofn.lpstrFile=FileName;<BR>file.m_ofn.lpstrTitle="Open 
+              BMP File";<BR>//Вывести диалоговое окно<BR>file.DoModal();
+              <P>//Если ничего не выбранно, то вернуться<BR>if 
+              (FileName[0]=='\0')return;<BR>//Изменить заголовок окна на имя 
+              файла<BR>SetWindowText(FileTitle);
+              <P>//Получить указатель на объект в памяти<BR>HANDLE hdibCurrent1 
+              = OpenDIB(FileName);<BR>hbm=0;
+              <P>//Получить указатель на 
+              изображение<BR>hbm=BitmapFromDib(hdibCurrent1,0);
+              <P>//Записать параметры изображения 
+              <BR>GetObject(hbm,sizeof(BITMAP),(LPSTR)&amp;bm);
+              <P>//Получить координаты окна<BR>CRect 
+              wdRect;<BR>GetClientRect(&amp;wdRect);<BR>ClientToScreen(&amp;wdRect);
+              <P>//Изменить размеры 
+              окна<BR>SetWindowPos(NULL,wdRect.left-4,wdRect.top-42,
+bm.bmWidth+wdRect.left,bm.bmHeight+wdRect.top,NULL);
+              <P>//Вывести картинку<BR>OnPaint();<BR>}
+              <P></B></P>
+              <LI>Вначале вы создаете объект диалогового окна открытия файла, 
+              потом устанавливаете его атрибуты, вродк типы файлов, заголовок 
+              окна, куда записывать путь и название файла. 
+              <LI>Потом вы выводите это окно, если ничего не выбранно, то вы 
+              возращаетесь. 
+              <LI>Затем вы изменяете заголовок окна на имя файла. 
+              <LI>Размещаете объект в памяти, потом обработываете его, получаете 
+              указатель на объект, затем получаете указатель на изображение. 
+              <LI>Записываете параметры изображения в переменную <B>bm</B>. 
+              <LI>Получаете размеры окна, и в зависимости от размера изображения 
+              изменяете размер окна. 
+              <LI>Затем вызывается функция рисования окна <B>OnPaint()</B>, 
+              сейчас мы добавим туда код.
+              <P><B>void CMPODlg::OnPaint() <BR>{<BR>if 
+              (IsIconic())<BR>{<BR>.........<BR>}<BR>else<BR>{
+              <P>////-Ваш код начинается здесь-////
+              <P>//Если открыт bmp файл<BR>if(hbm) { CClientDC dc(this);
+              <P>//Получить указатель на DC.
+              <P>HDC hdc=::GetDC(m_hWnd);<BR>HDC 
+              hdcBits=::CreateCompatibleDC(hdc);
+              <P>//Выбрать объект<BR>SelectObject(hdcBits,hbm);
+              <P>//Закрасить клиентскую облаcть черным цветом<BR>CRect 
+              wdRect;<BR>GetClientRect(&amp;wdRect);<BR>CBrush 
+              brush;<BR>brush.CreateSolidBrush(RGB(0,0,0));<BR>dc.FillRect(&amp;wdRect,&amp;brush);
+              <P>//Вывести изображение<BR>BitBlt(hdc, 0, 0, 
+              bm.bmWidth,bm.bmHeight,hdcBits,0,0, SRCCOPY);
+              <P>//Удалить 
+              DC<BR>DeleteDC(hdcBits);<BR>::ReleaseDC(m_hWnd,hdc);<BR>}
+              <P>////-Ваш код заканчивается здесь-////
+              <P>CDialog::OnPaint();<BR>}<BR>}<BR></B></P>
+              <LI>Оператор <B>IF</B> проверяет было ли открыто изображение. 
+              <LI>Затем вы получаете указатель на <B>DC</B>, и создаете 
+              локальный <B>DC</B>. 
+              <LI>Выбираете <B>DC</B>. 
+              <LI>Закрашиваете экран черным цветом. 
+              <LI>Потом выводите изображение, без масштабирования. Для 
+              маштабирования используется функция <B>StretchBlt</B>. 
+              <LI>Затем вы удаляете <B>DC</B>. 
+              <LI>Теперь добавьте в конструктор класса <B>CBmpOpenDlg</B> 
+              следующую строку: <BR><B>hbm=0;</B>. 
+              <LI>Это значит, что при запуске функции <B>OnPaint()</B>, картинка 
+              не будет рисоваться, т.е. до ее открытия. 
+              <LI>Вот вроде и все. Удачи. 
+              <P<div align="center">><BR><BR>В начало<BR><A 
+              href="lesson000.htm"><B 
+              class=base2>&lt;-Назад</B></A> </div>
+      </P></LI></UL></FONT>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>			  
+	  </BODY></HTML>

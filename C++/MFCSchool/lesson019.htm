@@ -1,0 +1,275 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)http://click.ipc.ru/~vc/html/Lessons/lesson019.htm -->
+<HTML><HEAD><TITLE>Програмирование на Visual C++</TITLE>
+</HEAD>
+<BODY background="../bgrwhite.gif">
+      <CENTER><B>Урок IX</B></CENTER></FONT>
+      <P>
+      <P align=center><FONT color=black face=ARIAL size=4>Проектирование 
+      диалоговой панели</FONT></P>
+  
+ Сейчас мы визуально 
+            спроектируем диалоговую панель. Для этого вначале выбирете закладку 
+            <B>"Resourse View"</B> и раскройте пункт <B>FourUp Resource</B>. 
+            Выполните слдеующие действия <BR>
+            <UL type=square>
+              <LI>Щелкните два раза по надписи <B>IDD_FOURUP_DIALOG</B>. Справа 
+              появится окно проектирования диалоговой панели. 
+              <LI>Для того , чтобы спроектировать диалоговую панель вам 
+              понадобиться ресурсы, т.е. иконки карт, рисунки. Скачайте их по адресу  <A              href="http://click.ipc.ru/~vc/html/Lessons/Visual%20Progs/MFC_Source/ln9res.zip"><B>http://click.ipc.ru/~vc/html/Lessons/
+Visual%20Progs/MFC_Source/ln9res.zip </B></A>. 
+
+              <LI>Добавьте все иконки и рисунки в свой проект с помощью 
+              <B>WorkSpace</B>. Откройте закладку с ресурсами, найде пункт 
+              <B>Icons</B>, и вызовите контексное меню, там найдите 
+              <B>Insert...</B>, появится такое диалоговое окно: 
+              <P align=center><IMG src="lesson019.files/vc_insert_icon.gif"></P>
+              <LI>Щеклкните на кнопку <B>Import</B>, и в появившевля окне выбора 
+              файла найдите иконки, которые вы скачали с этого сайта, добавьте 
+              их попорядку.ъ 
+              <LI>Теперь нужно поменять имена иконок, выделите иконку и вызовете 
+              контексное меню <B>Propertions</B>. 
+              <LI>В пункте <B>ID</B> вы будете менять индетификатор иконки. 
+              <LI>Измените названия иконок согласно их именам, которые вы можете 
+              посмотреть в том же окне в пункте <B>File Name</B>. 
+              <DIV align=center>
+              <TABLE bgColor=#ffffbb border=1 cellPadding=0 cellSpacing=0 
+              width="80%">
+                <TBODY>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Название</B></FONT></TD>
+                  <TD><FONT face=ARIAL 
+size=2><B>Индетификатор</B></FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2>Misc34.ico</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>IDI_HEART</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2>Misc35.ico</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>IDI_CLUB</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2>Misc36.ico</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>IDI_DIAMOND</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2>Misc37.ico</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>IDI_SPADE</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2>Icon1.ico</FONT></TD>
+                  <TD><FONT face=ARIAL 
+                size=2>IDR_MAINFRAME</FONT></TD></TR></TBODY></TABLE></DIV>
+              <P></P>
+              <LI>Добавьте в ресурсы папку <B>Bitmap</B>, отметьте ресурсы, 
+              вызовите контексное меню, выбирете там <B>Insert...</B>, в 
+              появившемся диалоговом окне выбирите <B>Bitmap</B> и нажмите 
+              кнопку <B>Import</B>. выбирете картинку <B>Bitres1.bmp</B> и 
+              <B>Bitres2.bmp</B>. 
+              <LI>С помощью панели <B>Controls</B> расставьте элементы, 
+              управления как показано на рис. 2.0 и согласно таблице 2.0. 
+              <P align=center><IMG src="lesson019.files/vc_main.gif"></P>
+              <P align=center><FONT color=red><B>Таблица 2.0</B></FONT></P>
+              <DIV align=center>
+              <TABLE bgColor=#ffffbb border=1 cellPadding=0 cellSpacing=0 
+              width="80%">
+                <TBODY>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Объект</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>Свойство</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>Установка</B></FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Dialog Box</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL 
+                  size=2><B>IDD_FOURUP_DIALOG</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>The FourUp Program</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Font</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>System, Size 10, страница 
+                    Styles</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Picture</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_STATIC</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Type</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>Icon</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Image</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>IDR_MAINFRAME</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Picture</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_STAT</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Type</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>Bitmap</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Image</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>IDB_BITMAP1</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Group Box</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_AMT_LEFT</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>Amount Remaning $ 
+                100.</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Picture</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_CARD1</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Type</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>Icon</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Image</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>IDI_HEART</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Picture</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_CARD2</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Type</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>Icon</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Image</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>IDI_CLUB</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Picture</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_CARD3</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Type</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>Icon</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Image</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>IDI_DIAMOND</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Picture</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_CARD4</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Type</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>Icon</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Image</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>IDI_SPADE</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Group Box</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_STATIC</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>Payouts</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Static Text</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_STATIC</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>2 pair \t\t\t\t3.00</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Static Text</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_STATIC</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>3 of kids 
+\t\t\t6.00</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Static Text</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_STATIC</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>4 of kids 
+\t\t\t9.00</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Push Button</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                  <TD><FONT face=ARIAL 
+size=2><B>IDC_DEALCARDS</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>&amp;Deal - $ 2.00</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Push Button</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDCANCEL</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>&amp;Cash 
+                Out</FONT></TD></TR></TBODY></TABLE></DIV>
+              <P><BR>
+              <P></P>
+              <LI>Вначале вы добавили две иконки, это заголовки нашей игры, так 
+              для красоты, потом вы добавили элемент <B>Group Box</B> и изменили 
+              индетификатор, так как нам не просто нужен статический заголовок, 
+              а нам нужно там показывать кол-во денег на счету. 
+              <LI>Потом вы добавили 4 иконки и присвоили каждой свой 
+              индетификатор, при нажатии на кнопку <B>Deal Cards</B>, иконки 
+              будут меняться. 
+              <LI>Статический текст показывает кол-во выигрыша в зависимости от 
+              выпадших карт. 
+              <LI>При нажатии на кнопку <B>Cash Out</B> выводится окно сообщения 
+              с кол-вом денег на счету, заметьте, что мы исправили индетификатор 
+              кнопки на стандартный, уже существующий, это значит, что мы просто 
+              перекроем сообщение и перед тем, как завершиться программа выдадим 
+              сообщение. 
+              <LI>Теперь начнем с того, что добавим четыре переменные типа 
+              <B>HICON</B> и загруэим в них иконки. 
+              <LI>C помощю <B>WorkSpace</B> добавьте в класс <B>CFourUpDlg</B> 
+              четыре переменные с типом <B>HICON</B> и названиями <B>m_Club</B>, 
+              <B>m_Diamond</B>, <B>m_Spade</B>, <B>m_Heart</B>. 
+              <LI>Теперь добавьте следующий код в конец конструктора класса 
+              <B>CFourUpDlg</B> следущие строки:
+              <P><B>m_Club = AfxGetApp()-&gt;LoadIcon(IDI_CLUB);<BR>m_Diamond = 
+              AfxGetApp()-&gt;LoadIcon(IDI_DIAMOND);<BR>m_Heart = 
+              AfxGetApp()-&gt;LoadIcon(IDI_HEART);<BR>m_Spade = 
+              AfxGetApp()-&gt;LoadIcon(IDI_SPADE);
+              <P></B></P>
+              <LI>Эти операторы загружают параметры иконок в переменные-объекты, 
+              с помощью которых мы будем менять иконки. 
+              <LI>Теперь свяжем элементы управления иконками с переменными, 
+              которыми мы будем менять сами иконки. 
+              <LI>Откройте <B>ClassWizard</B> на закладке <B>Member 
+              Variables</B> и добавьте иконкам <B>IDC_CARD1</B> - 
+              <B>IDC_CARD4</B>, переменные категории <B>Control</B> с именами 
+              соответственно <B>m_Card1</B> -<B>m_Card4</B>. 
+              <LI>Добавьте элементу <B>IDC_AMT_LEFT</B> переменную с названием 
+              <B>m_Amt_Left</B> категории <B>Control</B>. 
+              <LI>Добавьте в класс <B>CFourUpDlg</B> переменную 
+              <B>m_Amt_Remaining</B> с типом <B>double</B>, эта переменная будет 
+              хранить значение выйгрыша. 
+              <LI>Теперь нужно связать код с событием <B>BN_CLICKED</B> кнопки 
+              <B>Deal Cards</B>, при нажатии на нее должны сдаваться карты, 
+              подсчитываться выйгрыш. 
+              <P><div align="center"><BR><BR>Связывание элементов управления с событиями <BR><A 
+              href="lesson009.htm"><B 
+              class=base2>&lt;-Назад</B></A> | <A 
+              href="lesson029.htm"><B 
+              class=base2>Дальше-&gt;</B></A> </div>
+      </P></LI></UL></FONT>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>			  
+	  </BODY></HTML>

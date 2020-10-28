@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)lesson012.htm -->
+<HTML><HEAD><TITLE>Програмирование на Visual C++</TITLE>
+</HEAD>
+<BODY background="../bgrwhite.gif">
+      <CENTER><B>Урок II</B></CENTER></FONT>
+      <P>
+      <P align=center><FONT color=black face=ARIAL size=4>Проектирование 
+      диалоговой панели</FONT></P>
+Сейчас мы визуально 
+            спроектируем диалоговую панель. Для этого вначале выбирете закладку 
+            <B>"Resourse View"</B> и раскройте пункт <B>Hello Resource</B>, как 
+            показано на рис. 1.5. 
+            <P align=center><IMG 
+            src="lesson012.files/vc_resourceview_test_dlg.gif"></P>Выполните 
+            слдеующие действия <BR>
+            <LI>Щелкните два раза по надписи <B>IDD_TEST_DIALOG</B>. Справа 
+            появится окно проектирования диалоговой панели. 
+            <LI>С помощью панели <B>Controls</B> расставьте элементы, управления 
+            как показано на рис. 2.0 и согласно таблице 2.0. 
+            <P align=center><IMG 
+            src="lesson012.files/vc_resource_testdlg.gif"></P>
+            <DIV align=center>
+            <TABLE bgColor=#ffffbb border=1 cellPadding=0 cellSpacing=0 
+            width=440>
+              <TBODY>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Объект</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>Свойство</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>Установка</B></FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Dialog Box</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                <TD><FONT face=ARIAL 
+size=2><B>IDD_TEST_DIALOG</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL size=2>The Test Program</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Font</FONT></TD>
+                <TD><FONT face=ARIAL size=2>System, Size 10, страница 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>панель Minimize</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечена, страница 
+              Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>панель Maximize</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечена, страница 
+              Styles</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Edit Box</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                <TD><FONT face=ARIAL size=2><B>IDC_TEST_EDIT</B></FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Group Box</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                <TD><FONT face=ARIAL size=2><B>IDC_STATIC</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL size=2>Test</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Static Text</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>IDC_STATIC</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL size=2>INSTRUCTIONS: To execute the Paint 
+                  program: type Paint in the edit box. To execute the Calculator 
+                  program, type Calculator in the edit box. To terminate the 
+                  program, type Exit in the edit box.</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Check Box</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                <TD><FONT face=ARIAL 
+              size=2><B>IDC_VISIBLE_CHECK</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL size=2>&amp;Visible</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Check Box</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                <TD><FONT face=ARIAL 
+              size=2><B>IDC_ENABLED_CHECK</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL size=2>&amp;Enabled</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Push Button</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                <TD><FONT face=ARIAL 
+size=2><B>IDC_TEST_BUTTON</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL size=2>&amp;Test</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Push Button</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                <TD><FONT face=ARIAL 
+              size=2><B>IDC_CLEAR_BUTTON</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL size=2>&amp;Test</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Push Button</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                <TD><FONT face=ARIAL 
+size=2><B>IDC_EXIT_BUTTON</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL size=2>E&amp;xit</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Client edge</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Static edge</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Modal frame</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR></TBODY></TABLE></DIV>
+            <P><BR>
+            <P>Теперь рассмотрим все пункты попорядку.<BR></P>
+            <LI>В объекте <B>Dialog Box</B> вы задаете следующие 
+            данные:<BR><B>Caption</B> - название диалогового 
+            окна.<BR><B>Font</B> - здесь вы уcтановили шрифт -<B>System</B> и 
+            его размер <B>10</B><BR>Панель <B>Minimize</B> и <B>Maximaze</B> 
+            отмечены для того, чтобы вы могли свертывать окно и наоборот 
+            рассматривать его во весь экран. Для их установки вам необходимо 
+            зайти в <B>Dialog Box Propertions</B> и на странице <B>Styles</B> 
+            отметить их. 
+            <LI><B>Edit Box</B> - это окно редактирования, в нем вы можете 
+            вводить свой текст. Мы не задавали этому элементу никаких 
+            дополнительных параметров, нам необходимо только знать его 
+            итендификатор(<B>IDC_TEST_EDIT</B>). 
+            <LI>В следующем пункте <B>Group Box</B>, который служит для 
+            выделения эелементов управления в рамку. Этот элемент выглядит так: 
+            <P align=center><IMG 
+            src="lesson012.files/vc_resource_groupbox.gif"></P>Вы указали для 
+            этого элемента название(Captions) <B>Test</B> и итендификатор 
+            <B>IDC_STATIC</B>. 
+            <LI><B>Static Text</B> - это элемент текста, он вставляется как 
+            обычный элемент управления, но не выполняет ни каких функций, так 
+            как служит для показа текста, который вы зададите в Captions. В 
+            данном случае мы вставляем инструкцию по применению программы:<B> 
+            INSTRUCTIONS: To execute ...</B>.Вы, наверное, заметили, что этот 
+            элемент имеет такой же итендификатор, как и у <B>Group Box</B>, так 
+            как мы не будем их использовать в программе и связывать с ними 
+            события( хотя это и невозможно). 
+            <LI>Следующие два элемента <B>Check Box</B> с <B>Captions</B> 
+            <B>&amp;Visible</B> и <B>&amp;Enable</B>, будут служить для скрытия 
+            окна редактирования и закрытия доступа к окну редактироавния, и 
+            наоборот. Если они включены, то окно видимо и есть к нему доступ, и 
+            наоборот. При запуске программы они должны будут быть отмечены. Для 
+            этого в дальнейшем мы напишем специальный код. 
+            <LI>Затем идут три кнопки <B>Test</B>, <B>Clear</B> и <B>Exit</B>. 
+            При нажатии на кнопку <B>Test</B> в окне редактирования появляется 
+            текст: <B>This is a Test</B>, а при нажатии на кнопку <B>Clear</B>, 
+            окно редактирования очищается. Кнопка <B>E&amp;xit</B>, служащая для 
+            завершения программы, имеет еще дополнительные параметры, которые 
+            можно включить на странице <B>Extended Styles</B>. Они служат для 
+            разнообразного обрамления, выделения.
+            <P>Поздравляю, вы закончили визуальное проектирование диалоговой 
+            панели!<BR>
+            <P><div align="center"><BR><BR>Связывание элементов управления с событиями <br><A 
+            href="lesson002.htm"><B 
+            class=base2>&lt;-Назад</B></A> || <A 
+            href="lesson022.htm"><B 
+            class=base2>Дальше -&gt;</B></A> </div>
+      </P></LI></FONT>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>			  
+	  </BODY></HTML>

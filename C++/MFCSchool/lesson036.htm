@@ -1,0 +1,55 @@
+<HTML>
+<TITLE>Програмирование на Visual C++</TITLE>
+
+<HEAD>
+
+</HEAD>
+<BODY  background="../bgrwhite.gif"> 
+<CENTER><B>Урок VI</B></CENTER></FONT>
+<P>
+
+<P ALIGN="CENTER"> <FONT FACE="ARIAL" COLOR="BLACK" SIZE=4>Резюме и Упражнение</FONT></P>
+
+<FONT size=+1><B>Упражнение</B><BR></font>
+Расширьте возможности программы <B>MyMsg</B>, чтобы при нажатии на
+кнопку <B>Exit</B>,программа не сразу завершалась, а запрашивала на выход из программы
+с помощью окна сообщения.
+<P>
+
+
+<FONT size=+1><B>Ответ к упражнению</B><BR></font>
+
+<UL TYPE="round">
+<LI>Напишите слдеующий код в функции <B>OnExitButton</B>:<BR>
+<B>
+void CMyMsgDlg::OnYesnoButton() <BR>
+{<BR>
+	// TODO: Add your control notification handler code here<P>
+////Ваш код начинается здесь////<P>
+int iResults;	<BR>
+iResults=MessageBox("Exit?",<BR>
+	"Are you sure want to Exit?",<BR>
+	MB_YESNO+MB_ICONQUESTION);<P>
+if(iResults==IDYES)<BR>
+{<BR>
+	OnOK();<BR>
+}<P>
+
+////Ваш код заканчивается здесь////<P>
+
+}<BR>
+</B>
+</UL>
+<P ALIGN="CENTER"> <FONT FACE="ARIAL" COLOR="RED" SIZE=4>Резюме</FONT></P>
+
+Вы написали программу <B>MyMsg</B>, которая включает предопределенные
+диалоговые панели.
+
+
+<P>
+Вы закончили шестой урок!
+<P>Вернуться
+<A HREF="lesson026.htm"><B class=base2><-Назад</B></A>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>		
+</BODY>
+</HTML>

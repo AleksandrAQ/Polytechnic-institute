@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)lesson078.htm -->
+<HTML><HEAD><TITLE>Програмирование на Visual C++</TITLE>
+</HEAD>
+<BODY background="../bgrwhite.gif">
+      <CENTER><B>Урок VIII</B></CENTER></FONT>
+      <P>
+      <P align=center><FONT color=black face=ARIAL size=4>Проектирование 
+      диалоговой панели</FONT></P>
+<p>Когда же это кончится?! 
+            <UL type=square>
+              <LI>Осталась завершающая стадия, необходимо добавить код 
+              перерисовки окна. 
+              <LI>В предыдущих уроках мы уже познакомились с событием 
+              <B>WM_PAINT</B>, оно происходит, когда участки окна программы, 
+              именно участки, так как та часть которая не требует перерисовки не 
+              будет перерисовываться. 
+              <LI>Возникнет вопрос естественно, как это сделать? Ответ прост, 
+              существуют такие классы, как метафайлы, в них мы будем записывать 
+              всеь набор графических команд, которые мы будем применять, и потом 
+              когда необходимо будет перерисовать окно мы просто воспроизведем 
+              их из метафайла. Вот все так просто, теперь будем действовать 
+              попорядку. 
+              <LI>Первым делом добавим переменную-указатель класса 
+              <B>CMetaFileDC</B>. Добавьте в класс <B>CPaintORamaDlg</B> 
+              переменную <B>m_pMF</B> с типом <B>CMetaFileDC*</B>. 
+              <LI>Потом в конец функции <B>OnInitDialog</B> перед оператором 
+              <B>return</B> вставьте следующие две строчки: 
+              <P><B>//Разместить в памяти объект метафайла<BR>m_pMF = new 
+              CMetaFileDC;<BR>//Создать МетаФайл<BR>m_pMF-&gt;Create();<BR></B>
+              <P></P>
+              <LI>Вначале вы разместили объект метафайла в динамической памяти. 
+              <LI>Потом создали сам метафайл. 
+              <LI>Теперь модифицируем код в функции <B>OnClearbtn</B> 
+              <LI>Красным выделено то, что надо добавить. 
+              <P><B>void CPaintORamaDlg::OnClearbtn() <BR>{<BR>CClientDC 
+              dc(this);<BR><FONT color=red>//Закрыть метафайл<BR>HMETAFILE 
+              hmf=m_pMF-&gt;Close();<BR>//Удалить данные о 
+              метафайле<BR>::DeleteMetaFile(hmf);<BR>delete hmf;
+              <P>//Cоздать новый метафайл<BR>m_pMF=new 
+              CMetaFileDC;<BR>m_pMF-&gt;Create();<BR>m_pMF-&gt;SetAttribDC(dc);<BR></FONT>//Закрасить 
+              область рисования белым 
+              цветом<BR>dc.SelectStockObject(NULL_PEN);<BR>dc.Rectangle(m_Canvas);
+              <P><FONT color=red>//Записать команды в 
+              метафайл<BR>m_pMF-&gt;SelectStockObject(NULL_PEN);<BR>m_pMF-&gt;Rectangle(m_Canvas.left,m_Canvas.top,<BR>m_Canvas.right+1,m_Canvas.bottom+1);<BR></FONT>}<BR></B></P>
+              <LI>Добавленный код удаляет метафайл, так как при нажатии на 
+              кнопку <B>Clear</B> вы очищаете окно и оно не требует перерисовки, 
+              потом вы создаете новый метафайл, вообщем понятно почему. Затем вы 
+              очищаете экран, и записываете эти команды в метафайл. 
+              <LI>Пойдем дальше. Теперь модифицируем функцию <B>DrawShape</B> 
+              следующим образом:
+              <P><B>void CPaintORamaDlg::DrawShape(bool 
+              stretch)<BR>{<BR>//Получить объект контекста 
+              устройства<BR>CClientDC dc(this);
+              <P>//Установить атрибуты 
+              DC<BR>dc.SetAttribDC(dc);<BR>dc.SelectObject(&amp;m_Brush);<BR><FONT 
+              color=red>m_pMF-&gt;SetAttribDC(dc);</FONT><BR>dc.IntersectClipRect(m_Canvas);<BR><FONT 
+              color=red>m_pMF-&gt;IntersectClipRect(m_Canvas);
+              <P></FONT>//Получить номер позиции из спика названий фигур<BR>int 
+              drawmode=m_ShapesCombo.GetCurSel();
+              <P>//Выбрать 
+              перо<BR>dc.SelectObject(&amp;m_Pen);<BR>dc.SelectObject(&amp;m_Brush);<BR><FONT 
+              color=red>//Записать операторы в 
+              метафайл<BR>m_pMF-&gt;SelectObject(&amp;m_Pen);<BR>m_pMF-&gt;SelectObject(&amp;m_Brush);
+              <P></FONT>//Метод резиновой нити<BR>if(stretch &amp;&amp; 
+              drawmode!=0)<BR>{<BR>//Установить метод резиновой 
+              нити<BR>dc.SetROP2(R2_NOT);<BR>}
+              <P>//Конструкция выбора 
+              фигуры<BR>switch(drawmode)<BR>{<BR>//Свободное рисование<BR>case 
+              0:<BR>dc.MoveTo(m_LineStart);<BR>dc.LineTo(m_LineEnd);<BR><FONT 
+              color=red>//Записать операторы в 
+              метафайл<BR>m_pMF-&gt;MoveTo(m_LineStart);<BR>m_pMF-&gt;LineTo(m_LineEnd);<BR></FONT>m_LineStart=m_LineEnd;<BR>break;<BR>
+              <P>//Рисование линий<BR>case 
+              1:<BR>dc.MoveTo(m_LineStart);<BR>dc.LineTo(m_LineEnd);<BR><FONT 
+              color=red>/*Записать операторы в метафайл, если не выбран режим 
+              резиновой 
+              нити*/<BR>if(!stretch)<BR>{<BR>m_pMF-&gt;MoveTo(m_LineStart);<BR>m_pMF-&gt;LineTo(m_LineEnd);<BR>}<BR></FONT>break;<BR>
+              <P>//Рисование элипсов<BR>case 
+              2:<BR>dc.Ellipse(CRect(m_LineStart,m_LineEnd));<BR><FONT 
+              color=red>//Записать операторы в 
+              метафайл<BR>if(!stretch)<BR>{<BR>m_pMF-&gt;Ellipse(CRect(m_LineStart,m_LineEnd));<BR>}<BR></FONT>break;<BR>
+              <P>//Рисование прямоугольника<BR>case 
+              3:<BR>dc.Rectangle(CRect(m_LineStart,m_LineEnd));<BR><FONT 
+              color=red>//Записать операторы в 
+              метафайл<BR>if(!stretch)<BR>{<BR>m_pMF-&gt;Rectangle(CRect(m_LineStart,m_LineEnd));<BR>}<BR></FONT>break;<BR>}<BR><BR>}<BR></B></P>
+              <LI>Здесь каждый оператор, который непосредственно связан с 
+              рисованием записывается в метафайл. 
+              <LI>Вы, наверное, обратили внимание на конструкцию оператора 
+              <B>IF</B>. При записи в метафайл, он проверяет не включен ли режим 
+              резиновой нити, так как нам нужны только конечные фигуры, а не те, 
+              которые нарисованы методом резиновой нити. 
+              <LI>Теперь добавим код непосредственно в функцию <B>OnPaint</B>, 
+              который и будет все перерисовывать окно программы. 
+              <LI>Откройте окно функцию <B>OnPaint</B> и удалите весь код из нее 
+              и добавьте следующий:
+              <P><B>void CPaintORamaDlg::OnPaint() <BR>{<BR>CPaintDC dc(this);
+              <P>//Закрытие метафайла<BR>HMETAFILE 
+              hmf=m_pMF-&gt;Close();<BR>//Воспроизведение 
+              метафайла<BR>dc.PlayMetaFile(hmf);
+              <P>//Присваивание указателя на старый объект переменной 
+              temp<BR>CMetaFileDC* temp=new CMetaFileDC;<BR>//Закрытие 
+              объекта<BR>temp-&gt;Create();<BR>//Проигрование 
+              метафайла<BR>temp-&gt;PlayMetaFile(hmf);<BR><BR>//Удаление 
+              метаструктуры и метафайла<BR>DeleteMetaFile(hmf);<BR>delete 
+              hmf;<BR><BR>//Присваивание временного указателя 
+              постоянному<BR>m_pMF=temp; <BR>/*Если первый раз была вызвана 
+              функия OnPaint, то вызавать очистку экрана*/<BR>static 
+              firstTime=TRUE;<BR>if(firstTime)<BR>{<BR>OnClearbtn();<BR>firstTime=FALSE;<BR>}<BR><BR>}<BR></B></P>
+              <LI>Разберемся с этой чушью. Чтобы метафайл воспроизвести его надо 
+              закрыть, но чтобы все команды сохранить, мы пользуемся временной 
+              переменной <B>temp</B>, в которую записываем весь набор команд, 
+              потом мы удаляем метафайл и метаструктуру, и присваиваем указатель 
+              временной переменной постоянной, таким образом мы получили весь 
+              набор команд. 
+              <LI>Если функция <B>OnPaint</B> запускается первый раз, то нам 
+              необходимо запомнить команды очистки экрана. 
+              <LI>И на последок хотелось бы удалить постоянный метафайл. 
+              <LI>Для этого вам необходимо с помощью <B>Class Wizard</B> связать 
+              код с событием <B>WM_DESTROY</B>, которое происходит при 
+              завершении программы. 
+              <LI>Свяжите код с событием, убедитесь, что при этом был выбран 
+              класс <B>CPaintORamaDlg</B>. И Добавьте следующий код:
+              <P><B>void CPaintORamaDlg::OnDestroy() 
+              <BR>{<BR>CDialog::OnDestroy();<BR>////-Ваш код начинается 
+              здесь-////
+              <P>//Закрыть и удалить метафайл<BR>m_pMF-&gt;Close();<BR>delete 
+              m_pMF;
+              <P>////-Ваш код начинается здесь-////
+              <P>}<BR></B>
+              <P></P>
+              <LI>Откомпилируйте и запустите программу, надеюсь она не выдаст 
+              ошибок:) Перетащите большую чать области рисования за экран и 
+              верните потом обратно, если все перерисовалось, то вы молодец, 
+              если нет, то я плохой, а вам придется сидеть и парить все с 
+              начала:) 
+              <LI>Вот на этом мы и закончим нашу программу. Конечно, можно было 
+              бы сделать открытие BMP файлов и их редактирование, и потом 
+              запись, но думаю вам пока этого хватит! 
+              <LI>Если хотите вспомнить, что вы узнали из этого урока, и что это 
+              вам дало, или может ничего не дало, то прочитайте резюме. 
+            </LI></UL><BR><BR>Резюме!Прочитай!<BR>
+            <CENTER><A 
+            href="lesson068.htm"><B 
+            class=base2>&lt;-Назад</B></A> || <A 
+            href="lesson088.htm"><B 
+            class=base2>Дальше -&gt;</B></A>
+            <P></CENTER>
+            <P>
+            <CENTER><B><FONT color=green><A 
+            href="lesson008.htm">[1]</A><A 
+            href="lesson018.htm"> [2]</A> 
+            <A 
+            href="lesson028.htm">[3]</A><A 
+            href="lesson038.htm"> [4]</A><A 
+            href="lesson048.htm"> [5] 
+            </A><A 
+            href="lesson058.htm">[6]</A><A 
+            href="lesson068.htm"> [7]<A> 
+            [8] <A 
+            href="lesson088.htm">[9]</A></B></FONT></CENTER></FONT>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>		
+</BODY></HTML>

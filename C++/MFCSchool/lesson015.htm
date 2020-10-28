@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)lesson015.htm -->
+<HTML><HEAD><TITLE>Програмирование на Visual C++</TITLE>
+</HEAD>
+<BODY background="../bgrwhite.gif">
+      <CENTER><B>Урок V</B></CENTER></FONT>
+      <P>
+      <P align=center><FONT color=black face=ARIAL size=4>Создание меню 
+      программы Speed</FONT></P>
+       <LI>Для того, чтобы создать меню программы зайдите в закладку 
+            <B>Resource View</B>, раскройте там пункт <B>Speed Resources</B>, 
+            затем щелкните на правую кнопку мыши . 
+            <LI>В раскрывшемся контексном меню выбирете пункт <B>Insert...</B>, 
+            появиться такая диалоговая панель:<BR>
+            <P align=center><IMG 
+            src="lesson015.files/vc_resource_dlg_insertmenu.gif"></P>
+            <LI>Выбирете здесь <B>Menu</B> и нажмите на кнопку <B>New</B> для 
+            создания нового меню. 
+            <LI>Затем зайдите в пункт <B>Menu</B>, в закладке <B>Resource 
+            View</B>, и нажмите на <B>IDR_MENU1</B> справа в окошке появиться 
+            окно визуального проектирования меню. Оно будет выглядеть так:<BR>
+            <P align=center><IMG 
+            src="lesson015.files/vc_resource_dlg_visualmenu.gif"></P>
+            <LI>Вы видите в левом верхнем углу этого окна небольшой 
+            прямоугольник, этот прямоугольник является областью для ввода 
+            названия пункта меню. 
+            <LI>Нажмите на него мышкой, затем нажмите на правую кнопку мыши и в 
+            появившемся контексном меню нажмите на <B>Properties</B>, а в 
+            раскрывшемся диалоговом окне: 
+            <P align=center><IMG 
+            src="lesson015.files/vc_resource_dlg_properties_file.gif"></P>задайте 
+            заголовок пункта меню в <B>Caption</B> - <B>&amp;File</B>, первй 
+            значек <B>&amp;</B>, подчеркивает первую букву <B>F</B> слова 
+            <B><U>F</U>ile</B>, это означает, что при нажатии на клавишы 
+            <B>ALT+F</B> всплывет пункт меню <B>File</B>. 
+            <LI>Нажмите <B>Enter</B>, в прямоугольнике появиться <B>File</B>, а 
+            ниже откроется еще одно окошко с прямоугольником, в этом 
+            прямоугольнике вы уже будете задавать названия пунктов меню 
+            <B>File</B>. 
+            <LI>Выделите мышкой этот прямоугольник, раскройте контексное меню 
+            <B>Properties</B>, и в раскрывшемся окне:<BR>
+            <P align=center><IMG 
+            src="lesson015.files/vc_resource_dlg_properties_currentspeed.gif"></P>
+            <LI>Задайте в <B>Captions</B> название пункта меню <B>&amp;Сurrent 
+            Speed</B> и нажмите <B>Enter</B>. 
+            <LI>Теперь опять зайдите в <B>Properties</B>, можно использовать 
+            комбинацию клавиш <B>ALT+ENTER</B>, и посмотрите в <B>ID</B>, вы 
+            увидите там запись <B>ID_FILE_CURRENTSPEED</B> - это интендификатор 
+            пункта меню <B>Current Speed</B>, с помощью него вы сможете 
+            связывать этот пункт меню с событиями. Этот итендификатор Viusal C++ 
+            сгенерировал сам. 
+            <LI>Ниже включите еще один пукнт с названием <B>&amp;Exit</B>, для 
+            выхода из программы. 
+            <LI>Теперь мы создадим меню <B>Help</B>. Спроектируйте его так, как 
+            показано на следующем рисунке:<BR>
+            <P align=center><IMG 
+            src="lesson015.files/vc_resource_dlg_menu_help.gif"></P>
+            <LI>Щелкните на пустой прямоугольник в главной строчке, задайте ему 
+            имя <B>Help</B>, в нижнем прямоугольнике напишите <B>About</B>. 
+            Вообщем, повторите все как написано выше. 
+            <LI>Теперь, когда меню визуально спроектировано, его надо связать с 
+            диалоговой панелью, для этого меню вы добавите в класс диалоговой 
+            панели. Для этого выберете мастер <B>ClassWizard</B> в меню 
+            <B>View</B>, в ответ Visual C++ выведет вам диалоговою панель 
+            <B>Adding a class(добавление класса)</B>:<BR>
+            <P align=center><IMG 
+            src="lesson015.files/vc_clswiz_addclass.gif"></P>
+            <LI>Выберете здесь <B>Select an existing class</B>(выбрать уже 
+            существующий класс), это значит, что вы хотите включить меню уже в 
+            существующий класс, нажмите на кнопку <B>OK</B>. 
+            <LI>Раскроется еще одно окно <B>Select Class(выбрать класс)</B>, 
+            выбирите класс <B>CSpeedDlg</B>, отвечающий за диалоговую панель, не 
+            отавляйте установки по умалчанию!<BR>
+            <P align=center><IMG 
+            src="lesson015.files/vc_clswiz_selectclass.gif"></P>
+            <LI>Нажмите на кнопку <B>Select</B>. 
+            <LI>Поздравляю Вы закончили создание меню. <BR><div align="center"><BR>Визуальное 
+            проектирование диалоговой панели <br><A 
+            href="lesson005.htm"><B 
+            class=base2>&lt;-Назад</B></A> || <A 
+            href="lesson025.htm"><B 
+            class=base2>Дальше -&gt;</B></A> </div>
+      </LI></FONT>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>			  
+	  </BODY></HTML>

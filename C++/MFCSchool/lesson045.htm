@@ -1,0 +1,70 @@
+<HTML>
+<TITLE>Програмирование на Visual C++</TITLE>
+
+<HEAD>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../styles.css" TITLE="Style">
+</HEAD>
+<BODY background="../bgrwhite.gif">
+<CENTER><B>Урок V</B></CENTER></FONT>
+<P>
+
+<P ALIGN="CENTER"> <FONT FACE="ARIAL" COLOR="BLACK" SIZE=4>Резюме и Упражнение</FONT></P>
+
+<FONT SIZE=+1><B>Упражнение</B><BR></font>
+Расширьте возможности программы <B>Speed</B>, включив новый пункт <B>Say Hello</B>
+в меню <B>Help</B>, чтобы при его выборе появлялась панель сообщения <B>Hello!</B>
+<P>
+
+
+<FONT SIZE=+1><B>Ответ к упражнению</B><BR></font>
+<LI> Откройте закладку <B>Resource View</B>, раскройте пункт <B>Speed View</B>, а там выбирите
+<B>Menu</B>. Выполните двойной щелчок по <B>IDR_MENU1</B>.
+<LI>В режиме проектирования меню щеклкните на заголовке <B>Help</B>, щелкните на небольшом
+прямоугольничке ниже <B>About</B>.
+<LI>Введите в поле заголовка текст <B>&Say Hello</B>.
+</UL>
+<UL TYPE="round">
+<LI> Теперь выполняем следующее:
+<LI> Убедитесь, что меню <B>IDR_MENU1</B> открыто.
+<LI> Выберете <B>ClassWizard</B> в меню <B>View</B>
+<LI> Выберете закладку <B>Message Maps</B> в панели <B>ClassWizard</B>
+<LI> Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+следующего события:<BR>
+<LEFT><B>
+Class Name: CSpeedDlg<BR>
+ Object ID: ID_HELP_SAYHELLO<BR>
+  Messages: COMMAND<BR>
+</B></LEFT>
+<LI> Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне нажмите
+кнопку <B>OK</B>.
+</UL>
+<UL TYPE="square">
+<LI> Нажмите кнопку <B>Edit Code</B> и напишите следующий код в функции
+<B>OnHelpSayhello()</B>:
+<P>
+<B>
+void CSpeedDlg::OnHelpSayhello() <BR>
+{<BR>
+	// TODO: Add your command handler code here<P>
+////Мой код начинается здесь////<P>
+		MessageBox("Hello!");<P>
+////Мой код заканчивается здесь////<P>
+}<BR>
+
+</B>
+</P>
+</UL>
+<P ALIGN="CENTER"> <FONT FACE="ARIAL" COLOR="RED" SIZE=4>Резюме</FONT></P>
+
+На этом уроке вы узнали, как включить меню в программу, основанную на диалоге.
+Вы узнали, как проектировать меню, связывать его с классом диалоговой панели, служащим главным 
+окном программы, как связать меню с диалоговой панелью и код с пунктами меню.
+
+
+<P>
+Вы закончили пятый урок!
+<P>Вернуться
+<A HREF="lesson035.htm"><B class=base2><-Назад</B></A>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>		
+</BODY>
+</HTML>

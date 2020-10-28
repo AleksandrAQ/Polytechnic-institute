@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0059)http://click.ipc.ru/~vc/html/Lessons/Lesson20/lesson010.htm -->
+<HTML><HEAD><TITLE>Клуб русских программистов!</TITLE>
+</HEAD>
+<BODY background="../../bgrwhite.gif">
+      <CENTER><B>Урок XI</B></CENTER></FONT>
+      <P>
+ Сейчас мы спроектируем нашу 
+            форму(диалоговую панель). Для этого нам понадобится 4 окоша 
+            редактирования текста, три "Check Box'a". 
+            <LI>Добавьте элементы управления согласно рис и таблице.
+            <P>
+            <P align=center><IMG src="lesson010.files/vc_main.gif"></P>
+            <DIV align=center>
+            <TABLE bgColor=#ffffbb border=1 cellPadding=0 cellSpacing=0 
+            width=440>
+              <TBODY>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Объект</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>Свойство</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>Установка</B></FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Dialog Box</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>IDD_TASK_FORM</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Font</FONT></TD>
+                <TD><FONT face=ARIAL size=2>System, Size 10, страница 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Static Text</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>IDC_STATIC</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL size=2>Task 1(50 ms).</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Edit Box</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                <TD><FONT face=ARIAL size=2><B>IDC_TASK1_EDIT</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Multi-line</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница 
+              Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Align text</FONT></TD>
+                <TD><FONT face=ARIAL size=2>по центру, страница 
+                Styles</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Check Box</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                <TD><FONT face=ARIAL 
+                  size=2><B>IDC_ENABLE_TASK1_CHECK</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL size=2>Enable Task 1</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Static Text</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>IDC_STATIC</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL size=2>Task 2(500 ms).</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Edit Box</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                <TD><FONT face=ARIAL size=2><B>IDC_TASK2_EDIT</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Multi-line</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница 
+              Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Align text</FONT></TD>
+                <TD><FONT face=ARIAL size=2>по центру, страница 
+                Styles</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Check Box</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                <TD><FONT face=ARIAL 
+                  size=2><B>IDC_ENABLE_TASK2_CHECK</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL size=2>Enable Task 2</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Edit Box</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                <TD><FONT face=ARIAL 
+              size=2><B>IDC_TEST_EDIT</B></FONT></TD></TR></TBODY></TABLE></DIV>
+            <P></P>
+            <LI>Теперь согласно другой табличке мы добавим переменные для этих 
+            элементов управления, с помощью которых мы будем изменять значение 
+            показателей в окнах редактирования и отметки флажков. 
+            <LI>С помощью <B>Class Wizard</B> добавьте следующие переменные:
+            <P>
+            <DIV align=center>
+            <TABLE bgColor=#ffffbb border=1 cellPadding=0 cellSpacing=0 
+            width="80%">
+              <TBODY>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Object ID</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>Variable Name</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>Type</B></FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2>IDC_ENABLE_TASK1_CHECK</FONT></TD>
+                <TD><FONT face=ARIAL size=2>m_EnableTask1Check</FONT></TD>
+                <TD><FONT face=ARIAL size=2>BOOL</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2>IDC_ENABLE_TASK2_CHECK</FONT></TD>
+                <TD><FONT face=ARIAL size=2>m_EnableTask2Check</FONT></TD>
+                <TD><FONT face=ARIAL size=2>BOOL</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2>IDC_TASK1_EDIT</FONT></TD>
+                <TD><FONT face=ARIAL size=2>m_Task1Edit</FONT></TD>
+                <TD><FONT face=ARIAL size=2>long</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2>IDC_TASK2_EDIT</FONT></TD>
+                <TD><FONT face=ARIAL size=2>m_Task2Edit</FONT></TD>
+                <TD><FONT face=ARIAL 
+            size=2>long</FONT></TD></TR></TBODY></TABLE></DIV>
+            <P><FONT color=red size=3><B>Инициализация флажков</B></FONT></P>
+            <LI>При запуске программы, флажки должны быть отмечены, т.к. они 
+            включают счетчик. 
+            <LI>Для этого добавим код, в функцию <B>OnInitalUpdate</B>, которая 
+            будет выполняться при инициали зации приложения. 
+            <LI>Свяжите код с событием <B>OnInitalUpdate</B> класса 
+            <B>CFormView</B> c помощью <B>ClassWizard</B>.
+            <P><B>void CTaskView::OnInitialUpdate() 
+            <BR>{<BR>CFormView::OnInitialUpdate();<BR>//Без 
+            комментариев<BR>m_EnableTask1Check=TRUE;<BR>m_EnableTask2Check=TRUE;<BR>UpdateData(FALSE);<BR>}<BR></B></P>
+            <LI>Теперь можете запустить программу и посмотреть, как она будет 
+            работать. Пока еще ничего не работет, понятно, значит надо двигаться 
+            дальше. Поехали. 
+            <LI>Добавим сейчас код выполнения фоновых задач. <div align="center"><BR><BR>Связывание 
+            элементов управления с событиями <BR><A 
+            href="lesson000.htm"><B 
+            class=base2>&lt;-Назад</B></A> | <A 
+            href="lesson020.htm"><B 
+            class=base2>Дальше-&gt;</B></A> </div>
+      </LI></FONT>
+<p><div align="center"><a href="../lesson.htm"><img src="../../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>		  
+	  </BODY></HTML>

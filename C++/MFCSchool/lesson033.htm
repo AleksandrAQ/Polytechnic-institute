@@ -1,0 +1,60 @@
+<HTML>
+<TITLE>Програмирование на Visual C++</TITLE>
+<HEAD>
+</HEAD>
+<BODY background="../bgrwhite.gif">
+
+<CENTER><B>Урок III</B></CENTER></FONT>
+<P>
+
+<P ALIGN="CENTER"> <FONT FACE="ARIAL" COLOR="BLACK" SIZE=4>Резюме и Упражнение</FONT></P>
+
+<FONT size=+1><B>Упражнение</B><BR></font>
+Сделайте так, чтобы линия, которую вы рисуете была
+шириной 5 пикселов.
+<P>
+
+
+<FONT size=+1><B>Ответ к упражнению</B><BR></font>
+Для того, чтобы выполнить упражнение вам необходимо изменить
+код функции <B>OnMouseMove</B> следующим образом:<P>
+<B>
+void CDrawDlg::OnMouseMove(UINT nFlags, CPoint point)<BR> 
+{<BR>
+	// TODO: Add your message handler code here and/or call default<BR>
+	<BR>
+////////Мой код начинается здесь///////////<P>
+	if((nFlags & MK_LBUTTON)==MK_LBUTTON)<BR>
+	{<BR>
+		CClientDC dc(this);<BR>
+	<BR>
+	// dc.SetPixel(point.x, point.y, RGB(123,211,98));<P>
+
+		CPen NewPen(PS_SOLID, <FONT COLOR="YELLOW">5</FONT>, RGB(255,0,0) ;<BR>
+		dc.SelectObject(&NewPen);<P>
+
+		dc.MoveTo(m_PrevX, m_PrevY);<BR>
+		dc.LineTo(point.x, point.y);<BR>
+		m_PrevX=point.x;<BR>
+		m_PrevY=point.y;<BR>
+	}<P>
+////////Мой код заканчивается здесь///////////<P>
+	CDialog::OnMouseMove(nFlags, point);<BR>
+}<BR>
+</B>
+
+<P ALIGN="CENTER"> <FONT FACE="ARIAL" COLOR="BLACK" SIZE=4>Резюме</FONT></P>
+Вы создали и выполнили программу <B>Draw.exe</B>, с помощью которой вы 
+можете рисовать, путем передвижения мыши, при нажатой ее левой кнопки. 
+Также вы познакомились с функцией <B>OnMouseMove</B>, которая выполняется
+при передвижении мыши, и с функцией <B>OnLButtonDown</B> - при нажатии
+на левую  кнопку мыши.
+
+
+<P>
+Вы закончили третий урок!
+<P>Вернуться
+<A HREF="lesson023.htm"><B class=base2><-Назад</B></A>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>		
+</BODY>
+</HTML>

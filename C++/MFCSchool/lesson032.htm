@@ -1,0 +1,340 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)lesson032.htm -->
+<HTML><HEAD><TITLE>Програмирование на Visual C++</TITLE>
+</HEAD>
+<BODY background="../bgrwhite.gif">
+      <CENTER><B>Урок II</B></CENTER></FONT>
+      <P>
+            <UL type=square>
+          <div align="center">    <P><FONT color=black size=+1><B>Код, инициализирующий окно 
+              редактирования </B></FONT></P></div>
+              <LI>При запуске программы, основанную на диалоге, вам нужно 
+              установить определенные значения некоторых элементов управления. 
+              Вам необходимо, чтобы флажки <B>Visible</B> и <B>Enable</B> были 
+              отмечены, иначе окна редактирования не будет видно. Для этого 
+              выполните следующие действия: </LI></UL>
+            <UL type=round>
+              <LI>Зайдите в <B>View-&gt;ClassWizard</B>,откройте закладку 
+              <B>Message Maps</B>. 
+              <LI>В <B>Message IDs</B> выберете <B>CTestDlg</B>, в 
+              <B>Messages</B> появится список событий, с которыми может быть 
+              связано диалоговое окно. Выберете там событие 
+              <B>WM_INITDIALOG</B>. Оно происходит, когда запускается программа 
+              и инициализируется диалоговое окно. 
+              <LI>Щелкнете на кнопку <B>Add Function</B>, а затем нажмите на 
+              кнопку <B>Edit Code</B>, для редактирования иходного кода. 
+</LI></UL>
+            <UL type=square>
+              <LI>Функция <B>OnInitDialog()</B> уже содержит часть кода 
+              написанного <B>VC++</B> Найдите в нем коментарий <B>// TODO: Add 
+              extra initialization here</B>, который сообщает нам, что после 
+              него мы можем добавить свой код. 
+              <LI>Напишите следующий код в функции <B>OnInitDialog()</B>: 
+              <P><B>BOOL 
+              CTestDlg::OnInitDialog()<BR>{<BR>CDialog::OnInitDialog();<BR>...<BR>...<BR>...<BR><BR>// 
+              TODO: Add extra initialization here<BR>// Добавьте свою 
+              инициализацию<BR>
+              <P>////////Мой код начинается здесь/////////// 
+              <P>//Устаноить переменную флажка VisibleCheck и EnabledCheck в 
+              состояние<BR>//TRUE<BR>m_VisibleCheck=TRUE;<BR>m_EnableCheck=TRUE;<BR>//Обновить 
+              экран<BR>UpdateData(FALSE); 
+              <P>////////Мой код заканчивается здесь/////////// 
+              <P>return TRUE; // Вернуть TRUE, если только вы не установили 
+              фокус на элемент управления <BR>}<BR></B>
+              <P></P>
+              <LI>Рассмотрим код: </LI></UL>
+            <UL type=square>
+              <LI>Первый и второй операторы, который которые вы ввели 
+              присваивают переменным <B>m_VisibleCheck</B> и 
+              <B>m_EnableCheck</B> значение <B>TRUE</B>. Это означает, что при 
+              запуске программы флажки будут отмечены. 
+              <LI>Последний оператор <B>UpdateData(FALSE)</B> обновляет экран, 
+              т.е. он обновляет значения переменных элементов управления на 
+              текущие. В нашем случае, при выполнении этого оператора текущие 
+              содержимое переменных связанных с флажками будет передано к ним. 
+              <LI>Теперь для того, чтобы посмотреть инициализирующий код в 
+              действии выполните программу. <BR>Главное окно вашей программы 
+              должно будет выглядеть так: 
+              <P align=center><IMG 
+              src="lesson032.files/vc_test_main_window.gif"></P>Флажки должны 
+              быть отмечены. </LI></UL>
+            <P><FONT color=black size=+1><B>Связывание кода с событием BN_CLICKED 
+            кнопки Exit</B></FONT></P>
+            <UL type=square>При нажатии на кнопку <B>Exit</B> программа 
+              <B>Test.Exe</B> завершится. 
+              <LI>Чтобы связать код с событием <B>BN_CLICKED</B> кнопки 
+              <B>EXIT</B>, выполните следующие действия: </LI></UL>
+            <UL type=round>
+              <LI>Выбирете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Исползуйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CTestDlg<BR>Object ID: 
+              IDC_EXIT_BUTTON<BR>Messages: BN_CLICKED<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. 
+              <LI>Сейчас ваша панель <B>MFC ClassWizard</B> должна будет 
+              выглядеть так: </ul>
+              <P align=center><IMG src="lesson032.files/vc_clwiz_exit_stat.gif"></P></LI>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnExitButton()</B>: 
+              <P><B>void CTestDlg::OnExitButton()<BR>{<BR>// TODO: Add your 
+              control notification handler code here
+              <P>////////Мой код начинается здесь///////////
+              <P>OnOK(); 
+              <P>////////Мой код заканчивается здесь///////////
+              <P>}<BR></B></P>
+              <LI>Функция <B>OnOK()</B>, которую вы ввели завершает программу, 
+              при нажатии на кнопку <B>Exit</B>. </LI></UL>
+            <P><FONT color=black size=+1><B>Связывание кода с событием BN_CLICKED 
+            кнопки Test</B></FONT></P>
+            <UL type=square>При нажатии на кнопку <B>Test</B> программа 
+              <B>Test.Exe</B> в окне редактирования напишет текст: <B>This is a 
+              Test</B> 
+              <LI>Чтобы связать код с событием <B>BN_CLICKED</B> кнопки 
+              <B>Test</B>, выполните следующие действия: </LI></UL>
+            <UL type=round>
+              <LI>Выбирете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Исползуйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CTestDlg<BR>Object ID: 
+              IDC_TEST_BUTTON<BR>Messages: BN_CLICKED<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. </LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnTestButton()</B>: 
+              <P><B>void CTestDlg::OnTestButton()<BR>{<BR>// TODO: Add your 
+              control notification handler code here
+              <P>////////Мой код начинается здесь///////////
+              <P>///Присвоить переменной окна редактирования IDC_TEST_EDIT 
+              значение This is a Test. <BR>m_TestEdit="This is a Test";<BR>//// 
+              Обновить экран UpdateData(FALSE);
+              <P>////////Мой код заканчивается здесь///////////
+              <P>} </B></P>
+              <LI>Код, который вы ввели содержит два оператора: </LI></UL>
+            <UL type=round>
+              <LI>Первый присваивает переменной <B>m_TestEdit</B> типа 
+              <B>CString</B> значение <B>This is a Test</B>. 
+              <LI>А второй оператор <B>UpdateData(FALSE);</B> обновляет экран, 
+              т.е. сообщает переменным диалогового окна текущие их значения. 
+              </LI></UL>
+            <P><FONT color=black size=+1><B>Связывание кода с событием BN_CLICKED 
+            кнопки Clear</B></FONT></P>
+            <UL type=square>При нажатии на кнопку <B>Clear</B> программа 
+              <B>Test.Exe</B> должна стирать текст из окна редактирования. 
+              <LI>Чтобы связать код с событием <B>BN_CLICKED</B> кнопки 
+              <B>Clear</B>, выполните следующие действия: </LI></UL>
+            <UL type=round>
+              <LI>Выбирете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Исползуйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CTestDlg<BR>Object ID: 
+              IDC_CLEAR_BUTTON<BR>Messages: BN_CLICKED<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. </LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnClearButton()</B>: 
+              <P><B>void CTestDlg::OnClearButton()<BR>{<BR>// TODO: Add your 
+              control notification handler code here
+              <P>////////Мой код начинается здесь///////////
+              <P>///Присвоить переменной окна редактирования IDC_TEST_EDIT 
+              значение NULL. <BR>m_TestEdit=" ";<BR>//// Обновить 
+              экран<BR>UpdateData(FALSE);
+              <P>////////Мой код заканчивается здесь///////////
+              <P>}<BR></B></P>
+              <LI>Код, который вы ввели содержит два оператора: </LI></UL>
+            <UL type=round>
+              <LI>Первый присваивает переменной <B>m_TestEdit</B> типа 
+              <B>CString</B> значение <B>NULL</B>, т.е. окно редактирования не 
+              будет содержать никакого текста. 
+              <LI>А второй оператор <B>UpdateData(FALSE);</B> обновляет экран, 
+              т.е. сообщает переменным диалогового окна текущие их значения. При 
+              выполнении этого оператора весь текст из окна редактирования 
+              удалится. </LI></UL>
+            <UL type=square>
+              <LI>Теперь сохраните свою работу, выбрав <B>Save All</B> в меню 
+              <B>File</B>. 
+              <LI>Чтобы увидеть в действии код программы выполните и запустите 
+              ее. </LI></UL>
+            <UL type=round>
+              <LI>Напишите что-нибудь в окне редактирования. 
+              <LI>Щелкните на кнопку <B>Clear</B>, вы видите что текст 
+              стирается. 
+              <LI>Теперь нажмите на кнопку <B>Test</B> в окне редактирования 
+              появится текст <B>This is a Test</B>. 
+              <LI>Если все это выполняется, значит вы совершенно правильно 
+              связали события с кнопками <B>Test</B> и <B>Clear</B>. </LI></UL>
+            <P><FONT color=black size=+1><B>Связывание кода с событием BN_CLICKED 
+            флажка Visible</B></FONT></P>
+            <UL type=square>При включении флажка <B>Visible</B> программа 
+              <B>Test.Exe</B> должна сделать окно редактирования невидимым, а 
+              при выключении - наоборот. 
+              <LI>Чтобы связать код с событием <B>BN_CLICKED</B> флажка 
+              <B>Visible</B>, выполните следующие действия: </LI></UL>
+            <UL type=round>
+              <LI>Выбирете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Исползуйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CTestDlg<BR>Object ID: 
+              IDC_VISIBLE_CHECK<BR>Messages: BN_CLICKED<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. </LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnVisibleButton()</B>: 
+              <P><B>void CTestDlg::OnVsibleCheck() <BR>{<BR>// TODO: Add your 
+              control notification handler code here
+              <P>////////Мой код начинается здесь///////////
+              <P>////Обновить значения переменных элементов 
+              управления,<BR>////(содержимое эрана передается переменным 
+              элементов управления)<BR>UpdateData(TRUE);<BR>///Если отметка 
+              флажка <B>Visible</B> зделать окно редактирования видимым<BR>///А 
+              если нет - то 
+              невидимым<BR>if(m_VisibleCheck==TRUE)<BR>GetDlgItem(IDC_TEST_EDIT)-&gt;ShowWindow(SW_SHOW);<BR>else<BR>GetDlgItem(IDC_TEST_EDIT)-&gt;ShowWindow(SW_HIDE);
+              <P>////////Мой код заканчивается здесь///////////
+              <P>}<BR></B></P>
+              <LI>Код который вы ввели содержит следующие операторы: </LI></UL>
+            <UL type=round>
+              <LI><B>UpdateData(TRUE);</B> - этот оператор обновляет значения 
+              переменных элементов управления текущими значениями, которые 
+              содержаться на экране. Т.е. при нажатии на флажок переменная может 
+              принимать два значения <B>TRUE</B> или <B>FALSE</B>, <B>TRUE</B> - 
+              это когда флажок включен, а <B>FALSE</B> - наоборот. Значит при 
+              выполнении этого оператора переменная флажка управления принимаеит 
+              текущее положение флажка и все остальные переменные обновляются 
+              значениями, которые отображаются на экране. 
+              <LI>Следующие оператор проверяет включен или выключен флажок. Если 
+              он включен, то выполняется оператор 
+              <B>GetDlgItem(IDC_TEST_EDIT)-&gt;ShowWindow(SW_SHOW);</B>, где 
+              <B>GetDlgItem(IDC_TEST_EDIT)</B> извлекает указатель на элемент 
+              управления, а функция <B>ShowWindow(SW_SHOW);</B> с параметром 
+              <B>SW_SHOW</B>, делает окно редактирования видимым. 
+              <LI>А если флажок не отмечен, то выполняется таже самая функция 
+              <B>ShowWindow();</B> с параметром <B>SW_HIDE</B>, этот параметр 
+              означает спрятать окно редактирования. </LI></UL>
+            <P><FONT color=black size=+1><B>Связывание кода с событием BN_CLICKED 
+            флажка Visible</B></FONT></P>
+            <UL type=square>При включении флажка <B>Enable</B> программа 
+              <B>Test.Exe</B> должна сделать окно редактирования доступным, а 
+              при выключении - недоступным. 
+              <LI>Чтобы связать код с событием <B>BN_CLICKED</B> флажка 
+              <B>Enable</B>, выполните следующие действия: </LI></UL>
+            <UL type=round>
+              <LI>Выбирете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Исползуйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CTestDlg<BR>Object ID: 
+              IDC_ENABLE_CHECK<BR>Messages: BN_CLICKED<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. </LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnEnableButton()</B>: 
+              <P><B>void CTestDlg::OnEnableCheck() <BR>{<BR>// TODO: Add your 
+              control notification handler code here
+              <P>////////Мой код начинается здесь///////////
+              <P>////Обновить значения переменных элементов 
+              управления,<BR>////(содержимое эрана передается переменным 
+              элементов управления)<BR>UpdateData(TRUE);<BR>///Если отметка 
+              флажка <B>Enable</B> зделать окно редактирования видимым<BR>///А 
+              если нет - то 
+              невидимым<BR>if(m_EnableCheck==TRUE)<BR>GetDlgItem(IDC_TEST_EDIT)-&gt;EnableWindow(SW_SHOW);<BR>else<BR>GetDlgItem(IDC_TEST_EDIT)-&gt;EnableWindow(SW_HIDE);
+              <P>////////Мой код заканчивается здесь///////////
+              <P>}<BR></B></P>
+              <LI>Код который вы ввели содержит следующие операторы: </LI></UL>
+            <UL type=round>
+              <LI><B>UpdateData(TRUE)</B> - обновляет переменные элементов 
+              управления текущими их значениями на экране. После выполнения 
+              этого оператора перменной <B>m_EnableCheck</B> присваивается 
+              текущее значение флажка <B>Enable</B>. 
+              <LI>Следующие операторы имееют ту же конструкцию, как и у флажка 
+              <B>Visible</B>, но только функция <B>ShowWindow</B> заменена на 
+              <B>EnableWindow()</B>, которая предназначена для того, чтобы 
+              элемент управления был недоступен или доступен. Она имеет те же 
+              параметры, что и функция <B>ShowWindow</B>. </LI></UL>
+            <P><FONT color=black size=+1><B>Связывание кода с событием EN_CHANGE 
+            окна редактирования</B></FONT></P>
+            <UL type=square>При вводе текста и его изменении в окне 
+              редактирования, возникает событие <B>EN_CHANGE</B>. В нашей 
+              программе при вводе слова <B>CALCULATOR</B> запускается 
+              калькулятор, а при вводе <B>Paint</B> - графический редактор 
+              <B>Paint</B>. 
+              <LI>Чтобы связать код с событием <B>EN_CHANGE</B> окна 
+              редактирования, выполните следующие действия: </LI></UL>
+            <UL type=round>
+              <LI>Выбирете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Исползуйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CTestDlg<BR>Object ID: 
+              IDC_TEST_EDIT<BR>Messages: EN_CHANGE<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. </LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnChangeTestEdit()</B>: 
+              <P><B>void CTestDlg::OnChangeTestEdit() <BR>{<BR>...<BR>// TODO: 
+              Add your control notification handler code here
+              <P><BR>////////Мой код начинается здесь///////////
+              <P><BR>///Обновить переменные<BR>UpdateData(TRUE);<BR>///Содать 
+              переменную типа CString, присвоить ей значение<BR>///переменной 
+              m_TestEdit и выполнить перевод символов в 
+              верхний<BR>///регистр.<BR>CString 
+              UpperValue;<BR>UpperValue=m_TestEdit;<BR>UpperValue.MakeUpper();
+              <P>///Если в окне редактирования напечатано PAINT 
+              <BR>///запускается редактор PAINT и окно редактирования становится 
+              пустым.<BR>if(UpperValue=="PAINT")<BR>{<BR>system("pbrush.exe");<BR>m_TestEdit=" 
+              ";<BR>UpdateData(FALSE);<BR>}
+              <P>///Если в окне редактирования напечатано CALCULATOR 
+              <BR>///запускается калькулятор и окно редактирования становится 
+              пустым.<BR>if(UpperValue=="CALCULATOR")<BR>{<BR>system("calc.exe");<BR>m_TestEdit=" 
+              ";<BR>UpdateData(FALSE);<BR>}
+              <P>////////Мой код заканчивается здесь///////////
+              <P>}<BR></B></P>
+              <LI>Код который вы ввели содержит следующие операторы: </LI></UL>
+            <UL type=round>
+              <LI><B>UpdateData(TRUE);</B> обновляет переменную 
+              <B>m_TestEdit</B> значением содержимого окна редактирования, при 
+              каждом его изменении, так как окно редактирования связано с 
+              событием <B>EN_CHANGE</B>. 
+              <LI>Следующий оператор <B>CString UpperValue;</B> содает новую 
+              переменную типа <B>CString</B>. 
+              <LI>Затем переменной <B>UpperValue</B> приравнивается значение 
+              переменной <B>m_TestEdit</B>, это можно сделать, так как они имеют 
+              одинаковый тип. 
+              <LI>Оператор <B>UpperValue.MakeUpper();</B> переводит все символы 
+              переменной <B>UpperValue</B> в верхний регистр. 
+              <LI>Оператор <B>if(UpperValue=="PAINT");</B> проверяет, если 
+              введено ли слово <B>PAINT</B>, то выполняются следующие три 
+              оператора: <BR>Первый <B>system("pbrush.exe");</B> запускает 
+              графический редактор, так как не указан явный путь к файлу, то 
+              программа будет искать его в каталоге <B>C:\WINDOWS</B>. 
+              <BR>Второй оператор <B>m_TestEdit="";</B> присваивает переменной 
+              окна редактирования значение <B>NULL</B>, а следующий оператор 
+              <B>UpadteData(FALSE)</B> - обновляет экран. Вследствии этого, весь 
+              текст из окна редактирования удалится. 
+              <LI>Заметьте, что мы перевели символы переменной <B>UpperValue</B> 
+              в верхний регистр - это нужно потому, что в языке <B>С++</B> 
+              символы нижнего и верхнего регистра имеют разные значения, поэтому 
+              при переводе на верхний регистр, мы <B>100%</B> будем уверены, что 
+              написанное нами слово <B>PaInT</B> совпадет с <B>PAINT</B>. 
+              <LI>Следующая конструкция операторов полностью идеинтична 
+              предыдущей, только проверяется равно ли значение переменной 
+              <B>m_TestEdit</B> слову <B>CALCULATOR</B>, если да, то запускается 
+              калькулятор, и окно редактирования очищается. </LI></UL>
+            <P>Вы закончили связывание событий с элементами управления 
+            <P><div align="center">Резюме и упражнение <br><A 
+            href="lesson022.htm"><B 
+            class=base2>&lt;-Назад</B></A> || <A 
+            href="lesson042.htm"><B 
+            class=base2>Дальше -&gt;</B></A> </div>
+      </P></FONT>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>			  
+	  </BODY></HTML>

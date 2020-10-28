@@ -1,0 +1,135 @@
+<HTML>
+<TITLE>Програмирование на Visual C++</TITLE>
+
+<HEAD>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../styles.css" TITLE="Style">
+</HEAD>
+<BODY background="../bgrwhite.gif">
+<CENTER><B>Урок VII</B></CENTER></FONT>
+<P>
+
+<P ALIGN="CENTER"> <FONT FACE="ARIAL" COLOR="BLACK" SIZE=4>Резюме и Упражнение</FONT></P>
+
+<FONT SIZE=+1 COLOR="RED"><B>Упражнения</B><BR></font>
+1)Модифицируйте функцию <B>OnPaint()</B> таким образом, чтобы 
+цвет круга можно было выбирать с помощью диалоговой панели
+<B>IDD_CUSTOM_DIALOG</B>.<BR>
+2) Добавьте такой код в программу, чтобы, после выбора цвета в диалоговой панели 
+<B>IDD_CUSTOM_DIALOG</B>, он менялся до того, как вы нажмете на кнопку <B>OK</B>.
+<P>
+
+
+<FONT SIZE=+1 COLOR="RED"><B>Ответ к упражнениям</B><BR></font>
+<UL TYPE="round">
+<LI>I.
+<LI>Модифицируйте код в функции <B>OnPaint()</B> следующим образом:<BR>
+<B>
+void CGraphDlg::OnPaint() <BR>
+{<BR>
+	if (IsIconic())<BR>
+	{<BR>
+//....<BR>
+	}<BR>
+		else<BR>
+	{<P>
+
+////Мой код начинается здесь////<P>
+
+//		OnDrawgraphicsButton();<P>
+
+	///Создать объект контекста устройства(DC)<BR>
+	CPaintDC dc(this);<P>
+
+	//Создать новое перо<BR>
+	CPen MyNewPen;<BR>
+	//MyNewPen.CreatePen(PS_SOLID, 10, RGB(255,0,0));<P>
+
+ 	switch(m_dlg.m_RedRadio)<BR>
+	{<BR>
+	case 0:<BR>
+		MyNewPen.CreatePen(PS_SOLID, 10, RGB(255,0,0));<BR>
+		break;<BR>
+	case 1:<BR>
+ 		MyNewPen.CreatePen(PS_SOLID, 10, RGB(0,255,0));<BR>
+		break;<BR>
+	case 2:<BR>
+		MyNewPen.CreatePen(PS_SOLID, 10, RGB(0,0,255));<BR>
+		break;<BR>
+	}<BR>
+
+	//Выбрать перо<BR>
+	CPen* pOriginalPen;<BR>
+	pOriginalPen=dc.SelectObject(&MyNewPen);<BR>
+//	CRect MyRectangle(20, 10, 120,110);<P>
+        CRect MyRectangle(20, 10, 20+m_Radius*2,10+m_Radius*2);<P>
+
+	//Нарисовать круг<BR>
+	dc.Ellipse(&MyRectangle);<P>
+
+	//Выбрать первоначальное перо<BR>
+	dc.SelectObject(pOriginalPen);<P>
+
+////Мой код заканчивается здесь////<P>
+//...<BR>
+	}<BR>
+}<BR>
+
+</B>
+<LI> Созданная конструкция <B>switch</B> осуществляет выбор значний 
+переменной <B>m_RedRadio</B>. Если ее значение равно 0, 1 или 2, то 
+формируется перо с цветом соответствующим этим значениям.1- красный цвет,
+2- зеленый, 3- голубой.
+</UL>
+
+<UL TYPE="square">
+<LI>II.
+<LI> Чтобы модифицировать программу <B>Graph</B> так, чтобы при выборе цветов,
+они менялись сразу же, а не после нажатия на кнопку <B>OK</B>, выполните следующие действия:
+</UL>
+<UL TYPE="round">
+<LI> Выберете <B>ClassWizard</B> в меню <B>View</B>
+<LI> Выберете закладку <B>Message Maps</B> в панели <B>ClassWizard</B>
+<LI> Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+следующего события:<BR>
+<LEFT><B>
+Class Name: CGraphDlg<BR>
+ Object ID: IDC_RED_RADIO<BR>
+  Messages: BN_CLICKED<BR>
+</B></LEFT>
+<LI> Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне нажмите
+кнопку <B>OK</B>.
+</UL>
+<UL TYPE="square">
+<LI> Нажмите кнопку <B>Edit Code</B> и напишите следующий код в функции
+<B>OnRedRadio()</B>:
+<P>
+<B>
+void CSetDlg::OnRedRadio() <BR>
+{<BR>
+	// TODO: Add your control notification handler code here<P>
+
+////Мой код начинается здесь////<P>
+	UpdateData(TRUE);<P>
+////Мой код заканчивается здесь////<P>
+}<BR>
+</B>
+<LI>Таким образом при выборе радиокнопки <B>RED</B> переменная <B>m_RedRadio</B>
+обновляется текущим значением, и цвет круга соответственно меняется, если он 
+не был до этого красным.
+<LI>Аналогичным же образом свяжите другие радиокнопки (GREEN и BLUE).
+</UL>
+<P ALIGN="CENTER"> <FONT FACE="ARIAL" COLOR="RED" SIZE=4>Резюме</FONT></P>
+
+В этой главе показано, как создаются рисующие программы. Вы узнали о событии 
+<B>WM_PAINT</B> и научились связывать код, рисующий графику, с функцией 
+<B>OnPaint</B>. Были использованы различные графические функции. Вы также 
+научились устанавливать таймер и связывать код с событием <B>WM_TIMER</B>,
+которое генерируется автоматически.
+
+<P>
+Вы закончили седьмой урок!
+<P>Вернуться
+<A HREF="lesson037.htm"><B class=base2><-Назад</B></A>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>		
+</BODY>
+</HTML>

@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)lesson029.htm -->
+<HTML><HEAD><TITLE>Програмирование на Visual C++</TITLE>
+</HEAD>
+<BODY background="../bgrwhite.gif">
+
+      <CENTER><B>Урок IX</B></CENTER></FONT>
+      <P>
+      <P align=center><FONT color=black face=ARIAL size=4>Проектирование 
+      диалоговой панели</FONT></P>
+            <P><FONT color=red size=+1><B>Связывание кода с событием BN_CLICKED 
+            кнопки Clear</B></FONT></P>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: 
+              CPaintORamaDlg<BR>Object ID: IDC_DEALCARDS<BR>Messages: 
+              BN_CLICKED<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне, 
+              введите название функции: <B>Deal Cards</B> нажмите кнопку 
+              <B>OK</B>. </LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnDealcards</B>: 
+              <P><B>void CFourUpDlg::OnDealcards() <BR>{<BR>//Отнять два доллара 
+              при сдаче карт<BR>m_Amt_Remaining-=2.00;
+              <P>//Сдать карты<BR>DealCards();
+              <P>//Подсчитать выйгрыш<BR>CalculateWinnings();
+              <P>//Изменить заголовок элемента Group Box<BR>CString 
+              s;<BR>s.Format("Amount Remaining $ %.2f", 
+              m_Amt_Remaining);<BR>m_Amt_Left.SetWindowText(s);<BR>}<BR></B></P>
+              <LI>Вначала вы отнимаете два доллара за сдачу карт. 
+              <LI>Потом вы сдаете карты, сейчас мы напишем эту функцию. 
+              <LI>Затем вы подсчитываете выйгрыш, эту функцию мы тоже сейчас 
+              напишем. 
+              <LI>Последними операторами мы формируем строку с выйрышем, и 
+              меняем заголовок элемента <B>IDC_AMT_LEFT</B>. 
+              <LI>Добавьте сейчас переменную <B>m_Cards[5]</B> c типом 
+              <B>int</B>, которая будет хранить значение выпавших карт одной 
+              масти для каждой масти. 
+              <LI>Добавим сейчас функцию <B>DealCards</B> в класс 
+              <B>CFourUpDlg</B> с типом <B>void</B>. И напишем в ней следующий 
+              код:
+              <P><B>void CFourUpDlg::DealCards()<BR>{
+              <P>//Обнуляем заначение выпавших карт одной масти<BR>for(int i=0; 
+              i&lt;4;i++)m_Cards[i]=0;
+              <P>//Меняем иконку в элементах управления 
+              иконками<BR>m_Card1.SetIcon(PickRandomCard());<BR>m_Card2.SetIcon(PickRandomCard());<BR>m_Card3.SetIcon(PickRandomCard());<BR>m_Card4.SetIcon(PickRandomCard());<BR>}
+              <P></B></P>
+              <LI>Вначале вы обнуляете значение выпавших карт одной масти для 
+              каждой масти, т.к. мы будем здавать карты и их значения будут 
+              меняться или не будут. 
+              <LI>Потом вы меняете иконки случайно выбранным способом, с помощью 
+              функции <B>PickRandomCard()</B>, она будет возращать указатель на 
+              иконку, и с помощью него мы будем менять иконку, используя для 
+              этого переменную управления элементом <B>m_CardX</B> и функцию 
+              <B>SetIcon</B>, которая принимает параметр <B>HICON</B> - 
+              указатель на иконку. 
+              <LI>Добавьте функцию <B>PickRandomCard()</B> с типом 
+              <B>HICON&amp;</B> в класс <B>CFoutUpDlg</B>. Значок <B>&amp;</B> 
+              говорит, что нам нужен адрес объекта, а не сам объект. 
+              <LI>Напишите следующий код в функции <B>PickRandomCard()</B>: 
+              <P><B>HICON&amp; 
+              CFourUpDlg::PickRandomCard()<BR>{<BR><BR>//Выбрать номер карты 
+              случайным образом<BR>int num=(rand()%4);<BR>/*Проссумировать 
+              кол-во выпавших карт одной масти*/<BR>m_Cards[num]++;
+              <P>/*В зависимости от выпавшего номера вернуть адрес 
+              иконки*/<BR>switch(num)<BR>{<BR>case 0: return m_Club;<BR>case 1: 
+              return m_Diamond;<BR>case 2: return m_Heart;<BR>}<BR>return 
+              m_Spade;<BR>}<BR></B></P>
+              <LI>Вначале вы выбираете случайным образом номер карты от 0 до 3, 
+              суммируете кол-во выпаших карт одной масти, и в зависимости от 
+              номера карты возращаете адрес карты. 
+              <LI>Заметьте, что мы не выбираем 3 номер в конструкции оператора 
+              <B>switch</B>, т.к. он если он выпадет, то просто вернеться адрес 
+              в последней строчке. 
+              <LI>Теперь напишем фукцию подсчета выйгрыша. 
+              <LI>Добавьте функцию <B>CalculateWinnings()</B> в класс 
+              <B>CFourUpDlg</B> c типом <B>void</B>: 
+              <LI>Напишите в ней следующий код:
+              <P><B>void CFourUpDlg::CalculateWinnings()<BR>{<BR>int 
+              pairs=0;<BR>for(int i=0; i&lt;4; 
+              i++)<BR>{<BR>if(m_Cards[i]==2)<BR>{<BR>if(pairs&gt;0)<BR>{<BR>m_Amt_Remaining+=3.00;<BR>break;<BR>}<BR>else<BR>{<BR>pairs++;<BR>}<BR>}<BR>else 
+              if(m_Cards[i]==3)<BR>{<BR>m_Amt_Remaining+=6.00;<BR>break;<BR><BR>}<BR>else 
+              if 
+              (m_Cards[i]==4)<BR>{<BR>m_Amt_Remaining+=9.00;<BR>break;<BR>}<BR>}<BR>}<BR></B></P>
+              <LI>Читателю предоставляется редкая возможность рахобраться в этом 
+              коде:) 
+              <LI>Теперь связать кнопку <B>Cah Outs</B> событием 
+              <B>BN_CLICKED</B>. 
+              <LI>Выполните это с помощью <B>ClassWizard</B>. 
+              <LI>И добавьте следующий код в функцию <B>OnCancel()</B>:
+              <P><B>void CFourUpDlg::OnCancel() <BR>{
+              <P>///-Ваш код начинается здесь-///
+              <P>CString s;<BR>//Добавить в сторку размер 
+              выйгрыша<BR>s.Format("Good game! I have $ 
+              %.2f.",m_Amt_Remaining);<BR>//Выдать окно сообщения 
+              <BR>MessageBox(s,"Thank you for game in FourUp!");
+              <P>///-Ваш код заканчивается здесь-///
+              <P><BR>CDialog::OnCancel();<BR>}<BR></B></P>
+              <LI>Этот код выводит окно сообщения с кол-вом вашего выйгрыша. 
+              <LI>Запустите программу попробуйте поиграть и выйграть 
+              что-нибудь:) 
+              <LI>Вот и все, такая небольшая программа, но кое-что она все-равно 
+              дает! </LI></UL>Удачи! 
+            <P><div align="center"><BR><BR>Связывание элементов управления с событиями <A 
+            href="lesson019.htm"><br><B 
+            class=base2>&lt;-Назад</B></A> </div>
+    </P></FONT>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>			
+	</BODY></HTML>

@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)lesson011.htm -->
+<HTML><HEAD><TITLE>Програмирование на Visual C++</TITLE>
+</HEAD>
+<BODY background="../bgrwhite.gif">
+      <CENTER><B>Урок I</B></CENTER></FONT>
+      <P>
+      <P align=center><FONT color=black face=ARIAL size=4>Проектирование 
+      диалоговой панели</FONT></P>
+Сейчас мы визуально 
+            спроектируем диалоговую панель. Для этого вначале выбирете закладку 
+            <B>"Resourse View"</B> и раскройте пункт <B>Hello Resource</B>, как 
+            показано на рис. 1.5. 
+            <P align=center><IMG 
+            src="lesson011.files/vc_resourceview_hello_dlg.gif"></P>Здесь вы 
+            видите две записи: <BR><B>1) IDD_ABOUTBOX <BR>2) 
+            IDD_HELLO_DIALOG</B><BR>1) - это название диалоговой панели 
+            <B>ABOUT</B>, а 2)- название гланой диалоговой панели. Выполните 
+            щелчок по второй строчке(2) и справа появится, диалоговая панель. В 
+            этом режиме вы можете ее редактировать (см. рис. 1.6). 
+            <P align=center><IMG src="lesson011.files/vc_resource_dlg_edit.gif"></P>Удалите из диалоговой панели текст: "TODO:.." и две 
+            кнопки, для этого щелкните на эти элементы и нажмите DEL. Теперь у 
+            вас чистая панель и вы можете спроектировать ее на свой вкус. 
+            <P>Cправа от диалоговой панели находятся элементы управления(если вы 
+            их не видите, то зайдите в TOOLS-&gt;CUSTOMIZE, в закладке TOOLBARS, 
+            CONTROLS - поставьте влажок). Вы можете редактировать панель в 
+            полном экране, для этого зайдите в VIEW-&gt;FULLSCREEN.<BR>Сейчас вы 
+            выберети в элементах управления Button, 
+            <P align=center><IMG 
+            src="lesson011.files/vc_resource_controls.gif"></P>и щелкните мышкой 
+            на диалоговую панель, которая должна выглядет, как показано на рис. 
+            1.6 . 
+            <P align=center><IMG 
+            src="lesson011.files/vc_resource_dlg_hello_button.gif"></P>Теперь 
+            выделите кнопку мышкой, для этого нажмите на нее и отбуксируйте 
+            маркеры, чтобы кнопка стала такой же, как на рис 1.6. После этого 
+            опять выделите кнопку левым щелчком мыши, затем нажмите правую 
+            кнопку и в расрывшемся меню выбирете 
+            Properties(настройки).<BR>Выведется такая диалоговая панель (рис 
+            1.7). 
+            <P align=center><IMG             src="lesson011.files/vc_resource_dlg_hellobutton_properties.gif"></P>Вместо 
+            текста IDC_BUTTON1 введите IDC_SAYHELLO_BUTTON, вы задали 
+            итендификатор, по которому VC будет распознавать элелемент. В строке 
+            Captions(надпись), введите название кнопки Say Hello.<BR>Вставьте 
+            теперь еще одну кнопку такого же размера, c ID - IDC_EXIT_BUTTON и 
+            Captions(надпись) Exit. Ваша диалоговая панель должна выглядеть, как 
+            показано на рис. 1.8 
+            <P align=center><IMG             src="lesson011.files/vc_resource_dlghello_all.gif"></P>Поздравляю, 
+            вы закончили визуальное проектирование диалоговой панели!<BR>Отныне 
+            все свойства диалогового окна будут задавать таблицей, где будут 
+            указываться свойства элементов диалога. К примеру для этого диалога, 
+            таблица будет выглядеть так: 
+            <P>
+            <TABLE bgColor=#ffffbb border=1 cellPadding=0 cellSpacing=0 
+            width=400>
+              <TBODY>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Объект</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>Свойство</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>Установка</B></FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Dialog Box</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                <TD><FONT face=ARIAL 
+              size=2><B>IDD_MYMSG_DIALOG</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL size=2>The SayHello Program</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Push Button</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                <TD><FONT face=ARIAL 
+                size=2><B>IDC_SAYHELLO_BUTTON</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL size=2>SayHello</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Push Button</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                <TD><FONT face=ARIAL 
+size=2><B>IDC_EXIT_BUTTON</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL 
+            size=2>Exit</FONT></TD></TR></TBODY></TABLE><BR><div align="center"><BR>Связывание 
+            элементов управления с событиями <br><A 
+            href="lesson001.htm"><B 
+            class=base2>&lt;-Назад</B></A> || <A 
+            href="lesson021.htm"><B 
+            class=base2>Дальше -&gt;</B></A> </div>
+      </P></FONT>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>			  
+	  </BODY></HTML>

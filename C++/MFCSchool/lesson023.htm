@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)lesson023.htm -->
+<HTML><HEAD><TITLE>Програмирование на Visual C++</TITLE>
+</HEAD>
+<BODY background="../bgrwhite.gif">
+
+      <CENTER><B>Урок III</B></CENTER></FONT>
+      <P>
+      <P align=center><FONT color=black face=ARIAL size=4>Связывание событий с 
+      элементами управления</FONT></P>
+            <UL type=square>
+              <P><FONT color=black size=+1><B>Связывание кода с событием 
+              BN_CLICKED кнопки Exit</B></FONT></P>При нажатии на кнопку 
+              <B>Exit</B> программа <B>Draw.Exe</B> завершится. 
+              <LI>Чтобы связать код с событием <B>BN_CLICKED</B> кнопки 
+              <B>EXIT</B>, выполните следующие действия: </LI></UL>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CDrawDlg<BR>Object ID: 
+              IDC_EXIT_BUTTON<BR>Messages: BN_CLICKED<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. 
+              <LI>Сейчас ваша панель <B>MFC ClassWizard</B> должна будет 
+              выглядеть так: </LI></UL>
+              <P align=center><IMG src="lesson023.files/vc_clwiz_exit_stat.gif"></P>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnExitButton()</B>: 
+              <P><B>void CDrawDlg::OnExitButton()<BR>{<BR>// TODO: Add your 
+              control notification handler code here
+              <P>////////Мой код начинается здесь///////////
+              <P>OnOK(); 
+              <P>////////Мой код заканчивается здесь///////////
+              <P>}<BR></B></P>
+              <LI>Функция <B>OnOK()</B>, которую вы ввели завершает программу, 
+              при нажатии на кнопку <B>Exit</B>. </LI></UL>
+            <P><FONT color=black size=+1><B>Связывание кода с событием 
+            WM_MOUSEMOVE диалоговой панели</B></FONT></P>
+            <UL type=square>Сечас мы свяжем код с событием 
+              <B>WM_MOUSEMOVE</B>, которое будет автоматически выполняться при 
+              передвижении мыши. 
+              <LI>Чтобы связать код с событием <B>WM_MOUSEMOVE</B> диалоговой 
+              панели, выполните следующие действия: </LI></UL>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CDrawDlg<BR>Object ID: 
+              CDrawDlg<BR>Messages: WM_MOUSEMOVE<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B>. </LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnMouseMove()</B>: 
+              <P><B>void CDrawDlg::OnMouseMove(UINT nFlags, CPoint point) 
+              <BR>{<BR>// TODO: Add your message handler code here and/or call 
+              default<BR>////////Мой код начинается здесь///////////
+              <P>if( (nFlags &amp; MK_LBUTTON)==MK_LBUTTON )<BR>{<BR>CClientDC 
+              dc(this);<BR>dc.SetPixel(point.x, point.y, 
+              RGB(0,0,0));<BR>}<BR>//конец структуры <B>IF</B>
+              <P>////////Мой код заканчивается здесь///////////
+              <P>///....<BR></B></P>
+              <LI>Код который вы ввели содержит единственный оператор <B>IF</B>: 
+              </LI></UL>
+            <UL type=round>
+              <LI>Оператор <B>IF</B> содержит в себе функции, которые будут 
+              выполняться, если условие оператора <B>IF</B> верно. Условие 
+              таково, если левая кнопка мыши нажата и произошло перемещение, то 
+              функции внутри оператора <B>IF</B> выполняются. 
+              <LI>Функция <B>OnMouseMove</B> выполняется при любом передвижении 
+              мыши, ее параметр <B>nFlags</B> показывает была ли нажата 
+              какая-нибудь клавиша клавиатуры( типа <B>ALT</B> или <B>Shift</B>) 
+              и кнопка мыши. Операция <B>&amp;</B> проверяет прижата ли левая 
+              кнопка мыши при ее перемещении. Если это так, то выполняется код 
+              ниже оператора <B>IF</B>. 
+              <LI>Код в блоке оператора <B>IF</B> <B>CClientDC dc(this);</B> 
+              создает объект контексного устройства, c помощью него вы сможете 
+              рисовать, его можно назвать воображаемым экраном в памяти 
+              компьютера. Научно говоря, <B>dc(this)</B> - это экземпляр класса 
+              <B>CClientDC</B> c параметром конструктора <B>this</B>, с помощью 
+              экземпляра класса вы можете обращаться к функциям этого класса. 
+              <LI>Следующий оператор, который вы напечатали рисует точку в 
+              заданном месте (место щелчка мыши), используя параметры 
+              <B>point.x</B> и <B>point.y</B>, которые ему передает функция 
+              <B>OnMouseMove</B>, и заданного цвета, с помощью функции 
+              <B>RGB();</B>.<BR>Сейчас у нас установлен черный цвет, чтобы 
+              установить красный, синий или зеленый, надо заменить параметры 
+              функции <B>RGB()</B> соответственно на <B>255,0,0</B>, 
+              <B>0,255,0</B>, <B>0,0,255</B>. </LI></UL>
+            <P><FONT color=black size=+1><B>Рисование изображения точка за 
+            точкой</B></FONT></P>
+            <UL type=square>Чтобы увидеть в действии свой код, выполните 
+              следующие действия: 
+              <LI>Скомпонуйте и скомпилируйте программу. 
+              <LI>Запустите ее. 
+              <LI>Удерживая нажатой левую кнопку мыши, претащите ее в сторону. 
+              <BR></LI></UL>
+            <UL type=round>
+              <LI>Вы видите, что точки рисуются не слитно друг с другом, это 
+              происходит по тому, что <B>WINDOWS</B> должен выполнять и другие 
+              задачи и не может полностью следить за <B>Draw</B>. Поэтому мы 
+              модифицируем нашу программу, так чтобы эти точки соединялись 
+              линиями. 
+              <LI>При выполнении функции <B>OnMouseMove</B> параметр 
+              <B>point</B> передает положение курсора во время последней 
+              проверки его положения. </LI></UL>
+            <P><FONT color=black size=+1><B>Расширение возможностей программы 
+            DRAW</B></FONT></P>
+            <UL type=square>Сейчас вы расширите возможности программы 
+              <B>Draw</B>. Вы сделаете так, чтобы при передвижении мыши, 
+              рисовалась сплошная линия. 
+              <LI>Модифицируем программу следующим образом. </LI></UL>
+            <UL type=round>
+              <LI>Чтобы соединить точки линией функция <B>OnMouseMove</B> должна 
+              знать предыдущие координаты мыши, для этого нам нужно объявить две 
+              переменные <B>m_PrevX</B> и <B>m_PrevY</B>, для хранения координат 
+              по <B>X</B> и <B>Y</B>. 
+              <LI>Выведем на экран файл <B>DrawDlg.h</B>, для этого откроем 
+              <B>Project Workspace</B>, щеклнем на закладке <B>File View</B> и 
+              выполним двойной щелчек на пункте <B>DrawDlg.h</B>. 
+              <LI>Включите объявления переменных <B>m_PrevX</B> и <B>m_PrevY</B> 
+              следующим образом:
+              <P><B>// DrawDlg.h : header 
+              file<BR>//<BR>////////////////////////////////////////////////////<BR>// 
+              CDrawDlg dialog<BR><BR>class CDrawDlg : public CDialog<BR>{<BR>// 
+              Construction<BR>public:<BR>CDrawDlg(CWnd* pParent = NULL); // 
+              standard constructor
+              <P>////////Мой код начинается здесь///////////
+              <P>int m_PrevX;<BR>int m_PrevY;
+              <P>////////Мой код заканчивается здесь///////////
+              <P>//....<BR>//....<BR>}<BR></B><BR></P>
+              <LI>Вы объявили две переменные целого типа для хранения предыдущих 
+              координат мыши. Заметьте, что вы их включили после слова 
+              <B>public:</B> - это означает, что эти переменные доступны всем 
+              функциям класса. </LI></UL>
+            <P>
+            <UL type=square>
+              <LI>Теперь модифицируем функцию <B>OnMouseMove</B> в файле 
+              <B>DrawDlg.cpp</B>
+              <P><B>void CDrawDlg::OnMouseMove(UINT nFlags, CPoint 
+              point)<BR>{<BR>// TODO: Add your message handler code here and/or 
+              call default<BR><BR>////////Мой код начинается здесь///////////
+              <P>if((nFlags &amp; MK_LBUTTON)==MK_LBUTTON)<BR>{<BR>CClientDC 
+              dc(this);<BR><BR>// dc.SetPixel(point.x, point.y, 
+RGB(123,211,98));
+              <P>CPen NewPen(PS_SOLID, 10, RGB(255,0,0) 
+              ;<BR>dc.SelectObject(&amp;NewPen);
+              <P>dc.MoveTo(m_PrevX, m_PrevY);<BR>dc.LineTo(point.x, 
+              point.y);<BR>m_PrevX=point.x;<BR>m_PrevY=point.y;<BR>}
+              <P>////////Мой код заканчивается здесь///////////
+              <P>CDialog::OnMouseMove(nFlags, point);<BR>}<BR></B></P></LI></UL>
+            <P>
+            <UL type=square>
+              <LI>Рассмотрим код приведенный выше: </LI></UL>
+            <UL type=round>
+              <LI>Код вызова функции <B>SetPixel()</B>, помещен в коментарий, 
+              так как он нам больше не понадобиться. 
+              <LI>Следующий код <B>CPen NewPen(PS_SOLID, 10, RGB(255,0,0) )</B> 
+              создает новое перо с именем <B>NewPen</B> класса <B>CPen</B> c 
+              заданным размером шрифта 10 пикселов и красным цветом. Параметр 
+              <B>PC_SOLID</B> говорит, что будет рисоваться сплошная линия. 
+              <LI>После этого выполняется функция <B>SelectObject</B>, 
+              выбирающая новое перо:
+              <P>
+              <CENTER><B>dc.SelectObject(&amp;NewPen);</B>
+              <P></CENTER>Этой функцией вы включаете перо в работу. </P>
+              <LI>Следующие два оператора:
+              <P><B>
+              <CENTER>dc.MoveTo(m_PrevX, m_PrevY);<BR>dc.LineTo(point.x, 
+              point.y);
+              <P></CENTER></B>рисуют линию, используя координаты начала(это 
+              определяет функция <B>MoveTo()</B>) и координат конца 
+              (<B>LineTo</B>). </P>
+              <LI>И последнии два оператора: <B>
+              <CENTER>
+              <P>m_PrevX=point.x;<BR>m_PrevY=point.y;
+              <P></CENTER></B>сохраняют в переменных <B>m_PrevX</B> и 
+              <B>m_PrevY</B>, текущие координаты, которые в следующий раз будут 
+              использоваться, как предыдущие(начальная позиция). </P></LI></UL>
+            <P>
+            <UL type=square>
+              <LI>Теперь запустите программу и проверьте правильность ее работы. 
+
+              <LI>Вы должны заметить, что при первом нажатии на кнопку мышки в 
+              любой области диалоговой панели, есть лишняя линия, которая 
+              выходит из краев окна. Дело в том, что вы при первом рисовании 
+              линии, т.е после первого щелчка мыши и ее передвижении, начальные 
+              координаты не определены, а будут известны только текущие. 
+              <LI>Это выглядит примерно так:</UL>
+              <P>
+              <P align=center><IMG 
+              src="lesson023.files/vc_draw_program_error.gif"></P>
+              <LI>Для решения этой проблемы вы должны связать код событием 
+<UL type=round><B>WM_LBUTTONDOWN</B>, которое происходит при нажатии на левую  кнопку мыши. </LI><BR></UL>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CDrawDlg<BR>Object ID: 
+              CDrawDlg<BR>Messages: WM_LBUTTONDOWN<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B>. 
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnLButtonDown()</B>: 
+              <P><B>void CDrawDlg::OnLButtonDown(UINT nFlags, CPoint point) 
+              <BR>{<BR>// TODO: Add your message handler code here and/or call 
+              default
+              <P>////////Мой код начинается здесь///////////
+              <P>m_PrevX=point.x;<BR>m_PrevY=point.y;
+              <P>////////Мой код заканчивается здесь///////////
+              <P>....<BR>}<BR></B>
+              <P></P>
+              <LI>Код, который вы напечатали, обновляет значения переменных 
+              <B>m_PrevX</B> и <B>m_PrevY</B>, тем местоположением мыши, где был 
+              совершен щелчек по ее левой кнопке, соответственно при первом и 
+              последующих нажатиях кнопки, линия будет начинаться из данной 
+              точки нажатия. 
+              <P></P>
+              <LI>Поэксперементируйте с программой <B>Draw</B> и щелкните на 
+              кнопку <B>Exit</B> для ее прекращения. </LI></UL>
+            <P>Вы закончили связывание событий с элементами управления 
+            <P><div align="center">Резюме и упражнение<br> <A 
+            href="lesson013.htm"><B 
+            class=base2>&lt;-Назад</B></A> || <A 
+            href="lesson033.htm"><B 
+            class=base2>Дальше -&gt;</B></A> </div>
+      </P></FONT>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>			  
+	  </BODY></HTML>

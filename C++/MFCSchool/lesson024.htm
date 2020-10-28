@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)http://click.ipc.ru/~vc/html/Lessons/lesson024.htm -->
+<HTML><HEAD><TITLE>Програмирование на Visual C++</TITLE>
+</HEAD>
+<BODY background="../bgrwhite.gif">
+      <CENTER><B>Урок IV</B></CENTER></FONT>
+      <P>
+      <P align=center><FONT color=black face=ARIAL size=4>Связывание событий с 
+      элементами управления</FONT></P>
+            <UL type=square>
+              <P><FONT color=black size=+1><B>Связывание кода с событием 
+              WM_KEYDOWN клавиатуры</B></FONT></P>При нажатии на клавишу будет 
+              появляться окно сообщения, которое будет показывать ее флаг. 
+              <LI>Чтобы связать код с событием <B>WM_KEYDOWN</B>, выполните 
+              следующие действия: </LI></UL>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CMyKeyDlg<BR>Object 
+              ID: CMyKeyDlg<BR>Messages: WM_KEYDOWN<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. 
+              <LI>Сейчас ваша панель <B>MFC ClassWizard</B> должна будет 
+              выглядеть так: </LI></UL>
+              <P align=center><IMG src="lesson024.files/vc_clwiz_wmkey_maps.gif"></P>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnKeyDown()</B>: 
+              <P><B>void CMyKeyDlg::OnKeyDown(UINT nChar, UINT nRepCnt, UINT 
+              nFlags) <BR>{<BR>// TODO: Add your message handler code here 
+              and/or call default
+              <P>////Мой код начинается здесь////
+              <P>char strnChar[10];<BR>char strnRepCnt[10];<BR>char 
+              strnFlags[10];<BR><BR>CString strKeyPressed;<BR><BR>itoa(nChar, 
+              strnChar, 10);<BR>itoa(nRepCnt, strnRepCnt,10);<BR>itoa(nFlags, 
+              strnFlags, 10);<BR><BR>strKeyPressed=(CString)"You pressed the 
+              key: "+<BR>"\n"+"nChar="+ 
+              <BR>strnChar+<BR>"\n"+"<BR>nReptCnt="+<BR>strnRepCnt+<BR>"\n"+<BR>"nFlags="+<BR>strnFlags;<BR>MessageBox(strKeyPressed);
+              <P>////Мой код заканчивается здесь////
+              <P>CDialog::OnKeyDown(nChar, nRepCnt, 
+              nFlags);<BR>}<BR></B></P></LI></UL>
+            <UL type=Round>
+              <LI>Взгляните на параметры функции <B>OnKeyDown</B>:
+              <P>
+              <CENTER><B>(UINT nChar, UINT nRepCnt, UINT 
+nFlags)</B></CENTER><BR>
+              <LI>Первым параметром является <B>nChar</B>, который показывает 
+              код нажатой клавиши. 
+              <LI>Вторым параметром является <B>nRepCnt</B>, представляет число 
+              повторных нажатий на клавишу. Например, если вы долго удерживаете 
+              клавишу <B>B</B>, то этот параметр сохранит кол-во нажатий на эту 
+              клавишу. 
+              <LI>Третий параметр - <B>nFlags</B> представляет число нажатой 
+              специальной клавишы(такие как ALT, SHIFT). </LI></UL>
+            <UL type=square>
+              <LI>Код, который вы ввели объявляет три строки:
+              <P><B>char strnChar[10];<BR>char strnRepCnt[10];<BR>char 
+              strnFlags[10];
+              <P></B>Они будут хранить значения переменных <B>nChar, nRepCnt, 
+              nFlags</B> соответственно. </P>
+              <LI>Затем вы объявили переменную <B>strKeyPressed</B> типа 
+              <B>CString</B>.<BR><B>CString strKeyPressed;</B><BR>Затем, в конце 
+              программы, вы присваиваете этой переменной значение строки, 
+              которая будет выведена в собщении. 
+              <LI>После этого, с помощью оператора <B>itoa</B> вы присваивате 
+              переменным <B>strnChar, strnRepCnt, strnFlags</B> числовые 
+              значения соответсвующих переменных. Функция <B>itoa</B> переводит 
+              число в текстовую строку.<BR>Рассмотрим следующие три строки:
+              <P><B>itoa(nChar, strnChar, 10);<BR>itoa(nRepCnt, 
+              strnRepCnt,10);<BR>itoa(nFlags, strnFlags, 10);
+              <P></B></P>
+              <LI>Первым аргументом функции <B>itoa</B>, является чисовая 
+              переменная, которую надо перевести. 
+              <LI>Вторым аргументом является переменная типа <B>char</B>, в нее 
+              будет записываться число. 
+              <LI>Третий аргументом - число, показывающее систему счисления 
+              числовой переменной, к примеру число <B>10</B> - это десятичная 
+              С/C, значит число <B>nChar</B> или л.д десятичное. 
+              <LI>Теперь, кога все три переменные сохранены как строки, вы 
+              можете их все связать в строке <B>strKetPressed</B>:
+              <P><B>strKeyPressed=(CString)"You pressed the key: 
+              "+<BR>"\n"+"nChar="+ 
+              <BR>strnChar+<BR>"\n"+"<BR>nReptCnt="+<BR>strnRepCnt+<BR>"\n"+<BR>"nFlags="+<BR>strnFlags;<BR>MessageBox(strKeyPressed);
+              <P></B></P>
+              <LI>Знак <B>/n</B> - это перевод каретки, символ новой строки. 
+              <LI>Теперь, когда все переменные увязаны в одной тестовой 
+              переменной, мы можем вывести ее на экран с помощью функции:
+              <P><B>MessageBox(strKeyPressed);</B>
+              <P>Аргумент этой функции есть текст, который будет показан в окне 
+              сообщения. </P></LI></UL>
+            <UL type=round>
+              <P>
+              <LI>Поэксперементируйте с программой <B>MyKey</B> и щелкните на 
+              значек <B>x</B> для ее прекращения. </LI></UL>
+            <P>Вы закончили связывание событий с элементами управления 
+            <P><div align="center">Резюме и упражнение <br><A 
+            href="lesson014.htm"><B 
+            class=base2>&lt;-Назад</B></A> || <A 
+            href="lesson034.htm"><B 
+            class=base2>Дальше -&gt;</B></A> </div>
+      </P></FONT>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>			  
+</BODY></HTML>

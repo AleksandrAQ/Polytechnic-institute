@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)lesson041.htm -->
+<HTML><HEAD><TITLE>Програмирование на Visual C++</TITLE>
+</HEAD>
+<BODY background="../bgrwhite.gif">
+      <CENTER><B>Урок I</B></CENTER></FONT>
+      <P>
+      <P align=center><FONT color=black face=ARIAL size=4>Упражнение</FONT></P>
+      <FONT size=+1><B>Упражнение</B><BR></FONT>
+	  Сейчас вы выполните 
+            упражнение. Вам необходимо вставить еще одну кнопку с названием 
+            <B>Beep</B> c итендификатором <B>IDC_BEEP_BUTTON</B>, при нажатии на 
+            которую компьютер подает сигнал через диамик компьютера.<BR>Функция 
+            для подачи сигнала - <B>MessageBeep((WORD)-2);</B>. <BR>Окно вашей 
+            программы должно будет выглядеть так: 
+            <P align=center><IMG 
+            src="lesson041.files/hello_newmain.gif"></P><FONT size=3><B>Ответ к 
+            упражнению</B><BR><FONT>Щелкнем на закладку <B>Resource 
+            View</B>, раскроем меню <B>Hello Resource</B>, там откроем 
+            <B>Dialog</B> и щелкнем мышкой два раза на <B>IDD_HELLO_DIALOG</B>. 
+            Откроется окно проектирования. Вставим туда еще одну кнопку c 
+            итендификатором <B>IDC_BEEP_BUTTON</B> и надписью(Caption) - 
+            <B>Beep</B>. <BR>Заходим в меню <B>View-&gt;ClassWizard</B>, 
+            выбираем в <B>Object IDs</B> <B>IDC_BEEP_BUTTON</B>, в 
+            <B>Messages</B> щелкаем на <B>BN_CLICKED</B> и нажимаем на <B>Add 
+            Function</B>, там оставляем все по умолчанию и жмем <B>OK</B>, затем 
+            нажимаем на кнопку <B>Edit Code</B>. И вводим такой текст:
+            <P><B>void CHelloDlg::OnBeepButton()<BR>{<BR>// TODO: Add your 
+            control notification handler code here<BR>///Мой код начинается 
+            здесь///
+            <P>MessageBeep((WORD)-2);
+            <P>///Мой код заканчивается здесь///<BR>}
+            <P></B>Теперь выполняем программу, для этого заходим в меню 
+            <B>Build-&gt;Build Hello.exe</B>, а потом в меню <B>Build</B> 
+            выбираем <B>Execute Hello.exe</B> 
+            <P>Вы закончили первый урок! 
+            <P>Вернуться <A 
+            href="lesson031.htm"><B 
+            class=base2>&lt;-Назад</B></A> 
+            </P></FONT></FONT></FONT></FONT></FONT>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>		
+</BODY></HTML>

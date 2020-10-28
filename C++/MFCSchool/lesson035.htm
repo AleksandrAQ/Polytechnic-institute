@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)lesson035.htm -->
+<HTML><HEAD><TITLE>Програмирование на Visual C++</TITLE>
+</HEAD>
+<BODY background="../bgrwhite.gif">
+      <CENTER><B>Урок V</B></CENTER></FONT>
+      <P>
+      <P align=center><FONT color=black face=ARIAL size=4>Связывание событий с 
+      элементами управления</FONT></P>
+            <UL type=square>
+              <P><FONT color=black size=+1><B>Связывание переменной с окном 
+              редактирования.</B></FONT> 
+              <LI>Сейчас вы свяжете переменную с окнм редактирования, это нам 
+              необходимо для того, чтобы иметь доступ к содержимому окна 
+              редактирования. Чтобы связать переменную с окном редактирования 
+              <B>IDC_SPEED_EDIT</B> выполните следующие действия</LI></UL>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Member Variables</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Щелкните на кнопку <B>Add Varible</B> и задайте переменную 
+              следующим образом:<BR><LEFT><B>Varible Name: 
+              m_SpeedEdit<BR>Category: Value<BR>Varible Type: int<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>OK</B>. 
+              <LI>Теперь диалоговая панель <B>MFC ClassWizard</B> должна будет 
+              выглядеть так: </li></ul>
+              <P align=center><IMG 
+              src="lesson035.files/vc_clwiz_varspeed_mem.gif"></P>
+ <UL type=round><LI>Так как вы определили переменную <B>m_SpeedEdit</B> как 
+              переменную типа <B>int</B>, то вы можете задать максимальное и 
+              минимальное значение этой переменной. 
+              <LI>Задайте в <B>Maximum Value</B> значение <B>100</B>, это 
+              значит, что вы сможете задавать значение переменной в интервале от 
+              0 до 100. 
+              <LI>Щелкните на кнопку <B>OK</B> диалоговой панели 
+              <B>ClassWizard</B>. </LI></UL>
+            <P><FONT color=black size=+1><B>Связывание кода с событием EN_CHANGE 
+            окна редактирования</B></FONT></P>Событие <B>EN_CHANGE</B> 
+            происходит каждый раз при изменении содержимого окна редактирования, 
+            это мы будем использовать для того, чтобы при каждом изменении 
+            присваивать новое значение переменной <B>m_SpeedEdit</B>. 
+            <LI>Чтобы связать код с событием <B>EN_CHANGE</B>, выполните 
+            следующие действия: 
+            <UL></UL>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CSpeedDlg<BR>Object 
+              ID: IDC_SPEED_EDIT<BR>Messages: EN_CHANGE<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. 
+              <LI>Сейчас ваша панель <B>MFC ClassWizard</B> должна будет 
+              выглядеть так: </LI></UL>
+              <P align=center><IMG src="lesson035.files/vc_clwiz_enchg_maps.gif"></P>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnChangeSpeedEdit()</B>: 
+              <P><B>void CSpeedDlg::OnChangeSpeedEdit() <BR>{<BR>// TODO: If 
+              this is a RICHEDIT control, the control will not<BR>// send this 
+              notification unless you modify CDialog::OnInitDialog()<BR>// 
+              function to send the EM_SETEVENTMASK message to the control<BR>// 
+              with the ENM_CHANGE flag ORed into the lParam mask.<BR><BR>// 
+              TODO: Add your control notification handler code here
+              <P>////Мой код начинается здесь////
+              <P>//Обновить экран<BR>UpdateData(TRUE);
+              <P>////Мой код заканчивается здесь////<BR>}<BR></B></P>
+              <LI>Вы ввели единственный оператор, который обновляет переменные 
+              элементов управления, исходя из текущего содержимого диалогового 
+              окна:<BR>
+              <CENTER><B>UpdateData(TRUE);</B> </CENTER>
+              <LI>Следовательно после выполнения данного оператора переменной 
+              <B>m_SpeedEdit</B> будет присвоено значение содержимого окна 
+              редактирования. </LI></UL>
+            <P><FONT color=black size=+1><B>Связывание кода с пунктом 
+            CurrentSpeed меню File</B></FONT></P>Сейчас вы свяжете код с 
+            событием <B>COMMAND</B>, которое возникает при выборе пункта меню, в 
+            данном случае при выборе пункта <B>Current Speed</B>. 
+            <LI>Чтобы связать код с событием <B>COMMAND</B>, выполните следующие 
+            действия: 
+            <LI>Откройте закладку <B>Resource View</B>, раскройте пункт <B>Speed 
+            View</B>, а там выбирите <B>Menu</B>. Выполните двойной щелчок по 
+            <B>IDR_MENU1</B>. 
+            <UL></UL>
+            <UL type=round>
+              <LI>Теперь выполняем следующее: 
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CSpeedDlg<BR>Object 
+              ID: ID_FILE_CURRENTSPEED<BR>Messages: COMMAND<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. </LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnFileCurrentspeed()</B>: 
+              <P><B>void CSpeedDlg::OnFileCurrentspeed() <BR>{<BR>// TODO: Add 
+              your command handler code here
+              <P>////Мой код начинается здесь////
+              <P>char 
+              strSpeed[100];<BR>itoa(m_SpeedEdit,strSpeed,10);<BR>MessageBox(strSpeed);
+              <P>////Мой код заканчивается здесь////
+              <P>}<BR></B></P>
+              <LI>Первые два оператора, преобразуют в строку целое значение, 
+              хранящееся в переменной <B>m_SpeedEdit</B>:<BR><B>char 
+              strSpeed[100]; itoa(m_SpeedEdit,strSpeed,10); </B>
+              <LI>Последний оператор использует функцию <B>MessageBox()</B> для 
+              вывода значения строки, хранящееся в переменной <B>strSpeed</B>: 
+              <CENTER><B>MessageBox(strSpeed);</B></CENTER>
+              <P></P></LI></UL>
+            <P><FONT color=black size=+1><B>Связывание кода с пунктом Exit меню 
+            File</B></FONT></P>Сейчас вы свяжете код с событием <B>COMMAND</B>, 
+            которое возникает при выборе пункта меню, в данном случае при выборе 
+            пункта <B>Exit</B>. 
+            <LI>Чтобы связать код с событием <B>COMMAND</B>, выполните следующие 
+            действия: 
+            <LI>Откройте закладку <B>Resource View</B>, раскройте пункт <B>Speed 
+            View</B>, а там выбирите <B>Menu</B>. Выполните двойной щелчок по 
+            <B>IDR_MENU1</B>. 
+            <UL></UL>
+            <UL type=round>
+              <LI>Теперь выполняем следующее: 
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CSpeedDlg<BR>Object 
+              ID: ID_FILE_EXIT<BR>Messages: COMMAND<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. </LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnFileExit()</B>: 
+              <P><B>void CSpeedDlg::OnFileExit() <BR>{<BR>// TODO: Add your 
+              command handler code here
+              <P>////Мой код начинается здесь////
+              <P>OnOK(); ////Мой код заканчивается здесь////
+              <P>}<BR></B></P>
+              <LI>Единственный оператор, который вы ввели завершает работу 
+              программы. </LI></UL>
+            <P><FONT color=black size=+1><B>Связывание кода с пунктом About меню 
+            Help</B></FONT></P>Сейчас вы свяжете код с событием <B>COMMAND</B>, 
+            которое возникает при выборе пункта меню, в данном случае при выборе 
+            пункта <B>About</B>. 
+            <LI>Чтобы связать код с событием <B>COMMAND</B>, выполните следующие 
+            действия: 
+            <LI>Откройте закладку <B>Resource View</B>, раскройте пункт <B>Speed 
+            View</B>, а там выбирите <B>Menu</B>. Выполните двойной щелчок по 
+            <B>IDR_MENU1</B>. 
+            <UL></UL>
+            <UL type=round>
+              <LI>Теперь выполняем следующее: 
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CSpeedDlg<BR>Object 
+              ID: ID_HELP_ABOUT<BR>Messages: COMMAND<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. </LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnHelpAbout()</B>: 
+              <P><B>void CSpeedDlg::OnHelpAbout() <BR>{<BR>// TODO: Add your 
+              command handler code here
+              <P>////Мой код начинается здесь////
+              <P>//Создать объект класса CAboutDlg<BR>CAboutDlg dlg;
+              <P>//Вывести диалоговую панель About<BR>dlg.DoModal();
+              <P>////Мой код заканчивается здесь////
+              <P>}<BR></B></P>
+              <LI>Первый оператор введенный вами создает объект класса 
+              <B>CAboutDlg</B> с именем <B>dlg</B>:<BR><B>CAboutDlg dlg;</B> 
+              <LI>Класс <B>CAboutDlg dlg;</B> был создан тогда, когда вы 
+              создавали проект программы, его написал Visual C++, этот класс 
+              связан с диалоговой панелью <B>About</B>. 
+              <LI>Следующий оператор выводит диалоговую панель <B>About</B> 
+              используя функцию элемент к объекту 
+              <B>dlg</B>:<BR><B>dlg.DoModal();</B><BR>
+              <LI>Как и предполагает имя функции, <B>DoModal()</B> выводит 
+              диалоговую панель, как модальную диалоговую панель, это значит что 
+              пока это окно выведено на экран, вы не сможете активировать другие 
+              окна программы. </LI></UL>
+            <UL type=round>
+              <P>
+              <LI>Программа <B>Speed</B> завершена! Запустите ее и 
+              поэксперементируейте с ней! </LI></UL>
+            <P>Вы закончили связывание событий с элементами управления 
+            <P><div align="center">Резюме и упражнение 
+			<br><A 
+            href="lesson025.htm"><B 
+            class=base2>&lt;-Назад</B></A> || <A 
+            href="lesson045.htm"><B 
+            class=base2>Дальше -&gt;</B></A> </div>
+      </P></LI></FONT>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>			  
+	  </BODY></HTML>

@@ -1,0 +1,54 @@
+<HTML>
+<TITLE>Програмирование на Visual C++</TITLE>
+
+<HEAD>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../styles.css" TITLE="Style">
+</HEAD>
+
+<BODY background="../bgrwhite.gif">
+<CENTER><B>Урок II</B></CENTER></FONT>
+<P>
+<P ALIGN="CENTER"> <FONT FACE="ARIAL" COLOR="BLACK" SIZE=4>Резюме и Упражнение</FONT></P>
+<FONT SIZE=+1><B>Упражнение</B><BR></font>
+
+Сейчас вы выполните упражнение. Вам необходимо включить в свою программу
+еще код, чтобы при вводе слова <B>Beep</B> в окне редактирования, компьютер
+ подавал звуковой сигнал. <BR>
+<I>Подсказка</I>: Код для генерации сигнала <B>MessageBeep((WORD)-2);</B>
+
+<P>
+
+
+<FONT SIZE=+1><B>Ответ к упражнению</B><BR></font>
+Для того, чтобы выполнить упражнение вам необходимо включить в
+конец функции <B>OnChangeTestEdit</B>  следующий код:<P>
+<B>
+
+	if(UpperValue=="BEEP")<BR>
+	{<BR>
+		MessageBeep((WORD)-2);<BR>
+		m_TestEdit="";<BR>
+		UpdateData(FALSE);<BR>
+	}<P>
+</B>
+
+<P ALIGN="CENTER"> <FONT FACE="ARIAL" COLOR="BLACK" SIZE=4>Резюме</FONT></P>
+
+В этой главе вы получили некоторой опыт использования элементов управления и 
+написали программу, которая имеет такие элементы управления,
+как окно редактирования, флажок и кнопка.<BR>
+ Вы также увидели процесс написания программы, использующей различные 
+средства управления, который состоит в размещении элемента управления 
+в диалоговой панели, настройки его свойств и связывания кода с событием
+данного элемента.
+
+<P>
+Теперь выполняем программу, для этого заходим в меню <B>Build->Build Test.exe</B>, а потом в 
+меню <B>Build</B> выбираем <B>Execute Test.exe</B>
+<P>
+Вы закончили второй урок!
+<P>Вернуться
+<A HREF="lesson032.htm"><B class=base2><-Назад</B></A>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>		
+</BODY>
+</HTML>

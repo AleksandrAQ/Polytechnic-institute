@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)lesson026.htm -->
+<HTML><HEAD><TITLE>Програмирование на Visual C++</TITLE>
+</HEAD>
+<BODY background="../bgrwhite.gif">
+      <CENTER><B>Урок VI</B></CENTER></FONT>
+      <P>
+      <P align=center><FONT color=black face=ARIAL size=4>Связывание событий с 
+      элементами управления</FONT></P>
+            <UL type=square>
+              <P><FONT color=black size=+1><B>Связывание кода с событием 
+              BN_CLICKED кнопки Exit</B></FONT></P>При нажатии на кнопку 
+              <B>Exit</B> программа <B>MyMsg.Exe</B> завершится. 
+              <LI>Чтобы связать код с событием <B>BN_CLICKED</B> кнопки 
+              <B>EXIT</B>, выполните следующие действия: </LI></UL>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CMyMsgDlg<BR>Object 
+              ID: IDC_EXIT_BUTTON<BR>Messages: BN_CLICKED<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. 
+              <LI>Сейчас ваша панель <B>MFC ClassWizard</B> должна будет 
+              выглядеть так: </LI></UL>
+              <P align=center><IMG src="lesson026.files/vc_clwiz_exit_stat.gif"></P>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnExitButton()</B>: 
+              <P><B>void CMyMsgDlg::OnExitButton()<BR>{<BR>// TODO: Add your 
+              control notification handler code here
+              <P>////////Мой код начинается здесь///////////
+              <P>OnOK(); 
+              <P>////////Мой код заканчивается здесь///////////
+              <P>}<BR></B></P>
+              <LI>Функция <B>OnOK()</B>, которую вы ввели завершает программу, 
+              при нажатии на кнопку <B>Exit</B>. </LI></UL>
+            <UL type=square>
+              <P><FONT color=black size=+1><B>Связывание кода с событием 
+              BN_CLICKED кнопки "OK and Cancel"</B></FONT></P>При нажатии на 
+              кнопку <B>OK and Cancel</B> появиться окно сообщения, которая 
+              будет вам предлагать выбрать кнопки <B>OK</B> или <B>Cancel</B>. 
+              <LI>Чтобы связать код с событием <B>BN_CLICKED</B> кнопки <B>Yes 
+              </B>, выполните следующие действия: </LI></UL>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CMyMsgDlg<BR>Object 
+              ID: IDC_OKCANCEL_BUTTON<BR>Messages: BN_CLICKED<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. </LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnOkcancelButton()</B>: 
+              <P><B>void CMyMsgDlg::OnOkcancelButton() <BR>{<BR>// TODO: Add 
+              your control notification handler code here
+              <P>////Мой код начинается здесь////
+              <P>int iResults;<BR>iResults=MessageBox("You want Ok and Cancel 
+              buttons.",<BR>"I am the second parametr of the MessageBox 
+              function",<BR>MB_OKCANCEL+MB_ICONSTOP);<BR>if(iResults==IDOK)<BR>{<BR>m_ResultsEdit="You 
+              Clicked the Ok 
+              button";<BR>UpdateData(FALSE);<BR>}<BR>if(iResults==IDCANCEL)<BR>{<BR>m_ResultsEdit="You 
+              clicked on the Cancel button";<BR>UpdateData(FALSE);<BR>}<BR>
+              <P>////Мой код заканчивается здесь////
+              <P>}<BR></B></P>
+              <LI>Первый оператор, который вы ввели объявляет переменную целого 
+              типа <B>iResults</B>, эта переменная будет присваивать возращаемое 
+              функцией <B>MessageBox</B> значение. Это значение будет отображать 
+              какую кнопку вы нажали. 
+              <LI>Следущая функция <B>MessageBox</B> будет выводить на экран 
+              сообщение, эта функция имеет 3 
+              параметра:<BR><B>iResults=MessageBox("You want Ok and Cancel 
+              buttons.",<BR>"I am the second parametr of the MessageBox 
+              function",<BR>MB_OKCANCEL+MB_ICONSTOP);
+              <P></B>Первый - строка, которая появиться в панели 
+              сообщения.<BR>Второй - строка, образующая заголовок окна 
+              сообщения.<BR>Третий аргумент имеет слдеующий вид:
+              <P><B>MB_OKCANCEL+MB_ICONSTOP</B><BR></P>
+              <LI><B>MB_OKCANCEL</B> - это константа, сообщающая функции 
+              <B>MessageBox</B>, что ей нужно вывести в панели сообщения две 
+              кнопки - кнопку <B>OK</B> и кнопку <B>CANCEL</B>. При нажатии на 
+              эти кнопки функция <B>MessageBox</B> вовращает численное значение 
+              нажатой кнопки. 
+              <LI>Следующий оператор <B>IF</B> проверяет какая кнопка была 
+              нажата, используя для этого переменную <B>iResults</B>. Если 
+              кнопка в условии оператора была нажата, то выполняются вложенные 
+              операторы.<BR><B>if(iResults==IDOK)<BR>{<BR>m_ResultsEdit="You 
+              Clicked the Ok button";<BR>UpdateData(FALSE);<BR>}
+              <P></B>Оператор присваивания:<BR><B>m_ResultsEdit="You Clicked the 
+              Ok button";</B><BR>присваивает переменной окна редактирнования 
+              <B>m_ResultsEdit</B> текстовую строчку, которая будет отображаться 
+              в окне редактирования и будет указывать на какую кнопку вы 
+              нажали.<BR>Последний оператор обновляет окно редактирования новым 
+              значением переменной: <B>m_ResultsEdit</B>. </P>
+              <LI><B>MB_ICONSTOP</B> - это константа, сообщающая функции 
+              <B>MessageBox</B>, что в панели сообщения необходимо показать 
+              значок <B>"Остановка"</B>. </LI></UL>
+            <P><BR></P>
+            <UL type=square>
+              <P><FONT color=black size=+1><B>Связывание кода с событием 
+              BN_CLICKED кнопки "Yes, No and Cancel"</B></FONT></P>При нажатии 
+              на кнопку <B>Yes,No and Cancel</B> появиться окно сообщения, 
+              которая будет вам предлагать выбрать кнопки <B>YES</B>, <B>No</B> 
+              и <B>Cancel</B>. 
+              <LI>Чтобы связать код с событием <B>BN_CLICKED</B> кнопки <B>Yes 
+              </B>, выполните следующие действия: </LI></UL>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CMyMsgDlg<BR>Object 
+              ID: IDC_YESNOCANCEL_BUTTON<BR>Messages: BN_CLICKED<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. </LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>YesnocancelButton()</B>: 
+              <P><B>void CMyMsgDlg::OnYesnocancelButton() <BR>{<BR>// TODO: Add 
+              your control notification handler code here
+              <P>////Мой код начинается здесь////
+              <P>int iResults;<BR>iResults=MessageBox("You want Yes, No and 
+              Cancel buttons.",<BR>"I am the second parameter of the MessageBox 
+              function",<BR>MB_YESNOCANCEL+MB_ICONINFORMATION); 
+              <P>if(iResults==IDYES)<BR>{<BR>m_ResultsEdit="You clicked on the 
+              Yes 
+              button.";<BR>UpdateData(FALSE);<BR>}<BR>if(iResults==IDNO)<BR>{<BR>m_ResultsEdit="You 
+              clicked on the No 
+              button";<BR>UpdateData(FALSE);<BR>}<BR>if(iResults==IDCANCEL)<BR>{<BR>m_ResultsEdit="You 
+              clicked on the Cancel button.";<BR>UpdateData(FALSE);<BR>}
+              <P>////Мой код заканчивается здесь////
+              <P>}
+              <P></B></P>
+              <LI>Первый оператор, который вы ввели объявляет переменную целого 
+              типа <B>iResults</B>, эта переменная будет присваивать возращаемое 
+              функцией <B>MessageBox</B> значение. Это значение будет отображать 
+              какую кнопку вы нажали. 
+              <LI>Функция <B>MessageBox</B> возвращает значение нажатой кнопки.
+              <P><B>iResults=MessageBox("You want Yes,No and Cancel 
+              buttons.",<BR>"I am the second parametr of the MessageBox 
+              function",<BR>MB_YESNOCANCEL+MB_ICONINFORMATION);
+              <P></B>Следующие константы 
+              <B>MB_YESNOCANCEL+MB_ICONINFORMATION</B> показывают<BR>1) 
+              <B>MB_YESNOCANCEL</B>- какие клавишы будут выведены в панели 
+              сообщения.<BR>2) <B>MB_ICONINFORMATION</B> - что в панель 
+              сообщения выводится значок "Информация".<BR></P>
+              <LI>Следующие три оператора <B>IF</B> проверяют какие кнопки были 
+              нажаты, используя для этого переменную <B>iResults</B>. Если 
+              кнопка в условии оператора была нажата, то выполняются вложенные 
+              операторы. Предназначение которых сообщить окну редактирования 
+              какая клавиша была нажата.<BR></LI></UL>
+            <P><BR></P>
+            <UL type=square>
+              <P><FONT color=black size=+1><B>Связывание кода с событием 
+              BN_CLICKED кнопки "Retry and Cancel"</B></FONT></P>При нажатии на 
+              кнопку <B>Retry and Cancel</B> появиться окно сообщения, которая 
+              будет вам предлагать выбрать кнопки <B>Retry</B> и <B>Cancel</B>. 
+              <LI>Чтобы связать код с событием <B>BN_CLICKED</B> кнопки <B>Retry 
+              and Cancel</B>, выполните следующие действия: </LI></UL>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CMyMsgDlg<BR>Object 
+              ID: IDC_RETRYCANCEL_BUTTON<BR>Messages: BN_CLICKED<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. </LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>RetrycancelButton()</B>: 
+              <P><B>void CMyMsgDlg::OnRetrycancelButton() <BR>{<BR>// TODO: Add 
+              your control notification handler code here
+              <P>////Мой код начинается здесь////
+              <P>int iResults;<BR>iResults=MessageBox("You want Retry and Cancel 
+              buttons.",<BR>"I am the second parameter of the MessageBox 
+              function",<BR>MB_RETRYCANCEL+MB_ICONQUESTION); 
+              <P>if(iResults==IDRETRY)<BR>{<BR>m_ResultsEdit="You clicked on the 
+              Retry 
+              button.";<BR>UpdateData(FALSE);<BR>}<BR>if(iResults==IDCANCEL)<BR>{<BR>m_ResultsEdit="You 
+              clicked on the Cancel button.";<BR>UpdateData(FALSE);<BR>}
+              <P>////Мой код заканчивается здесь////
+              <P>}
+              <P></B></P>
+              <LI>Первый оператор, который вы ввели объявляет переменную целого 
+              типа <B>iResults</B>, эта переменная будет присваивать возращаемое 
+              функцией <B>MessageBox</B> значение. Это значение будет отображать 
+              какую кнопку вы нажали. 
+              <LI>Функция <B>MessageBox</B> возвращает значение нажатой кнопки.
+              <P><B>iResults=MessageBox("You want Retry and Cancel 
+              buttons.",<BR>"I am the second parametr of the MessageBox 
+              function",<BR>MB_RETRYCANCEL+MB_ICONQUESTION);
+              <P></B>Следующие константы <B>MB_RETRYCANCEL+MB_ICONQUESTION</B> 
+              показывают<BR>1) <B>MB_RETRYCANCEL</B>- какие клавишы будут 
+              выведены в панели сообщения.<BR>2) <B>MB_ICONQUESTION</B> - что в 
+              панель сообщения выводится значок "Вопрос".<BR></P>
+              <LI>Следующие два оператора <B>IF</B> проверяют какие кнопки были 
+              нажаты, используя для этого переменную <B>iResults</B>. Если 
+              кнопка в условии оператора была нажата, то выполняются вложенные 
+              операторы. Предназначение которых сообщить окну редактирования 
+              какая клавиша была нажата.<BR></LI></UL>
+            <P><BR></P>
+            <UL type=square>
+              <P><FONT color=black size=+1><B>Связывание кода с событием 
+              BN_CLICKED кнопки "Yes and No"</B></FONT></P>При нажатии на кнопку 
+              <B>Yes and No</B> появиться окно сообщения, которая будет вам 
+              предлагать выбрать кнопки <B>Yes</B> и <B>No</B>. 
+              <LI>Чтобы связать код с событием <B>BN_CLICKED</B> кнопки <B>Yes 
+              and No</B>, выполните следующие действия: </LI></UL>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CMyMsgDlg<BR>Object 
+              ID: IDC_YESNO_BUTTON<BR>Messages: BN_CLICKED<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. </LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>YesnoButton()</B>: 
+              <P><B>void CMyMsgDlg::OnYesnoButton() <BR>{<BR>// TODO: Add your 
+              control notification handler code here
+              <P>////Мой код начинается здесь////
+              <P>int iResults;<BR>iResults=MessageBox("You want Yes and No 
+              buttons.",<BR>"I am the second parameter of the MessageBox 
+              function",<BR>MB_YESNO+MB_ICONEXCLAMATION); 
+              <P>if(iResults==IDOK)<BR>{<BR>m_ResultsEdit="You clicked on the OK 
+              button.";<BR>UpdateData(FALSE);<BR>}<BR>if(iResults==IDNO)<BR>{<BR>m_ResultsEdit="You 
+              clicked on the NO button.";<BR>UpdateData(FALSE);<BR>}
+              <P>////Мой код заканчивается здесь////
+              <P>}
+              <P></B></P>
+              <LI>Первый оператор, который вы ввели объявляет переменную целого 
+              типа <B>iResults</B>, эта переменная будет присваивать возращаемое 
+              функцией <B>MessageBox</B> значение. Это значение будет отображать 
+              какую кнопку вы нажали. 
+              <LI>Функция <B>MessageBox</B> возвращает значение нажатой кнопки.
+              <P><B>iResults=MessageBox("You want Yes and No buttons.",<BR>"I am 
+              the second parametr of the MessageBox 
+              function",<BR>MB_YESNO+MB_ICONEXCLAMATION);
+              <P></B>Следующие константы <B>MB_YESNO+MB_ICONEXCLAMATION</B> 
+              показывают<BR>1) <B>MB_YESNO</B>- какие клавишы будут выведены в 
+              панели сообщения.<BR>2) <B>MB_ICONEXCLAMATION</B> - что в панель 
+              сообщения выводится значок "Восклицательный знак".<BR></P>
+              <LI>Следующие два оператора полностью аналогичны предыдущим. 
+              <P></P>
+              <LI>Поэксперементируйте с программой <B>MyMsg</B> и щелкните на 
+              кнопку <B>Exit</B> для ее прекращения. </LI></UL>
+            <P>Вы закончили связывание событий с элементами управления 
+            <P><div align="center">Резюме и упражнение<br> <A 
+            href="lesson016.htm"><B 
+            class=base2>&lt;-Назад</B></A> || <A 
+            href="lesson036.htm"><B 
+            class=base2>Дальше -&gt;</B></A> </div>
+      </P></FONT>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>			  
+	  </BODY></HTML>

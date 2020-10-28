@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)lesson016.htm -->
+<HTML><HEAD><TITLE>Програмирование на Visual C++</TITLE>
+</HEAD>
+<BODY background="../bgrwhite.gif">
+      <CENTER><B>Урок VI</B></CENTER></FONT>
+      <P>
+      <P align=center><FONT color=black face=ARIAL size=4>Проектирование 
+      диалоговой панели</FONT></P>
+  
+    Сейчас мы визуально 
+            спроектируем диалоговую панель. Для этого вначале выбирете закладку 
+            <B>"Resourse View"</B> и раскройте пункт <B>MyMsg Resource</B>, как 
+            показано на рис. 1.5. 
+            <P align=center><IMG 
+            src="lesson016.files/vc_resourceview_mymsg_dlg.gif"></P>Выполните 
+            слдеующие действия <BR>
+            <LI>Щелкните два раза по надписи <B>IDD_MYMSG_DIALOG</B>. Справа 
+            появится окно проектирования диалоговой панели. 
+            <LI>С помощью панели <B>Controls</B> расставьте элементы, управления 
+            как показано на рис. 2.0 и согласно таблице 2.0. 
+            <P align=center><IMG 
+            src="lesson016.files/vc_resource_dlg_proekt.gif"></P>
+            <P align=center><FONT color=red><B>Таблица 2.0</B></FONT></P>
+            <DIV align=center>
+            <TABLE bgColor=#ffffbb border=1 cellPadding=0 cellSpacing=0 
+            width=440>
+              <TBODY>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Объект</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>Свойство</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>Установка</B></FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Dialog Box</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                <TD><FONT face=ARIAL 
+              size=2><B>IDD_MYMSG_DIALOG</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL size=2>The MyMsg Program</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Font</FONT></TD>
+                <TD><FONT face=ARIAL size=2>System, Size 10, страница 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Modal frame</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Client edge</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Static edge</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Edit Box</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                <TD><FONT face=ARIAL 
+              size=2><B>IDC_RESULTS_EDIT</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>MultiLine</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница 
+              Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Modal frame</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Client edge</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Static edge</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Group Box</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                <TD><FONT face=ARIAL 
+              size=2><B>IDC_RESULT_STATIC</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL size=2>Test</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Client edge</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Static edge</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Push Button</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                <TD><FONT face=ARIAL 
+                size=2><B>IDC_OKCANCEL_BUTTON</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL size=2>OK and Cancel</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Modal frame</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Client edge</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Static edge</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Push Button</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                <TD><FONT face=ARIAL 
+              size=2><B>IDC_YESNO_BUTTON</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL size=2>&amp;Yes and No</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Modal frame</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Client edge</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Static edge</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Push Button</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                <TD><FONT face=ARIAL 
+                  size=2><B>IDC_YESNOCANCEL_BUTTON</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL size=2>Yes, No and Cancel</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Modal frame</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Client edge</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Static edge</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Push Button</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                <TD><FONT face=ARIAL 
+                  size=2><B>IDC_RETRYCANCEL_BUTTON</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL size=2>&amp;Retry and Cancel</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Modal frame</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Client edge</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Static edge</FONT></TD>
+                <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                  Styles</FONT></TD></TR>
+              <TR>
+                <TD><FONT face=ARIAL size=2><B>Push Button</B></FONT></TD>
+                <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                <TD><FONT face=ARIAL 
+size=2><B>IDC_EXIT_BUTTON</B></FONT></TD></TR>
+              <TR>
+                <TD></TD>
+                <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                <TD><FONT face=ARIAL 
+            size=2>E&amp;xit</FONT></TD></TR></TBODY></TABLE></DIV>
+            <P><BR>
+            <P>Теперь рассмотрим все пункты попорядку.<BR></P>
+            <LI>В объекте <B>Dialog Box</B> вы задаете следующие 
+            данные:<BR><B>Caption</B> - название диалогового 
+            окна.<BR><B>Font</B> - здесь вы уcтановили шрифт -<B>System</B> и 
+            его размер <B>10</B><BR>
+            <LI>У объекта <B>Edit Box</B> мы видим новое свойство 
+            <B>Multiline</B>, это означает, что вы можете вводить текст не 
+            только в многострочном режиме, например как в Блокноте. 
+            <P align=center><FONT color=black face=ARIAL size=4>Связывание 
+            переменной с окном редактирования</FONT></P>
+            <LI>Выбирите <B>ClassWizard</B> в меню <B>View</B>. 
+            <LI>На странице <B>Memver Variables</B> мастера <B>Class Wizard</B> 
+            сделайте следующий выбор: <BR><LEFT><B>Class Name: 
+            CMyMsgDlg<BR>Control ID: IDC_RESULTS_EDIT<BR></B></LEFT>
+            <LI>Щелкните на кнопке <B>Add Varible</B> и задайте слдеующую 
+            переменную:<BR><LEFT><B>Variable Name: m_ResultsEdit<BR>Category: 
+            Value<BR>Variable Type: CString<BR></B></LEFT>
+            <LI>Щелкните на кнопке <B>OK</B> диалоговой панели <B>Add 
+            Varible</B>, затем щелкните на кнопке <B>OK</B> мастера 
+            <B>СlassWizard</B>. Поздравляю, вы закончили визуальное 
+            проектирование диалоговой панели!<BR>
+            <P><BR><BR><div align="center">Связывание элементов управления с событиями <br><A 
+            href="lesson006.htm"><B 
+            class=base2>&lt;-Назад</B></A> || <A 
+            href="lesson026.htm"><B 
+            class=base2>Дальше -&gt;</B></A> </div>
+      </P></LI></FONT>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>			  
+	  </BODY></HTML>

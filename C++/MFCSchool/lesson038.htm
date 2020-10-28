@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)lesson038.htm -->
+<HTML><HEAD><TITLE>Програмирование на Visual C++</TITLE>
+</HEAD>
+<BODY background="../bgrwhite.gif">
+      <CENTER><B>Урок VIII</B></CENTER></FONT>
+      <P>
+      <P align=center><FONT color=black face=ARIAL size=4>Проектирование 
+      диалоговой панели</FONT></P>
+   <p>Идем дальше! 
+            <UL type=square>
+              <LI>Сейчас нам необходимо добавить код выбора цвета, используйте 
+              следующие инструкции для этого: 
+              <LI>Сначала спроектируем диалоговую панель, добавим ресурс 
+              <B>Picture</B>, переменную которая будет хранить цвет пера, 
+              переменную, которая будет хранить координаты индикатора цвета и 
+              напишем код для выбора цвета! </LI></UL>
+            <UL type=square>
+              <LI>Добавьте в класс <B>CPaintORamaDlg</B> переменную 
+              <B>m_PenColor</B>, укажите тип <B>COLORREF</B> и поставьте доступ 
+              <B>Private</B>, 
+              <LI>Добавьте в класс <B>CPaintORamaDlg</B> переменную 
+              <B>m_PenColorSwatch</B>, укажите тип <B>CRect</B> и поставьте 
+              доступ <B>Private</B>, 
+              <LI>Добавьте элемент управления <B>Group Box</B> , затем 
+              <B>Picture</B> на диалоговую панель <B>IDD_PAINTORAMA_DIALOG</B>, 
+              согласно рисунку и таблице: 
+              <P align=center><IMG 
+              src="lesson038.files/vc_resource_dlg_proekt3.gif"></P>
+              <P align=center><FONT color=red><B>Таблица 2.0</B></FONT></P>
+              <DIV align=center>
+              <TABLE bgColor=#ffffbb border=1 cellPadding=0 cellSpacing=0 
+              width="80%">
+                <TBODY>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Объект</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>Свойство</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>Установка</B></FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Group Box</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_STATIC</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>&amp;Pen Styles</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Picture</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_PENCOLOR</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Type</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>Rectangle</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Color</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>Black</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Sunken</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>Отмечен, страница 
+                  Styles</FONT></TD></TR></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Notify</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>отмечен, страница 
+                  Styles</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Static Text</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                  <TD><FONT face=ARIAL size=2><B>IDC_STATIC</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL 
+                size=2>&amp;Color</FONT></TD></TR></TR></TBODY></TABLE></DIV>
+              <LI>Думаю здесь все должно быть понятно. Только хотелось пояснить, 
+              для чего мы установили флажок на <B>Notify</B>. Если он отмечен, 
+              то можно использовать событие <B>BN_CLICKED</B> для этого 
+              элемента, так как при нажатии в область этого экрана будет 
+              выводиться диалоговое окно для выбора цвета! 
+              <LI>Тип <B>Rectangle</B> говорит о том что это будет не просто 
+              участок окна, типа <B>FRAME</B>, а будет работать, как элемент 
+              управления, и будет отвечать на сообщения! 
+              <LI>Начальное значение цвета пера устанвливается в <B>Black</B>. 
+              <P></P></LI></UL>
+            <UL type=square>
+              <P><FONT color=red size=+1><B>Связывание кода с событием BN_CLICKED 
+              элемента Picture</B></FONT></P>При нажатии на индикатор цвета 
+              программа <B>PaintORama</B> должна вывести диалоговое окно выбора 
+              цвета! 
+              <LI>Выполните следующие шаги:<BR>
+              <LI>Сначала мы должны установить начальный цвет как <B>Black</B>. 
+              <LI>Для этого откройте конструктор класса <B>CPaintORamaDlg</B>, 
+              его название совпадает с названием класса диалогового окна, и он 
+              также находится в общем списке функций этого класса. <B>1)</B> 
+              Откройте в <B>Workspace</B> закладку <B>Class View</B>, откройте 
+              класс <B>CPaintORamaDlg</B>. Выберите там конструктор класса: 
+              <B>CPaintORamaDlg(CWnd* pParent /*=NULL*/)</B>. B открывшемся окне 
+              напишите следующий код: 
+              <P><B>CPaintORamaDlg::CPaintORamaDlg(CWnd* pParent /*=NULL*/)<BR>: 
+              CDialog(CPaintORamaDlg::IDD, pParent)<BR>{<BR>...... <BR>////-Ваш 
+              код начинается здесь -////
+              <P>m_PenColor = RGB(0, 0, 0);
+              <P>////-Ваш код заканчивается здесь -////
+              <P>}<BR></B></P>
+              <LI>Необходимо определить координаты итендификатора, чтобы его 
+              закрашивать. 
+              <LI>С помощью <B>Workspace</B> откройте функцию 
+              <B>OnInitDialog</B>, и добавьте в конец перед оператором <B>return 
+              true</B> следующий код:
+              <P><B>//Получить указатель на элемент управления<BR>CWnd* 
+              pPenColor=GetDlgItem(IDC_PENCOLOR);
+              <P>//Получить координаты элемента 
+              управления<BR>pPenColor-&gt;GetWindowRect(&amp;m_PenColorSwatch);
+              <P>//Изменить координаты относительно клиентской 
+              области<BR>ScreenToClient(&amp;m_PenColorSwatch);
+              <P>//Cузить рамку 
+              m_PenColorSwatch.DeflateRect(2,2,1,1);<BR></B></P>
+              <LI>Этот код полностью идентичен, коду для области рисования! 
+              Поменялись имена переменных, теперь координаты индикатора цвета 
+              будет хранить переменная <B>m_PenColorSwatch</B>. 
+              <P></P>
+              <LI>Откройте в <B>Workspace</B> закладку <B>Resource View</B>, 
+              откройте <B>Dialog</B>. Выберите там: 
+              <B>IDD_PAINTORAMA_DIALOG</B>. B открывшемся окне проектирования 
+              дважды щелкните на элементе выбора цвета, ClassWizard предложит 
+              вам связать его с событием <B>BN_CLICKED</B> и предложит имя 
+              функции <B>OnPencolor</B>, нажмите <B>OK</B>. В раскрывшемся окне 
+              редактирования напишите следущий код внутри функции 
+              <B>OnPencolor()</B>. 
+              <P><B><BR>// TODO: Add your control notification handler code 
+              here<BR>/*Создать объект класса диалоговой панели выбора цвета и 
+              передать ему в конструкторе текущее значение цвета*/ CColorDialog 
+              dlg(m_PenColor);
+              <P>//Вывод диалогового 
+              окна<BR>if(dlg.DoModal()==IDOK)<BR>{<BR>//Установка 
+              цвета<BR>m_PenColor=dlg.GetColor();
+              <P>//Создание кисти<BR>CBrush 
+              swatch;<BR>swatch.CreateSolidBrush(m_PenColor);
+              <P>//Получить объект контекста устройства<BR>CClientDC dc(this);
+              <P>//Закрашивание индикатора выбранным 
+              цветом<BR>dc.FillRect(&amp;m_PenColorSwatch, &amp;swatch);
+              <P>}
+              <P></B></P></LI></UL>
+            <LI>В операторе условия проверяется, что если была нажата клавиша 
+            <B>OK</B>, то присвоить значение выбранного цвета переменной 
+            <B>m_PenColor</B>. 
+            <LI>Затем вы создаете объект кисти, создаете сплошную кисть цветом 
+            <B>m_PenColor</B>, затем закрашиваете индикатор выбранным цветом и 
+            типом кисти. 
+            <LI>Теперь вам осталось изменить функцию <B>OnLButtonDown</B>, 
+            добавить в нее код для создания пера с выбранным цветом. 
+            <LI>В уроке №3 вы уже узнали, как создавать перья. Теперь 
+            поупражняемся над этим. 
+            <LI>Добавьте переменную <B>m_Pen</B> с типом <B>CPen</B>, доступом 
+            <B>Private</B> в класс <B>CPaintORamaDlg</B>. 
+            <LI>Измените функцию <B>OnLButtonDown</B> следующим образом:
+            <P><B>BOOL CPaintORamaDlg::OnLButtonDown(UINT nFlags, CPoint point) 
+            <BR>{<BR><BR>.....<BR>
+            <P>//Проверить было ли нажатие внутри области 
+            рисования.<BR>if(m_Canvas.PtInRect(point))<BR>{<BR>//Присвоить 
+            координаты начала двум переменным<BR>m_LineStart= 
+            point;<BR>m_LineEnd=point;
+            <P>/////-Ваш код начинается здесь-///
+            <P>m_Pen.DeleteObject();<BR>m_Pen.CreatePen(PS_SOLID, 1, 
+m_PenColor);
+            <P>/////-Ваш код заканчивается здесь-/////
+            <P>//Захватить мышь<BR>SetCapture();<BR>}
+            <P>}<BR></B></P>
+            <LI>Первый оператор удаляет предыдущий объект, это нужно для того, 
+            чтобы ваша программа не проглючила при частом повторе операций 
+            рисования. 
+            <LI>Потом создается новый с параметрами :<BR>1) <B>PS_SOLID</B> - 
+            сплошное пероь.<BR>2) <B>1</B> - размер пера. <BR>3) 
+            <B>m_PenColor</B> - цвет пера.
+            <P></P>
+            <LI>Осталось добавить код который будет выбирать перо. 
+            <LI>Откройте функцию <B>OnMouseMove</B>, модифицируйте ее следующим 
+            образом:
+            <P><B>void CPaintORamaDlg::OnMouseMove(UINT nFlags, CPoint 
+            point)<BR>{<BR>if( (nFlags &amp; MK_LBUTTON) &amp;&amp; 
+            m_Canvas.PtInRect(point))<BR>{
+            <P>//Получить указатель на контекст устройства<BR>CClientDC 
+dc(this);
+            <P>////-Ваш код начинается здесь-////
+            <P>dc.SelectObject(&amp;m_Pen);
+            <P>////-Ваш код закачивается здесь-////
+            <P>//Присвоить координаты щелчка переменной m_LineEnd<BR>m_LineEnd= 
+            point;
+            <P>//Нарисовать 
+            линию<BR>dc.MoveTo(m_LineStart);<BR>dc.LineTo(m_LineEnd)
+            <P>/*Присвоить текущее переменной m_LineStart значение позиции 
+            курсора*/ <BR>m_LineStart=m_LineEnd;<BR>}
+            <P>} </B></P>
+            <LI>Добавленный орператор включает пероь. Запустите программу и 
+            попробуйте выбирать любой цвет и нарисовать что-нибудь. 
+     <div align="center">       <P><BR><BR>Добавление возможности выбора размера пера.<BR><A 
+            href="lesson028.htm"><B 
+            class=base2>&lt;-Назад</B></A> || <A 
+            href="lesson048.htm"><B 
+            class=base2>Дальше -&gt;</B></A> </div>
+            <P>
+            <CENTER><B><FONT color=green><A 
+            href="lesson008.htm">[1]</A><A 
+            href="lesson018.htm"> [2]</A> 
+            <A href="lesson028.htm">[3]</A> 
+            [4]<A href="lesson048.htm"> [5] 
+            </A><A 
+            href="lesson058.htm">[6]</A><A 
+            href="lesson068.htm"> [7]<A> <A 
+            href="lesson078.htm">[8]</A> <A 
+            href="lesson088.htm">[9]</A></B></FONT></CENTER></LI></FONT></FONT></FONT>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>		
+</BODY></HTML>

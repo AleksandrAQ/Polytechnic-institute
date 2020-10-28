@@ -1,0 +1,409 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)lesson037.htm -->
+<HTML><HEAD><TITLE>Програмирование на Visual C++</TITLE>
+</HEAD><BODY background="../bgrwhite.gif">
+      <CENTER><B>Урок VII</B></CENTER></FONT>
+      <P>
+      <P align=center><FONT color=black face=ARIAL size=4>Связывание событий с 
+      элементами управления</FONT></P>
+            <UL type=square>
+              <LI>Сейчас вам надо разработать диалоговую панель 
+              <B>IDD_CUSTOM_DIALOG</B>, с помощью, которой вы будете выбирать 
+              цвет круга. Вначале мы ее спроектируем, затем создадим новый 
+              класс, который будет отвечать за эту диалоговую панель, свяжем его 
+              с главным классом и свяжем элементы управления с событиями, и 
+              кодом. 
+              <P align=center><FONT color=red face=TAHOMA 
+              size=+1><B>Проектирование диалоговой панели</B></FONT></P>Сейчас мы 
+              визуально спроектируем диалоговую панель. Для этого вначале 
+              выбирете закладку <B>"Resourse View"</B> и раскройте пункт 
+              <B>Graph Resource</B>. Выполните слдеующие действия <BR>
+              <LI>Щелкните правой кнопкой мыши на <B>Вшфдщп</B>. 
+              <LI>В появившемся контексном меню выбираем <B>Insert 
+              Dialog</B>(вставить диалог). 
+              <LI>Visual C++ создаст новый диалог c итендификатором 
+              <B>IDD_DIALOG1</B>, вам надо поменять его на 
+              <B>IDD_CUSTOM_DIALOG</B>. 
+              <LI>С помощью панели <B>Controls</B> расставьте элементы, 
+              управления как показано на рис. 2.0 и согласно таблице 2.0. 
+              <P align=center><IMG 
+              src="lesson037.files/vc_resource_dlgcustom_proekt.gif"></P>
+              <P align=center><FONT color=red><B>Таблица 2.0</B></FONT></P>
+              <DIV align=center>
+              <TABLE bgColor=#ffffbb border=1 cellPadding=0 cellSpacing=0 
+              width=440>
+                <TBODY>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Объект</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>Свойство</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>Установка</B></FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Dialog Box</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID</B></FONT></TD>
+                  <TD><FONT face=ARIAL 
+                  size=2><B>IDD_CUSTOM_DIALOG</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>Set Graph</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Font</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>System, Size 10, страница 
+                    Styles</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Radio Button</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                  <TD><FONT face=ARIAL 
+size=2><B>IDC_RED_RADIO</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>&amp;Red</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Group</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>отмечен, страница 
+                  General</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Modal frame</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                    Styles</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Client edge</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                    Styles</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Static edge</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                    Styles</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Radio Button</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                  <TD><FONT face=ARIAL 
+                size=2><B>IDC_GREEN_RADIO</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>&amp;Green</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Group</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>не отмечен, страница 
+                    General</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Modal frame</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                    Styles</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Client edge</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                    Styles</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Static edge</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                    Styles</FONT></TD></TR>
+                <TR>
+                  <TD><FONT face=ARIAL size=2><B>Radio Button</B></FONT></TD>
+                  <TD><FONT face=ARIAL size=2><B>ID<B></FONT></B></B></TD>
+                  <TD><FONT face=ARIAL 
+                size=2><B>IDC_BLUE_RADIO</B></FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Caption</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>&amp;Blue</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Group</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>не отмечен, страница 
+                    General</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Modal frame</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                    Styles</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Client edge</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                    Styles</FONT></TD></TR>
+                <TR>
+                  <TD></TD>
+                  <TD><FONT face=ARIAL size=2>Static edge</FONT></TD>
+                  <TD><FONT face=ARIAL size=2>отмечен, страница Extended 
+                    Styles</FONT></TD></TR></TBODY></TABLE></DIV>
+              <LI>Разместите радиокнопки обязательно в том порядке в котором они 
+              даны в таблице. Не забудьте установить свойство <B>Group</B> у 
+              радиокнопки <B>Red</B>. Это означает, что все три радиокнопки 
+              будут объединены в одну группу, и при выборе одной из них, значек 
+              "отмечено" будет перемещаться. 
+              <LI>Зайдите в <B>Resource Symbols</B> в меню <B>View</B> и 
+              убедитесь в том, что итендификаторы кнопок являются 
+              последовательные числа. </LI></UL>
+            <UL type=square>
+              <P align=center><FONT color=red face=TAHOMA size=+1><B>Связывание 
+              переменной с радиокнопками</B></FONT></P>
+              <LI>Теперь вам необходимо связать переменную с радиокнопками, 
+              которые вы разместили в диалоговой панели 
+              <B>IDD_CUSTOM_DIALOG</B>. 
+              <LI>Выполните правый щелчок по пункту <B>IDD_CUSTOM_DIALOG</B>, и 
+              выбирите пункт <B>ClassWizard</B> в меню <B>View</B>. 
+              <LI>Появиться диалоговая панель(Add class), которая спросит вас: 
+              создать новый класс или добавить в существующий. Вы выбираете 
+              создать новый <B>Create a new class</B>, и щелкаете по кнопке 
+              <B>OK</B>. 
+              <LI>В диалоговой панели <B>New Class</B> задайте имя 
+              <B>CSetDlg</B>. И щелкните по кнопке <B>OK</B>. 
+              <LI>Убедитесь, что окно в <B>Class Name</B> установлено на 
+              CSetDlg. Затем щелкните на пункт <B>Member Varibles</B> и выбирите 
+              пункт <B>IDC_RED_RADIO</B>. 
+              <LI>Нажмите на кнопку <B>Add Varible</B> и задайте в появившемся 
+              диалоговом окне <B><LEFT>Variable Name: m_RedRadio Category: Value 
+              Variable Type: int </LEFT></B>
+              <LI>Щелкните по кнопке <B>OK</B>. 
+              <LI>Следовательно, когда значение перменной <B>m_RedRadio</B> 
+              равно 0 - выбрана радиокнопка <B>RED</B>, когда 1 - радиокнопка 
+              <B>CREEN</B>, когда 2 - радиокнопка <B>BLUE</B>. </LI></UL>
+            <UL type=square>
+              <P align=center><FONT color=red face=TAHOMA size=+1><B>Создание 
+              объекта класса CSetDlg</B></FONT></P>
+              <LI>В предыдущей главе вы создали класс <B>CSetDlg()</B>. Он 
+              является производным клссом от класса <B>CDialog</B>, а диалоговая 
+              панель <B>IDD_CUSTOM_DIALOG</B> связана с классом <B>CSetDlg</B>. 
+              C классом <B>CSetDlg</B> ассоциированы два файла : 
+              <B>SetDlg.cpp</B> и <B>SetDlg.h</B>. 
+              <LI>Теперь вы создадите объект класса <B>CSetDlg</B>. В объявление 
+              класса <B>CGraphDlg</B>(в файле CGraphDlg.h) добавьте следующий 
+              код, который объявляет переменную <B>m_dlg</B> объектом класса 
+              <B>CSetDlg</B>. Это нужно для того, чтобы мы могли иметь доступ к 
+              переменным класса <B>CSetDlg</B>:<BR>
+              <P><B>class CGraphDlg : public CDialog<BR>{<BR>// 
+              Construction<BR>public:<BR>CGraphDlg(CWnd* pParent = NULL); // 
+              standard constructor
+              <P>////Мой код начинается здесь////
+              <P>CSetDlg m_dlg;
+              <P>////Мой код заканчивается здесь////<BR>...<BR>}<BR></B></P>
+              <LI>Введенный вами код создает объект <B>m_dlg</B> класса 
+              <B>CSetDlg</B>. 
+              <LI>Однако, когда компилятор встречает слово <B>CSetDlg</B> в 
+              файле <B>CGraphDlg</B>, он его не поймет. Значит надо добавить 
+              следующий оператор <B>#include</B> в файл <B>CGraphDlg</B>, в 
+              самое начало:<BR>
+              <P><B>// GraphDlg.h : header file<BR>//
+              <P>////Мой код начинается здесь////
+              <P>#include "SetDlg.h"
+              <P>////Мой код заканчивается 
+              здесь////<BR>...<BR>...<BR></B></P></LI></UL>
+            <UL type=square>
+              <P><FONT color=red size=+1><B>Модификация кода кнопки Draw 
+              Graphics</B></FONT></P>
+              <LI>Сейчас вы модифицируете код функции 
+              <B>OnDrawgraphicsButton</B> следующим образом: </LI></UL>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CGraphDlg<BR>Object 
+              ID: IDC_DRAWGRAPHICS_BUTTON<BR>Messages: BN_CLICKED<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. </LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnDrawgraphicsButton()</B>: 
+              <P><B>BOOL CGraphDlg::OnDrawgraphicsButton()<BR>{<BR>// TODO: Add 
+              your message handler code here
+              <P>////////Мой код начинается здесь///////////
+              <P>m_dlg.DoModal();
+              <P>////////Мой код заканчивается здесь///////////
+              <P>}<BR></B></P>
+              <LI>Вы добавили единственнный оперaтор:<BR>m_dlg.DoModal();
+              <P>который вызывает диалговую панель 
+              <B>IDD_CUSTOM_DIALOG</B>(выводит объект <B>m_dlg</B>). </P>
+              <LI>Хотя код еще не закончен, можно посмотреть частичто введенный 
+              код. 
+              <LI>Постройте и выполните программу. 
+              <LI>Нажмите на кнопку <B>Draw Graphics</B>, поэксперементируйте с 
+              радиокнопками. </LI></UL>
+            <UL type=square>
+              <P><FONT color=red size=+1><B>Инициализация 
+              радиокнопок</B></FONT></P>
+              <LI>Вам необходимо включить в программу код, который 
+              инициализирует радиокнопку <B>RED</B>, выбирал ее при запуске 
+              программы. </LI></UL>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CGraphDlg<BR>Object 
+              ID: CGraphDlg<BR>Messages: WM_INITDIALOG<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. </LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnInitDialog()</B>: 
+              <P><B>BOOL 
+              CGraphDlg::OnInitDialog()<BR>{<BR>CDialog::OnInitDialog();<BR>//....<BR>////////Мой 
+              код начинается здесь///////////
+              <P>///Установить системный таймер<BR>int 
+              iInstallResult;<BR>iInstallResult=SetTimer(1, 50, 
+              NULL);<BR>if(iInstallResult==FALSE)<BR>{<BR>MessageBox("Cannot 
+              install timer",<BR>"Error message",<BR>MB_OK+MB_ICONERROR);<BR>}
+              <P>//Выбрать радиокнопку RED<BR>m_dlg.m_RedRadio=0;
+              <P>////////Мой код заканчивается здесь///////////
+              <P>return TRUE; // return TRUE unless you set the focus to a 
+              control<BR>}<BR></B></P>
+              <LI>Код, который вы ввели присваивает переменной <B>m_RedRadio</B> 
+              значение 0, используя для этого объект класса <B>m_dlg</B>, т.к. 
+              переменная <B>m_RedRadio</B>, является членом класса 
+              <B>CSetDlg</B>. </LI></UL>
+            <UL type=square>
+              <P><FONT color=red size=+1><B>Добавление переменных элементов в 
+              класс CGraphDlg</B></FONT></P>
+              <LI>Теперь вам необходимо включить две переменные в класс 
+              <B>CGraphDlg</B>, так чтобы они были доступны из любой 
+              функции-элемента классаю 
+              <LI>Включите объявления в класс <B>CGraphDlg</B> слдеующим 
+              образом:<BR>
+              <P><B>class CGraphDlg : public CDialog<BR>{<BR>// 
+              Construction<BR>public:<BR>CGraphDlg(CWnd* pParent = NULL); // 
+              standard constructor
+              <P>////Мой код начинается здесь////
+              <P>CSetDlg m_dlg;
+              <P>int m_Radius;<BR>int m_Direction;
+              <P>////Мой код заканчивается 
+            здесь////<BR>...<BR>}<BR></B></P></LI></UL>
+            <UL type=square>
+              <P><FONT color=red size=+1><B>Инициализация 
+              радиокнопок</B></FONT></P>
+              <LI>Вам нужно написать код, который инициализирует переменные 
+              <B>m_Radius</B> и <B>m_Direction</B>. </LI></UL>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CGraphDlg<BR>Object 
+              ID: CGraphDlg<BR>Messages: WM_INITDIALOG<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. </LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnInitDialog()</B>: 
+              <P><B>BOOL 
+              CGraphDlg::OnInitDialog()<BR>{<BR>CDialog::OnInitDialog();<BR>//....<BR>////////Мой 
+              код начинается здесь///////////
+              <P>///Установить системный таймер<BR>int 
+              iInstallResult;<BR>iInstallResult=SetTimer(1, 50, 
+              NULL);<BR>if(iInstallResult==FALSE)<BR>{<BR>MessageBox("Cannot 
+              install timer",<BR>"Error message",<BR>MB_OK+MB_ICONERROR);<BR>}
+              <P>//Выбрать радиокнопку RED<BR>m_dlg.m_RedRadio=0;
+              <P>m_Radius=50;<BR>m_Direction=1;
+              <P>////////Мой код заканчивается здесь///////////
+              <P>return TRUE; // return TRUE unless you set the focus to a 
+              control<BR>}<BR></B></P>
+              <LI>Код, который вы ввели инициализирует перменные <B>m_Radius</B> 
+              и <B>m_Direction</B>:
+              <P><B>m_Radius=50;<BR>m_Direction=1;
+              <P></B></P></LI></UL>
+            <UL type=square>
+              <P><FONT color=red size=+1><B>Связвание кода с событием 
+              Timer</B></FONT></P>В начале программы мы написали код, который 
+              генерирует событие <B>WM_TIMER</B>, каждые 500 миллискекунд. 
+              Теперь необходимо дополнить этот код: </UL>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CGraphDlg<BR>Object 
+              ID: СGraphDlg<BR>Messages: WM_TIMER<BR></B></LEFT></LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnTimer()</B>: 
+              <P><B>BOOL CGraphDlg::OnTimer(UINT 
+              nIDEvent)<BR>{<BR>//....<BR>////////Мой код начинается 
+              здесь///////////
+              <P>//MessageBeep((WORD)-2);
+              <P>m_Radius=m_Radius+m_Direction;<BR>if(m_Radius&gt;=100)<BR>{<BR>m_Direction=-1;<BR>}<BR>if(m_Radius&lt;=10)<BR>{<BR>m_Direction=1;<BR>}
+              <P>//Инициировать исполнение функции OnPaint() Invalidate(); 
+              ////////Мой код заканчивается здесь///////////
+              <P>CDialog::OnTimer(UINT nIDEvent);<BR>}<BR></B></P>
+              <LI>Переменная <B>m_Direction</B> может принимать значения 1 или 
+              -1. Значит при выполнении оператора 
+              <B>m_Radius=m_Radius+m_Direction;</B> значение переменной будет 
+              уменьшаться или увеличиваться, взависимости от того какое значени 
+              имеет переменная <B>m_Direction</B>. Таким образом радиус круга 
+              будет то увеличиваться, то уменьшаться. 
+              <LI>Чтобы радиуск круга бузгранично не увеличивался и не 
+              уменьшался, вы написали следующую конструкцию операторов <B>IF</B> 
+              в функции 
+              <B>OnTimer</B>:<BR>if(m_Radius&gt;=100)<BR>{<BR>m_Direction=-1;<BR>}<BR>if(m_Radius&lt;=10)<BR>{<BR>m_Direction=1;<BR>}
+              <P>которые оперделяют: 1) если значение переменной <B>m_Radius</B> 
+              больше или равно 100, то переменная <B>m_Direction</B> принимает 
+              значение -1, и тогда радиус круга начинает уменьшаться. 2) когда 
+              значение переменной равно <B>m_Radius</B> меньше или равно 10, 
+              тогда все происходит наоборот. </P>
+              <LI>Последний оператор, который вы написали <B>Invalidate()</B> 
+              генерирует принудительно событие <B>WM_PAINT</B>, которое вызывает 
+              каждый раз функцию <B>OnPaint()</B>. </LI></UL>
+            <UL type=square>
+              <P><FONT color=red size=+1><B>Модификация кода, связанного с 
+              событием WM_POINT</B></FONT></P></UL>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CGraphDlg<BR>Object 
+              ID: CGraphDlg<BR>Messages: WM_PAINT<BR></B></LEFT></LI></UL>
+            <UL type=square>
+              <LI>Модифицируйте код в функции <B>OnPaint()</B> следующим 
+              образом: 
+              <P><B>void CGraphDlg::OnPaint() <BR>{<BR>if 
+              (IsIconic())<BR>{<BR>//....<BR>}<BR>else<BR>{
+              <P>////Мой код начинается здесь////
+              <P>// OnDrawgraphicsButton();
+              <P>///Создать объект контекста устройства(DC)<BR>CPaintDC 
+dc(this);
+              <P>//Создать новое перо<BR>CPen 
+              MyNewPen;<BR>MyNewPen.CreatePen(PS_SOLID, 10, RGB(255,0,0));
+              <P>//Выбрать перо<BR>CPen* 
+              pOriginalPen;<BR>pOriginalPen=dc.SelectObject(&amp;MyNewPen);<BR>// 
+              CRect MyRectangle(20, 10, 120,110);
+              <P>CRect MyRectangle(20, 10, 20+m_Radius*2,10+m_Radius*2);
+              <P>//Нарисовать круг<BR>dc.Ellipse(&amp;MyRectangle);
+              <P>//Выбрать первоначальное перо<BR>dc.SelectObject(pOriginalPen);
+              <P>////Мой код заканчивается здесь////
+              <P>//...<BR>}<BR>}<BR></B></P>
+              <LI>Вы поместили старый код, в котором вы задавали координаты 
+              квадрата, в комментарий. 
+              <LI>Модифицировали старый код, так что радиус круга будет зависеть 
+              от переменной <B>m_Radius</B>. Мы написали:<BR><B>CRect 
+              MyRectangle(20, 10, 20+m_Radius*2,10+m_Radius*2);
+              <P></B>видно что, когда значение переменной <B>m_Radius</B> будет 
+              равно 50, то диаметр круга будет равен <B>20+50*2=120</B>. Когда 
+              значение переменной <B>m_Direction</B> будет равно -1, то радиус 
+              будет уменьшаться. 
+              <P><FONT color=red size=+1><B>Управление цветом</B></FONT></P>
+              <LI>Программа <B>Graph</B> рисует круги красного цвета, чтоб 
+              изменять цвет круга - это делать надо с помощью панели 
+              <B>IDD_CUSTOM_DIALOG</B>. В упражнении, в конце этой главы, будет 
+              рассмотрен код, который позволяет рисовать круги выбраннго цвета. 
+              цвета. </LI></UL>Вы закончили связывание событий с элементами 
+            управления 
+            <P><div align="center">Резюме и упражнение <br><A 
+            href="lesson027.htm"><B 
+            class=base2>&lt;-Назад</B></A> || <A 
+            href="lesson047.htm"><B 
+            class=base2>Дальше -&gt;</B></A> </div>
+      </P></FONT>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>			  
+	  </BODY></HTML>

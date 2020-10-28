@@ -1,0 +1,298 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)lesson027.htm -->
+<HTML><HEAD><TITLE>Програмирование на Visual C++</TITLE>
+</HEAD>
+<BODY background="../bgrwhite.gif">
+
+      <CENTER><B>Урок VII</B></CENTER></FONT>
+      <P>
+      <P align=center><FONT color=black face=ARIAL size=4>Связывание событий с 
+      элементами управления</FONT></P>
+            <UL type=square>
+              <P><FONT color=red size=+1><B>Связывание кода с событием BN_CLICKED 
+              кнопки Exit</B></FONT></P>При нажатии на кнопку <B>Exit</B> 
+              программа <B>Graph.Exe</B> завершится. 
+              <LI>Чтобы связать код с событием <B>BN_CLICKED</B> кнопки 
+              <B>EXIT</B>, выполните следующие действия: </LI></UL>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CGraphDlg<BR>Object 
+              ID: IDC_EXIT_BUTTON<BR>Messages: BN_CLICKED<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. 
+              <LI>Сейчас ваша панель <B>MFC ClassWizard</B> должна будет 
+              выглядеть так: </LI></UL>
+              <P align=center><IMG src="lesson027.files/vc_clwiz_exit_stat.gif"></P>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnExitButton()</B>: 
+              <P><B>void CGraphDlg::OnExitButton()<BR>{<BR>// TODO: Add your 
+              control notification handler code here
+              <P>////////Мой код начинается здесь///////////
+              <P>OnOK(); 
+              <P>////////Мой код заканчивается здесь///////////
+              <P>}<BR></B></P>
+              <LI>Функция <B>OnOK()</B>, которую вы ввели завершает программу, 
+              при нажатии на кнопку <B>Exit</B>. </LI></UL>
+            <UL type=square>
+              <P><FONT color=red size=+1><B>Установка 
+              таймера</B></FONT></P>Программа <B>Graph</B> имеет таймер, который 
+              является программным механизмом, генерирующем событие 
+              <B>WM_TIMER</B> через равные промежутки времени. Код в нашей 
+              программе будет задавать частоту, с которой будет выполняться 
+              событие <B>WM_TIMER</B>. Если вы, например, зададите рабочий 
+              интервал равный 500 милисекунд, то событие <B>WM_TIMER</B> и 
+              связанный с ним код будет выполняться каждые 500 миллисекунд. 
+              <LI>Чтобы установить таймер, выполните следующие действия: 
+</LI></UL>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CGraphDlg<BR>Object 
+              ID: СGraphDlg<BR>Messages: WM_INITDIALOG<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. </LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnInitDialog()</B>: 
+              <P><B>BOOL 
+              CGraphDlg::OnInitDialog()<BR>{<BR>CDialog::OnInitDialog();<BR>//....<BR>////////Мой 
+              код начинается здесь///////////
+              <P>///Установить системный таймер<BR>int 
+              iInstallResult;<BR>iInstallResult=SetTimer(1, 50, 
+              NULL);<BR>if(iInstallResult==FALSE)<BR>{<BR>MessageBox("Cannot 
+              install timer",<BR>"Error message",<BR>MB_OK+MB_ICONERROR);<BR>}
+              <P>////////Мой код заканчивается здесь///////////
+              <P>return TRUE; // return TRUE unless you set the focus to a 
+              control<BR>}<BR></B></P>
+              <LI>Функция <B>SetTimer()</B> имеет 3 параметра:<BR>Первый - 
+              итендификатор таймер, код который вы ввели объявляет таймер как 
+              <B>таймер#1</B>.<BR>Второй - устанавливает период в миллисекундах, 
+              с которым будет происходить сообщение <B>WM_TIMER</B>, в нашей 
+              программе оно будет генерироваться через промежутки времени равным 
+              500 миллисекундам.<BR>Третий - задает адрес функции, которая будет 
+              выполняться каждые 500 миллисекунд. Поскольку вы передаете в 
+              третий параметр значение <B>NULL</B>, это означает что вы не 
+              определяете функцию, следовательно каждые 500 миллисекунд будет 
+              генерироваться сообщение <B>WM_TIMER</B>. 
+              <LI>Затем выполняется оператор <B>IF</B>, который проверяет 
+              установился ли таймер, если функция <B>SetTimer()</B> вернула 
+              значение 0,то значит таймер не установлен , и выполняется функция 
+              <B>MessageBox</B>, которая сообщает, с помощью предопределенной 
+              панели со значком "Error",что таймер не инсталлирован. 
+              <LI>Всегда необходимо проверять на возможность установить таймер, 
+              потому что в зависимости от конкретной системы, можно установить 
+              ограниченное кол-во таймеров. Другие, работающие программы могут 
+              занять все существующие таймеры, поэтому вам надо закрыть одну из 
+              них. 
+              <LI>После того, как таймер установлен, вы можете удалить его 
+              используя функцию <B>KillTimer()</B>. Параметром этой функции 
+              является номер удаляемого таймера. В нашей программе вы должгы 
+              тоже удалить таймер при выходе из программы. Для этого необходимо 
+              связать функцию <B>KillTimer()</B> с событием <B>WM_DESTROY</B>. 
+              <LI>Для написания кода, который удаляет таймер, выполните 
+              следующие действияL:<BR>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CGraphDlg<BR>Object 
+              ID: СGraphDlg<BR>Messages: WM_DESTROY<BR></B></LEFT></LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnDestroy()</B>: 
+              <P><B>void CGraphDlg::OnDestroy() 
+              <BR>{<BR>CDialog::OnDestroy();<BR>// TODO: Add your message 
+              handler code here
+              <P>////Здесь начинается мой код////
+              <P>KillTimer(1);
+              <P>////Здесь заканчивается мой код////<BR>}<BR></B></P></LI></UL>
+            <UL type=square>
+              <P><FONT color=red size=+1><B>Проверка таймера</B></FONT></P>Перед 
+              тем, как продолжить создание программы, мы должны убедиться, что 
+              таймер работает как положено. </UL>
+            <LI>Для этого вы свяжете од с событием <B>WM_TIMER</B>. 
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CGraphDlg<BR>Object 
+              ID: СGraphDlg<BR>Messages: WM_TIMER<BR></B></LEFT></LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnTimer()</B>: 
+              <P><B>BOOL CGraphDlg::OnTimer(UINT 
+              nIDEvent)<BR>{<BR>//....<BR>////////Мой код начинается 
+              здесь///////////
+              <P>MessageBeep((WORD)-2);
+              <P>////////Мой код заканчивается здесь///////////
+              <P>CDialog::OnTimer(UINT nIDEvent);<BR>}<BR></B></P>
+              <LI>Сохраните и запустите программу. 
+              <LI>Вы должны слышать,что через каждые 500 миллисекунд компьютер 
+              будет подавать звуковой сигнал. 
+              <LI>Завершите программу <B>Graph</B>, перед тем как продолжить 
+              работу надо поместить функцию <B>MessageBeep()</B> в коментарий. 
+              <LI>Позже в этой главе вы включите в функцию <B>OnTimer()</B> 
+              дополнительный код. 
+              <LI>Постройте и выполните программу, и убедитесь, что компьютер 
+              перестал подавать звуковой сигнал. </LI></UL>
+            <UL type=square>
+              <P><FONT color=red size=+1><B>Событие 
+              WM_PAINT</B></FONT></P>Событие <B>WM_PAINT</B> происходит каждый 
+              раз, когда необходимо перерисовать окно. Это бывает в таких 
+              случаях, когда, например, окно другой программы налажилось на 
+              вашу, то после закрытия той программы, в вашей программе программе 
+              круга уже не будет, так как его стерло другое окно. Если вы 
+              перетащили, к примеру, половину окна программы за рабочую облать, 
+              то опять же требуется перерисовка экрана. <B>Windows</B> сама не 
+              будет перерисовывать экран, она будет только генерировать 
+              сообщение <B>WM_PAINT</B>, а наша задача уже перерисовывать. 
+              <LI>Чтобы показать необходимость необходимость события 
+              <B>WM_PAINT</B>, напишем следующий код. </LI></UL>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CGraphDlg<BR>Object 
+              ID: IDC_DRAWGRAPHICS_BUTTON<BR>Messages: BN_CLICKED<BR></B></LEFT>
+              <LI>Щелкните на кнопку <B>Add Fucntion</B> и в раскрывшемся окне 
+              нажмите кнопку <B>OK</B>. </LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnDrawgraphicsButton()</B>: 
+              <P><B>BOOL CGraphDlg::OnDrawgraphicsButton()<BR>{<BR>// TODO: Add 
+              your message handler code here
+              <P>////////Мой код начинается здесь///////////
+              <P>///Создать объект контекста устройства(DC)<BR>CClientDC 
+              dc(this);
+              <P>//Создать новое перо<BR>CPen 
+              MyNewPen;<BR>MyNewPen.CreatePen(PS_SOLID, 10, RGB(255,0,0));
+              <P>//Выбрать перо<BR>CPen* 
+              pOriginalPen;<BR>pOriginalPen=dc.SelectObject(&amp;MyNewPen);<BR>CRect 
+              MyRectangle(20, 10, 120,110);
+              <P>//Нарисовать круг<BR>dc.Ellipse(&amp;MyRectangle);
+              <P>//Выбрать первоначальное перо<BR>dc.SelectObject(pOriginalPen);
+              <P>////////Мой код заканчивается здесь///////////
+              <P>CDialog::OnPaint();<BR>}<BR></B></P>
+              <LI>Сначала создается объект контексного 
+              устройства:<BR><B>///Создать объект контекста 
+              устройства(DC)<BR>CClientDC dc(this);
+              <P></B></P>
+              <LI>Затем создается новое перо красного цвета, толщиной линии 10 
+              пикселов, и стилем заливки <B>PS_SOLID</B> - сплошная 
+              заливка:<BR><B>//Создать новое перо<BR>CPen 
+              MyNewPen;<BR>MyNewPen.CreatePen(PS_SOLID, 10, RGB(255,0,0));
+              <P></B></P>
+              <LI>Далее выбирается новое перо:<BR><B>//Выбрать перо<BR>CPen* 
+              pOriginalPen;<BR>pOriginalPen=dc.SelectObject(&amp;MyNewPen);
+              <P></B></P>
+              <LI>Обратите внимение, что выборе нового пера, текущеее заменяется 
+              новым. Поэтому функция <B>SelectObject</B> возвращает указатель на 
+              первоначальное перо, который присваивает указатель 
+              <B>pOriginalPen</B>. 
+              <LI>Затем создается объект прямоугольника:<BR><B>CRect 
+              MyRectangle(20, 10, 120,110);
+              <P></B>Здесь вы указываете координаты верхнего левого и нижнего 
+              правого угла. На нашем примере мы задали прямоугольник, отстоящий 
+              на 20 пикселов по оси X от левой стороны и на 10 пикселов сверху. 
+              Таким образом мы задали квадрат со стороной 100 пикселов. </P>
+              <LI>Далее рисуется эллипс:<BR><B>//Нарисовать 
+              круг<BR>dc.Ellipse(&amp;MyRectangle);
+              <P></B>Здесь рисуется эллипс, но на самом деле получается круг, 
+              так как координаты эллипса заданы квадратом. Круг является частным 
+              случаем эллипса. </P>
+              <LI>И в последнем операторе вы выбираете первоначальное 
+              перо:<BR><B>//Выбрать первоначальное 
+              перо<BR>dc.SelectObject(pOriginalPen);
+              <P></B></P>
+              <LI>Посторойте и выполните программу <B>Graph</B>. 
+              <LI>Появиться окно ппрограммы. 
+              <LI>Щелкните на кнопке <B>Draw Graphics</B>. 
+              <LI>Появиться такое окно вашей программы:<BR></LI></UL>
+              <P align=center><IMG 
+              src="lesson027.files/vc_main_win_graph.gif"></P>
+    <UL type=square> <LI>Теперь сдвиньте окно вашей программы за рабочую область, так 
+              чтобы осталась только половина круга на экране, а затем верните 
+              окно в состояние поялной его видимости, оно у вас должно будет 
+              выглядеть так:<BR>
+              <P align=center><IMG               src="lesson027.files/vc_main_win_graph_pererisovka.gif"></P></LI></UL>
+            <UL type=square>
+              <P><FONT color=red size=+1><B>Код перерисовки</B></FONT></P>
+              <LI>Теперь кодгда вы убделись, что событие <B>WM_PAINT</B> 
+              необходимо, и окно в функции <B>OnPaint()</B> надо перерисовывать, 
+              добавим слдеующий код туда: </LI></UL>
+            <UL type=round>
+              <LI>Выберете <B>ClassWizard</B> в меню <B>View</B> 
+              <LI>Выберете закладку <B>Message Maps</B> в панели 
+              <B>ClassWizard</B> 
+              <LI>Используйте диалоговую панель <B>ClassWizard</B> для выбора 
+              следующего события:<BR><LEFT><B>Class Name: CGraphDlg<BR>Object 
+              ID: CGraphDlg<BR>Messages: WM_PAINT<BR></B></LEFT></LI></UL>
+            <UL type=square>
+              <LI>Нажмите кнопку <B>Edit Code</B> и напишите следующий код в 
+              функции <B>OnPaint()</B>: 
+              <P><B>void CGraphDlg::OnPaint() <BR>{<BR>if 
+              (IsIconic())<BR>{<BR>//....<BR>}<BR>else<BR>{
+              <P>////Мой код начинается здесь////
+              <P>OnDrawgraphicsButton();
+              <P>////Мой код заканчивается здесь////
+              <P>//...<BR>}<BR>}<BR></B></P>
+              <LI>Вы добавили функцию, которая будет каждый раз выполняться, 
+              когда окно будет необходимо перерисовать. Вспомните, что функция 
+              <B>OnDrawgraphicsButton()</B> рисует круг- соответственно 
+              изображение будет перерисовываться. </LI></UL>
+            <UL type=square>
+              <P><FONT color=red size=+1><B>Модификация функции 
+              OnPoint()</B></FONT></P>
+              <LI>В предыдущем разделе вы перерисовывали экран с помощью функции 
+              <B>OnDrawgraphicsButton()</B>, в будущем мы напишем другой код в 
+              этой функции, поэтому ее выполнение не желательно. Значит, нам 
+              необходимо код переисовки экрана связать непосредственно с 
+              событием <B>WM_POINT</B>. </LI></UL>
+            <UL type=square>
+              <LI>Модифицируйте код в функции <B>OnPaint()</B> следующим 
+              образом: 
+              <P><B>void CGraphDlg::OnPaint() <BR>{<BR>if 
+              (IsIconic())<BR>{<BR>//....<BR>}<BR>else<BR>{
+              <P>////Мой код начинается здесь////
+              <P>// OnDrawgraphicsButton();
+              <P>///Создать объект контекста устройства(DC)<BR>CPaintDC 
+dc(this);
+              <P>//Создать новое перо<BR>CPen 
+              MyNewPen;<BR>MyNewPen.CreatePen(PS_SOLID, 10, RGB(255,0,0));
+              <P>//Выбрать перо<BR>CPen* 
+              pOriginalPen;<BR>pOriginalPen=dc.SelectObject(&amp;MyNewPen);<BR>CRect 
+              MyRectangle(20, 10, 120,110);
+              <P>//Нарисовать круг<BR>dc.Ellipse(&amp;MyRectangle);
+              <P>//Выбрать первоначальное перо<BR>dc.SelectObject(pOriginalPen);
+              <P>////Мой код заканчивается здесь////
+              <P>//...<BR>}<BR>}<BR></B></P>
+              <LI>Вы поместили функцию <B>OnDrawgraphicsButton()</B> в 
+              коментарий. 
+              <LI>Заменили оператор <B>CClientDC dc(this)</B> на <B>CPaintDC 
+              dc(this)</B>, так как с этим контексным устройством работает 
+              функция <B>OnPaint()</B>. 
+              <LI>Остальная часть кода осталась без изменения. 
+              <LI>Постройте и запустите программу <B>Graph</B>. 
+              <LI>Подвигайте окном <B>Graph</B> и убедитесь, что код перерисовки 
+              функции <B>OnPaint()</B> работает. 
+              <LI>Щелкните на кнопке <B>Exit</B>, чтобы ее завершить. </LI></UL>
+            <P>Визуальное проектирование диалоговой панели 
+            <B>IDD_CUSTOM_DIALOG</B> и связывание событий с элементами 
+            управления(продолжение).
+            <P>
+            <CENTER><A 
+            href="lesson017.htm"><B 
+            class=base2>&lt;-Назад</B></A> || <A 
+            href="lesson037.htm"><B 
+            class=base2>Дальше -&gt;</B></A> 
+      </CENTER></LI></FONT>
+<p><div align="center"><a href="lesson.htm"><img src="../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>			  
+	  </BODY></HTML>

@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0059)http://click.ipc.ru/~vc/html/Lessons/Lesson20/lesson020.htm -->
+<HTML><HEAD><TITLE>Клуб русских программистов!</TITLE>
+</HEAD>
+<BODY background="../../bgrwhite.gif">
+      <CENTER><B>Урок XI</B></CENTER></FONT>
+      <P>
+             <LI>Теперь нам надо добавить код обработки фонового режима для этого 
+            нам необходимо связать код с событием <B>OnIdle</B>, которое 
+            происходит, когда окно программы не активно. 
+            <LI>Для этого откроем <B>Class Wizard</B> выберем класс 
+            <B>CFormApp</B>, найдем сообщение <B>OnIdle</B> и добавим функцию, в 
+            которую поместим следующий код: 
+            <P><B>BOOL CTaskApp::OnIdle(LONG lCount) <BR>{<BR>// TODO: Add your 
+            specialized code here and/or call the base class<BR><BR>/*Вызвать 
+            функцию базового класса СWinApp::OnIdle(), чтобы завершить его 
+            служебные задачи*/<BR>CWinApp::OnIdle(lCount);
+            <P>//Звуковой сигнал<BR>MessageBeep((WORD)-2);
+            <P>/*Вернуть TRUE, чтобы опять запустить себя, если есть фоновый 
+            режим*/<BR>returnTRUE;<BR>}
+            <P></B></P>
+            <LI>Первый оператор требуется для нормальной работы программы, мы 
+            точно уже уверены, что с системой все в поряке. 
+            <LI>Запустите программу, когда ваша система простаивает она выдает 
+            непрерывный звуковой сигнал, даже когда вы печатаете в окне 
+            редактирования, тоже подается звуковой сигнал, т.к. есть паузы между 
+            набором символов. 
+            <LI>Теперь, когда мы убедились, что введенный нами код работает, 
+            модифицируем нашу программу так, чтобы она меняла значение в окне 
+            редактирования на 1 через каждые 50 и 500 миллисекунд. 
+            <LI>Измените код в функции <B>OnIdle</B> следующим образом. <B>BOOL 
+            CTaskApp::OnIdle(LONG lCount) <BR>{<BR>////-Мой код начинается 
+            здесь-////
+            <P>/*Вызвать функцию базового класса СWinApp::OnIdle(), чтобы 
+            завершить его служебные 
+            задачи*/<BR>CWinApp::OnIdle(lCount);<BR>//Получить указатель на 
+            шаблон документа<BR>POSITION pos = 
+            GetFirstDocTemplatePosition();<BR>CDocTemplate* 
+            pDocTemplate=GetNextDocTemplate(pos);
+            <P><BR>//Получить указательна 
+            документ<BR>pos=pDocTemplate-&gt;GetFirstDocPosition();<BR>CDocument* 
+            pDoc=pDocTemplate-&gt;GetNextDoc(pos);
+            <P><BR>//Получить указатель на 
+            представление<BR>pos=pDoc-&gt;GetFirstViewPosition();<BR>CTaskView* 
+            pView=(CTaskView*) pDoc-&gt;GetNextView(pos);
+            <P><BR>//Переменные для хранения времени<BR>static DWORD 
+            PrevTimeTask1=0;<BR>static DWORD PrevTimeTask2=0;
+            <P><BR>//Получить Текущее время<BR>DWORD CurrentTime=GetTickCount();
+            <P><BR>//Получить данные от элементов 
+            уравления<BR>pView-&gt;UpdateData(TRUE);
+            <P>//Если время превысило 50 мс, то прибавить 
+            1<BR>if(CurrentTime&gt;PrevTimeTask1+50 &amp;&amp; 
+            <BR>pView-&gt;m_EnableTask1Check)<BR>{<BR>pView-&gt;m_Task1Edit=pView-&gt;m_Task1Edit+1;<BR>pView-&gt;UpdateData(FALSE);<BR>PrevTimeTask1=CurrentTime;<BR>}
+            <P>//Если время превысило 500 мс и cчетчик включен, то прибавить 
+            1<BR>if(CurrentTime&gt;PrevTimeTask2+500 
+            &amp;&amp;<BR>pView-&gt;m_EnableTask2Check)<BR>{<BR>pView-&gt;m_Task2Edit=pView-&gt;m_Task2Edit+1;<BR>pView-&gt;UpdateData(FALSE);<BR>PrevTimeTask2=CurrentTime;<BR>}<BR>return 
+            TRUE;
+            <P>////-Мой код заканчивается здесь-////
+            <P>}<BR></B></P>
+            <LI>Вначале первой конструкцией операторов вы получаете указатель на 
+            представление, т.к. вам необходимо изменять содержимое элементов 
+            управления. 
+            <LI>Затем вы вводите две статические переменные, которые будут 
+            хранить время последнего прибавления единицы, если времени прошло 
+            больше 50 и 500 мс, то прибавляется едница, и окно редактирования 
+            обновляется. 
+            <LI>Так же в условии мы проверяем, чтобы отметка флажка 
+            <B>Enable</B> была включена, иначе счетчик не должен работать. 
+            <LI>Вот и вся программа, на ее примере вы научились выполнять 
+            фоновые задачи. <BR><div align="center"><BR>Связывание элементов управления с событиями <br>
+            <BR><A 
+            href="lesson010.htm"><B 
+            class=base2>&lt;-Назад</B></A> </div>
+<p><div align="center"><a href="../lesson.htm"><img src="../../soder.gif" width=120 height=31 border=0 alt=""></a></div></p>			
+    </LI></FONT>
+	</BODY></HTML>
