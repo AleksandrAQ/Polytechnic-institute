@@ -28,6 +28,7 @@ https://dl.spbstu.ru/course/view.php?id=187
 -------------------------------------------------------------------
 ✓Системы управления базами данных
 
+Доделать отчет и загрузить на дл
 ✓ Отчет
 ✓Курсач?? 
 https://docviewer.yandex.ru/view/0/?page=1&*=y7bCj58TyF25O3l2HpOmU%2FrkAbF7InVybCI6InlhLWRpc2stcHVibGljOi8vejV3RTRCeCtZK3ZyUEQ3MUE4QkV5a2w5aGN2Q2xKc0ExL2RvbHJRVVptbz06L9CX0LDQtNCw0L3QuNGPL0xBQlNfVjEuZG9jeCIsInRpdGxlIjoiTEFCU19WMS5kb2N4Iiwibm9pZnJhbWUiOmZhbHNlLCJ1aWQiOiIwIiwidHMiOjE2MTY5MzIyNzc2MTcsInl1IjoiMjM2MDUxODAwMTYxMDk5NjEyNyJ9
@@ -37,6 +38,7 @@ https://docviewer.yandex.ru/view/0/?page=1&*=y7bCj58TyF25O3l2HpOmU%2FrkAbF7InVyb
 ✓2-3
 ✓4 - 6
 ✓Отчет
+Показать отсавшиеся лабы
 6 Лаб
 https://dl.spbstu.ru/course/view.php?id=2394
 
