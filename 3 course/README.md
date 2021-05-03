@@ -15,20 +15,22 @@ https://teams.microsoft.com/_?tenantId=137a6a63-e79e-4931-af0c-eea232c41af7#/sch
 Компьютерная графика
 
 ✓1
-Отчет
-2ая работа
-курсач
+✓Отчет
+✓2ая работа
+✓курсач
+Отчеты отправлены остлось только показать 2 и курсач
 https://dl.spbstu.ru/course/view.php?id=187
 
 -------------------------------------------------------------------
 Теория вероятностей и математическая статистика
 
+сделать отчет проверить расчеты
 ?????? Какое-то расчетное задание где чтоб понять номер варианта, надо сделать расчет
 
 -------------------------------------------------------------------
 ✓Системы управления базами данных
 
-Доделать отчет и загрузить на дл
+✓Доделать отчет и загрузить на дл
 ✓ Отчет
 ✓Курсач?? 
 https://docviewer.yandex.ru/view/0/?page=1&*=y7bCj58TyF25O3l2HpOmU%2FrkAbF7InVybCI6InlhLWRpc2stcHVibGljOi8vejV3RTRCeCtZK3ZyUEQ3MUE4QkV5a2w5aGN2Q2xKc0ExL2RvbHJRVVptbz06L9CX0LDQtNCw0L3QuNGPL0xBQlNfVjEuZG9jeCIsInRpdGxlIjoiTEFCU19WMS5kb2N4Iiwibm9pZnJhbWUiOmZhbHNlLCJ1aWQiOiIwIiwidHMiOjE2MTY5MzIyNzc2MTcsInl1IjoiMjM2MDUxODAwMTYxMDk5NjEyNyJ9
@@ -38,7 +40,7 @@ https://docviewer.yandex.ru/view/0/?page=1&*=y7bCj58TyF25O3l2HpOmU%2FrkAbF7InVyb
 ✓2-3
 ✓4 - 6
 ✓Отчет
-Показать отсавшиеся лабы
+Показать отсавшиеся лабы 4 и 6
 6 Лаб
 https://dl.spbstu.ru/course/view.php?id=2394
 
